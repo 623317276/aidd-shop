@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>申请金主</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">金主姓名 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">联系电话 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="tel" type="tel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">百组经理担保账号 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="number" type="text"></ion-input>
+    </ion-item>
+    <ion-button color="primary" type="submit" [disabled]="loginForm.invalid">
+      提交
+    </ion-button>
+    <ion-button (click)="close()">
+      取消
+    </ion-button>
+  </form>
+  
+    
+
+</ion-content>

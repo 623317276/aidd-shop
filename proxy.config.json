@@ -1,0 +1,12 @@
+{
+  "/apidata/*":{
+    "target":"https://appadmin.com",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true,
+    "pathRewrite":{
+      "/apidata":""
+    }
+
+  }
+}

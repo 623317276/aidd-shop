@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-buttons slot="primary">
+    <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>借呗</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="text-align: center">
+      <ion-col>
+          <ion-button color="warning" (click)="apply('gold-master')">
+              申请金主
+            </ion-button>
+      </ion-col>
+      <ion-col>
+          <ion-button color="success" (click)="apply('credit-granting')">
+              申请授信
+          </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

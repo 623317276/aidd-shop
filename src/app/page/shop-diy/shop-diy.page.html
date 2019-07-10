@@ -1,0 +1,37 @@
+<ion-header>
+
+    <ion-buttons slot="start" routerDirection="back">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+
+  <ion-toolbar>
+    <ion-title>shop-diy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div style="position: relative;">
+        <ion-slides>
+            <ion-slide>
+                <ion-img [routerLink]="['/shop-diy']" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562263277253&di=ff7ee016348cc620a05450c0d5befc82&imgtype=0&src=http%3A%2F%2Fres.cngoldres.com%2Fupload%2F2018%2F1123%2F1c9a79abc6533ea404fb6c607acd38a3.jpg%3F_%3D1542942229234"></ion-img>      
+            </ion-slide>
+        </ion-slides>
+        <!-- 显示图片 -->
+        <img src="" alt="" id="img" style="width: 150px; border-radius:50%;z-index:2;position: absolute;left:calc(50% - 75px);top:0px;" />
+    </div>
+
+
+<ion-grid class="ion-padding" style="text-align: center">
+  <ion-row>
+    <ion-col (click)="getImage()">拍照/相册</ion-col>
+    <ion-col>字母</ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<!-- 获取图片按钮 -->
+<input type="file" (change)="getUpload($event)" id="file" class="display-none">
+
+
+</ion-content>

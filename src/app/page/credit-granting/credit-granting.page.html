@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>申请授信</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+          <ion-label position="floating">选择套餐 <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select formControlName="combination">
+              <ion-select-option value="1">2000</ion-select-option>
+              <ion-select-option value="2">3000</ion-select-option>
+              <ion-select-option value="3">4000</ion-select-option>
+              <ion-select-option value="4">5000</ion-select-option>
+          </ion-select>
+        </ion-item>
+    <ion-item>
+      <ion-label position="floating">授信人姓名 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">授信人电话 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="tel" type="tel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">领导人电话 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="leader_tel" type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">同授信信金额变动 <ion-text color="danger">*</ion-text></ion-label>
+        <ion-checkbox  required formControlName="agree"></ion-checkbox>
+      </ion-item>
+    <ion-button color="primary" type="submit" [disabled]="loginForm.invalid">
+      提交
+    </ion-button>
+    <ion-button (click)="close()">
+      取消
+    </ion-button>
+  </form>
+
+
+</ion-content>

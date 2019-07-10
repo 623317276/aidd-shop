@@ -1,0 +1,23 @@
+
+<ion-content>
+
+    <div class="logo">logo</div>
+
+    <ion-item>
+        <ion-label position="floating">手机号</ion-label>
+        <ion-input placeholder="请输入手机号"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">登陆密码</ion-label>
+        <ion-input placeholder="请输入登陆密码" type="password"></ion-input>
+    </ion-item>
+
+    <a [routerLink]="['/reg']">去注册</a>
+    <a [routerLink]="['/tabs/tab1']">回首页</a>
+
+    <ion-button (click)="login()">
+        登陆
+    </ion-button>
+    
+</ion-content>
