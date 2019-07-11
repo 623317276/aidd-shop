@@ -24,12 +24,18 @@ import { AddressPage } from './page/address/address.page';
 import { AddressPageModule } from './page/address/address.module';
 import { SetUpShopPage } from './page/set-up-shop/set-up-shop.page';
 import { SetUpShopPageModule } from './page/set-up-shop/set-up-shop.module';
+import { EditAddressPage } from './page/edit-address/edit-address.page';
+import { EditAddressPageModule } from './page/edit-address/edit-address.module';
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
     ChangePayPswPage,GoldMasterPage,CreditGrantingPage,NewsDetailPage,
-    AddressPage,SetUpShopPage
+    AddressPage,SetUpShopPage,EditAddressPage
   ],
   imports: [
     BrowserModule, 
@@ -42,7 +48,10 @@ import { SetUpShopPageModule } from './page/set-up-shop/set-up-shop.module';
     CreditGrantingPageModule,
     NewsDetailPageModule,
     AddressPageModule,
-    SetUpShopPageModule
+    EditAddressPageModule,
+    SetUpShopPageModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
     StatusBar,

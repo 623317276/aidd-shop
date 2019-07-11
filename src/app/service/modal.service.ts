@@ -6,6 +6,7 @@ import { CreditGrantingPage } from '../page/credit-granting/credit-granting.page
 import { NewsDetailPage } from '../page/news-detail/news-detail.page';
 import { AddressPage } from '../page/address/address.page';
 import { SetUpShopPage } from '../page/set-up-shop/set-up-shop.page';
+import { EditAddressPage } from '../page/edit-address/edit-address.page';
 import { ToastService } from './toast.service';
 
 
@@ -24,6 +25,7 @@ export class ModalService {
     'news': NewsDetailPage, // 公告模板
     'address': AddressPage, // 收货地址
     'set-up-shop': SetUpShopPage, // 申请开店
+    'edit-address': EditAddressPage, // 添加、修改收货地址
   };
   public type:string = '';
   constructor(

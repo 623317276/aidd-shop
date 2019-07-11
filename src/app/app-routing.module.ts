@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
   { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },  { path: 'address', loadChildren: './page/address/address.module#AddressPageModule' },
   { path: 'set-up-shop', loadChildren: './page/set-up-shop/set-up-shop.module#SetUpShopPageModule' },
+  { path: 'edit-address', loadChildren: './page/edit-address/edit-address.module#EditAddressPageModule' },
 
 
 
