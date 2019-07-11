@@ -35,9 +35,7 @@ export class Tab3Page {
   }
 
   logout(){
-    this.localstorage.remove('userInfo');
-    this.toast.presentToast('logout success');
-    this.router.navigate(['/login']);
+      this.common.logout();
   }
   
 }

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalService } from '../../service/modal.service';
-import { HttpService } from '../../service/http.service';
+import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, Validators  } from '@angular/forms';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-change-pay-psw',
@@ -27,7 +28,7 @@ export class ChangePayPswPage implements OnInit {
   constructor(
     public modalController: ModalController,
     public modal: ModalService,
-    public http: HttpService,
+    public http: HttpClient,
     public formBuilder:FormBuilder,
   ) { 
   }
@@ -42,7 +43,14 @@ export class ChangePayPswPage implements OnInit {
 
   onSubmit(){
     let url = this.modal.type == 'pay' ? 'payUrl' : 'loginUrl'; // 取弹出窗口的类型来跑url
-      console.log(this.loginForm.value);
-      this.http.post(url);
+    console.log(this.loginForm.value);
+    forkJoin(
+    this.http.post('',[]),
+    ).subscribe(res => {
+
+    },error => {
+
+    })
   }
+  
 }

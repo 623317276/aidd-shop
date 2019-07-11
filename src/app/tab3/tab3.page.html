@@ -9,28 +9,18 @@
 <ion-content>
 
     <ion-card mode="ios">
-        <ion-item>
-          <ion-icon name="pin" slot="start" ></ion-icon>
-          <ion-label>昵称： right</ion-label>
-          <ion-button fill="outline" slot="end" (click)="logout()">退出</ion-button>
+        <ion-item padding  style="padding-bottom: 0px;">
+          <ion-img style="width: 50px;padding: 5px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=418151285,2937997283&fm=26&gp=0.jpg"></ion-img>
+          <ion-label><p>昵称： right</p></ion-label>
+          <ion-button fill="outline" slot="end" (click)="logout()"><p padding>退出</p></ion-button>
         </ion-item> 
-      
-        <ion-card-content>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </ion-card-content>
+        <ion-item padding style="padding-top: 0px;">
+            <ion-label><p>现金： 5000.00</p></ion-label>
+            <ion-label><p>积分： 5000.00</p></ion-label>
+        </ion-item>
       </ion-card>
 
-      <!-- <ion-grid fixed style="text-align: center;">
-        <ion-row>
-          <ion-col>个人资料</ion-col>
-          <ion-col>规则</ion-col>
-          <ion-col>关于我们</ion-col>
-        </ion-row>
-      </ion-grid> -->
- 
-      <ion-segment (ionChange)="segmentChanged($event)" value="person">
+      <ion-segment (ionChange)="segmentChanged($event)" value="person" padding style="padding-top: 0px;">
           <ion-segment-button value="person" >
             <ion-label>个人资料</ion-label>
           </ion-segment-button>
@@ -54,18 +44,6 @@
             <ion-label class="text-right">13888888888</ion-label>
         </ion-item>
         <ion-item>
-            <ion-label>银行卡：</ion-label>
-            <ion-label class="text-right">6222022104001250000</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>银行：</ion-label>
-            <ion-label class="text-right">公司银行</ion-label>                
-        </ion-item>
-        <ion-item>
-            <ion-label>持卡人：</ion-label>
-            <ion-label class="text-right">allen</ion-label>
-        </ion-item>
-        <ion-item>
             <ion-label>邀请人：</ion-label>
             <ion-label class="text-right">alice</ion-label>
         </ion-item>
@@ -78,6 +56,24 @@
         <ion-item>
             <ion-label>修改支付密码：</ion-label>
             <ion-label class="text-right" (click)="changePws('pay')">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>申请开店：</ion-label>
+            <ion-label class="text-right" (click)="changePws('open-shop')">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>我的店铺：</ion-label>
+            <ion-label class="text-right" [routerLink]="['/my-shop']">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>收货地址：</ion-label>
+            <ion-label class="text-right" (click)="changePws('address')">
                 <ion-icon name="arrow-forward"></ion-icon>
             </ion-label>
         </ion-item>
@@ -104,9 +100,9 @@
       <!-- 关于我们部分 -->
       <div padding [hidden]="segment != 'about'">
           <ion-text color="primary">
-              <h1>关于我们部分</h1>
-              <p>alalalalalala</p>
-            </ion-text>
+            <h1>关于我们部分</h1>
+            <p>alalalalalala</p>
+          </ion-text>
       </div>
       <!-- 关于我们部分 -->
 

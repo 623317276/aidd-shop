@@ -56,6 +56,10 @@ export class Tab1Page implements OnInit{
     this.modal.presentModal(data);
   }
 
+  gomodal(type:string=''){
+    this.modal.presentModal({type:type});
+}
+
   logout(){
     this.localstorage.remove('userInfo');
     this.toast.presentToast('logout success');

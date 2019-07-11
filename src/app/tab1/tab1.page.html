@@ -7,7 +7,6 @@
 </ion-header> -->
 
 <ion-content>
-  
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
@@ -16,62 +15,65 @@
       refreshingText=" 加载中...">
     </ion-refresher-content>
   </ion-refresher>
-  
+
+
   <!-- 轮播图 -->
-    <ion-slides mode="ios" pager="ios">
+    <!-- <ion-slides mode="ios" pager="ios">
       <ion-slide *ngFor="let item of Data.banner;let i = index"  tappable >
         <ion-img [src]="common.domainImg + item.picture"></ion-img>         
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
+    <ion-slides mode="ios" pager="ios">
+        <ion-slide  tappable >
+          <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563424326&di=b414d3f72a7fa98e77bd8c9e2ef76ca2&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.gtimg.com%2Fauto%2Fpics%2Fhv1%2F78%2F169%2F985%2F64092798.jpg"></ion-img>         
+        </ion-slide>
+        <ion-slide  tappable >
+            <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563424326&di=b414d3f72a7fa98e77bd8c9e2ef76ca2&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.gtimg.com%2Fauto%2Fpics%2Fhv1%2F78%2F169%2F985%2F64092798.jpg"></ion-img>         
+          </ion-slide>
+      </ion-slides>
   <!-- 轮播图 -->
 
-    <ion-grid fixed class="text-center">
+  <ion-grid fixed class="text-center">
       <ion-row>
-        <ion-col>
-          <p>订单</p>
+        <ion-col [routerLink]="['/cash-detail/cash']">
+          <p>余额:10000.00</p>
         </ion-col>
-        <ion-col [routerLink]="['/wealth']">
-          <p>财富</p>
-        </ion-col>
-        <ion-col>
-          <p>商户</p>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col [routerLink]="['/invitation']">
-          <p>邀请</p>
-        </ion-col>
-        <ion-col>
-          <p>客服</p>
-        </ion-col>
-        <ion-col [routerLink]="['/borrow']">
-          <p>借呗</p>
+        <ion-col [routerLink]="['/cash-detail/integral']">
+          <p>积分:500.00</p>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-
-    <!-- 公告 -->
-    <ion-list>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>公告</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-item *ngFor="let new of Data.news;let i = index"(click)="showNew(i)">
-        <ion-label>{{new.title}}</ion-label>
-      </ion-item>
-    </ion-list>
-    <!-- 公告 -->
+    <ion-grid fixed class="text-center">
+      <ion-row>
+          <ion-col [routerLink]="['/myshop']">
+            <p>店铺</p>
+          </ion-col>
+        <ion-col (click)="gomodal('set-up-shop')">
+          <p>申请开店</p>
+        </ion-col>
+        <ion-col [routerLink]="['/wealth']">
+          <p>财富</p>
+        </ion-col>
+        <ion-col [routerLink]="['/invitation']">
+          <p>邀请</p>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col [routerLink]="['/borrow']">
+          <p>借呗</p>
+        </ion-col>
+      </ion-row> -->
+    </ion-grid>
 
 
 
   <!--<ion-button [routerLink]="['/login']" [queryParams]="{aid:'1234'}">-->
-  <ion-button [routerLink]="['/login']">
+  <!-- <ion-button [routerLink]="['/login']">
     跳转到login
   </ion-button>
   <ion-button [routerLink]="['/reg']">
     跳转到reg
-  </ion-button>
+  </ion-button> -->
 
 </ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+    
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>{{title}}-明细</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="下拉刷新..."
+          refreshingSpinner="circles"
+          refreshingText=" 加载中...">
+        </ion-refresher-content>
+      </ion-refresher>
+
+    <ion-grid fixed style="text-align: center">
+      <ion-row >
+        <ion-col>类型</ion-col>
+        <ion-col>数额</ion-col>
+        <ion-col>当前剩余</ion-col>
+        <ion-col>时间</ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>分销返利</ion-col>
+          <ion-col>+50</ion-col>
+          <ion-col>505.00</ion-col>
+          <ion-col>3：17</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>分销返利</ion-col>
+            <ion-col>+50</ion-col>
+            <ion-col>555.00</ion-col>
+            <ion-col>13：17</ion-col>
+          </ion-row>
+    </ion-grid>
+      
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button (click)="cancel()">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      <ion-title>收货地址</ion-title>
+
+        <ion-label slot="primary" style="padding-right: 5px;" (click)="newAddress()">
+          <p color="dark">添加新地址</p>
+        </ion-label>
+    </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+  <!-- List of Sliding Items -->
+<ion-list>
+    <ion-item-sliding>
+      <ion-item>
+          <ion-card  style="width: 100%">
+              <ion-item>
+                <ion-label>广东省深圳市南山区</ion-label>
+                <ion-button fill="outline" slot="end" >默认</ion-button>
+              </ion-item>
+              <ion-card-content>
+                粤海街道办事处001号
+              </ion-card-content>
+            </ion-card>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="edit(0)" color="primary">修改</ion-item-option>
+        <ion-item-option (click)="delete(0)" color="danger">删除</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+        <ion-item>
+            <ion-card  style="width: 100%">
+                <ion-item>
+                  <ion-label>湖北武汉</ion-label>
+                  <ion-button fill="outline" slot="end">设为默认</ion-button>
+                </ion-item>
+                <ion-card-content>
+                  粤海街道办事处002号
+                </ion-card-content>
+              </ion-card>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="edit(0)" color="primary">修改</ion-item-option>
+          <ion-item-option (click)="delete(0)" color="danger">删除</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+  </ion-list>
+    
+
+</ion-content>
