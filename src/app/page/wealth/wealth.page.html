@@ -6,48 +6,66 @@
         <ion-back-button></ion-back-button>
       </ion-buttons>
 
-    <ion-title>财富</ion-title>
+    <ion-title>充值</ion-title>
+
+    <ion-buttons slot="primary" [routerLink]="['/wealth-list']">
+      <ion-label>充值记录</ion-label>
+    </ion-buttons>
   </ion-toolbar>
   
 </ion-header>
 
 <ion-content>
 
-  <div padding>
-    <ion-grid fixed class="text-center font-white">
-      <ion-row>
-        <ion-col style="background-color:mediumblue">
-            <h2>3890.00</h2>
-            <h2>贷款</h2> 
-        </ion-col>
-        <ion-col style="background-color:gold">
-            <h2>0.00</h2>
-            <h2>利润</h2> 
-        </ion-col>
-        <ion-col style="background-color:green">
-            <h2>50.00</h2>
-            <h2>分享</h2> 
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <ion-segment (ionChange)="segmentChanged($event)" value="balance" padding>
+    <ion-segment-button value="balance" >
+      <ion-label>余额充值</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="integral">
+      <ion-label>积分充值</ion-label>
+    </ion-segment-button>
+</ion-segment>
 
-  <div padding>
-      <ion-grid fixed class="text-center font-white">
-        <ion-row>
-            <ion-col style="background-color:mediumblue">
-                <h2>3890.00</h2>
-                <h2>返呗</h2> 
-            </ion-col>
-            <ion-col style="background-color:gold">
-                <h2>0.00</h2>
-                <h2>买呗</h2> 
-            </ion-col>
-            <ion-col style="background-color:green">
-                <h2>50.00</h2>
-                <h2>花呗</h2> 
-            </ion-col>
-          </ion-row>
-      </ion-grid>
-    </div>
+   <!-- 余额充值 -->
+   <div padding [hidden]="segment != 'balance'">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit('balance')">
+      <ion-item>
+        <ion-label position="floating">数量 <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="number" type="number" [ngModel]="loginForm.controls.number.value"></ion-input>
+      </ion-item>
+        <ion-item>
+        <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="file"></ion-input>
+      </ion-item>
+      <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+        提交
+      </ion-button>
+    </form>
+</div>
+<!-- 余额充值 -->
+
+<!-- 积分充值 -->
+<div padding [hidden]="segment != 'integral'">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit('integral')">
+    <ion-item>
+      <ion-label position="floating">数量 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="number" type="number" [ngModel]="loginForm.controls.number.value"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position="floating">积分 <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="numbers" type="number" [disabled]="true">{{loginForm.controls.number.value * 10}} </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="file"></ion-input>
+    </ion-item>
+    <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+      提交
+    </ion-button>
+  </form>
+</div>
+<!-- 积分充值 -->
+
 </ion-content>

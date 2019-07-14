@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>充值记录</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+    <ion-segment (ionChange)="segmentChanged($event)" value="balance" padding>
+        <ion-segment-button value="balance" >
+          <ion-label>余额充值</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="integral">
+          <ion-label>积分充值</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    
+    <!-- 余额充值 -->
+   <div padding [hidden]="segment != 'balance'">
+      <ion-list>
+          <ion-item>
+            <ion-label>充值数量</ion-label>
+            <ion-label>状态</ion-label>
+            <ion-label>时间</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>100</ion-label>
+            <ion-label>审核中</ion-label>
+            <ion-label>2019-7-12 12:00</ion-label>
+          </ion-item>
+         
+        </ion-list>
+  </div>
+  <!-- 余额充值 -->
+  
+  <!-- 积分充值 -->
+  <div padding [hidden]="segment != 'integral'">
+      <ion-list>
+          <ion-item>
+              <ion-label>充值数量</ion-label>
+              <ion-label>状态</ion-label>
+              <ion-label>时间</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>100</ion-label>
+              <ion-label>审核中</ion-label>
+              <ion-label>2019-7-12 12:00</ion-label>
+            </ion-item>
+        </ion-list>
+  </div>
+  <!-- 积分充值 -->
+
+</ion-content>

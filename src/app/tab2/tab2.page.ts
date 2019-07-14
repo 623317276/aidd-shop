@@ -12,6 +12,7 @@ export class Tab2Page {
   public flag = true;
   public index = 0;
   public refresh;
+  public Data:any = [];
 
   constructor(
     public common: CommonService,
