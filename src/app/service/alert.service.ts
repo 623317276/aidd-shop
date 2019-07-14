@@ -62,62 +62,48 @@ export class AlertService {
     await alert.present();
   }
 
-  async presentAlertPrompt() {
+  // 输入支付密码
+  async presentAlertPrompt(confirm:any = {}, params:any = {}, cb?: Function) {
+    let config = {
+      "header" : '注意',
+      "message" : '<strong>输入支付密码</strong>',
+      "cancelButton" : '取消',
+      "okButton" : '确定',
+      "placeholder" : '输入支付密码',
+    };
+    config.header = confirm.header ? confirm.header : config.header;
+    config.message = confirm.message ? confirm.message : config.message;
+    config.cancelButton = confirm.cancelButton ? confirm.cancelButton : config.cancelButton;
+    config.okButton = confirm.okButton ? confirm.okButton : config.okButton;
+    let param = {
+      'type' : 'pay',
+      'psw' : '',
+    };
+    param.type = params.type ? params.type : param.type;
+    param.psw = params.psw ? params.psw : param.psw;
     const alert = await this.alertController.create({
-      header: 'Prompt!',
+      header: config.header,
       inputs: [
         {
-          name: 'name1',
-          type: 'text',
-          placeholder: 'Placeholder 1'
+          name: 'psw',
+          type: 'password',
+          placeholder: config.placeholder,
+          // value: ''
         },
-        {
-          name: 'name2',
-          type: 'text',
-          id: 'name2-id',
-          value: 'hello',
-          placeholder: 'Placeholder 2'
-        },
-        {
-          name: 'name3',
-          value: 'http://ionicframework.com',
-          type: 'url',
-          placeholder: 'Favorite site ever'
-        },
-        // input date with min & max
-        {
-          name: 'name4',
-          type: 'date',
-          min: '2017-03-01',
-          max: '2018-01-12'
-        },
-        // input date without min nor max
-        {
-          name: 'name5',
-          type: 'date'
-        },
-        {
-          name: 'name6',
-          type: 'number',
-          min: -5,
-          max: 10
-        },
-        {
-          name: 'name7',
-          type: 'number'
-        }
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: config.cancelButton,
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
             console.log('Confirm Cancel');
           }
         }, {
-          text: 'Ok',
+          text: config.okButton,
           handler: () => {
+            console.log(alert.inputs[0].value);return;
+            cb(param);
             console.log('Confirm Ok');
           }
         }

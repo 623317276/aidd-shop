@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
+import { AlertService } from '../../service/alert.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,6 +14,7 @@ export class ShopInfoPage implements OnInit {
 
   constructor(
     public http: HttpClient,
+    public alert: AlertService,
   ) { }
 
   ngOnInit() {}
@@ -36,5 +38,9 @@ export class ShopInfoPage implements OnInit {
     })
   }
   
-  buy(){}
+  buy(){
+    this.alert.presentAlertPrompt({},{},(res)=>{
+      console.log(res);
+    });
+  }
 }
