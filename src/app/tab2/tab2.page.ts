@@ -18,6 +18,7 @@ export class Tab2Page {
     public common: CommonService,
     public http: HttpClient,
     ) {
+      this.getData();
   }
 
   doRefresh(event){
@@ -27,8 +28,10 @@ export class Tab2Page {
 
   getData(){
     forkJoin(
-      // this.http.get('https://cnodejs.org/api/v1/topics', { responseType: 'json' }),
+      this.http.get(this.common.domain),
     ).subscribe(res => {
+      this.Data.banner = res[0]['data'].banner;
+      this.Data.news = res[0]['data'].news;
       if(this.refresh){
         this.refresh.target.complete();
       }

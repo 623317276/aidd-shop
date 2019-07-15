@@ -25,7 +25,22 @@ export class Tab1Page implements OnInit{
     ) {
   }
 
+  // public head;
   ngOnInit() {
+
+  //   this.head =  {
+  //     header: new HttpHeaders({
+  //     'Content-Type' : 'application/json'
+  //     // 'Content-Type' : 'application/x-www-form-urlencoded'
+  //   })
+  // };
+  //   this.http.post('http://localhost/app-admin/index/uploadimg',{
+  //     type: 123
+  //   }, this.head).subscribe((res)=>{
+  //     console.log(res)
+  //   },error=>{
+  //     console.log(error)
+  //   })
     this.getData();
   }
 
@@ -35,17 +50,25 @@ export class Tab1Page implements OnInit{
   }
 
   getData(){
-    forkJoin(
-      this.http.get('https://cnodejs.org/api/v1/topics', { responseType: 'json' }),
-    ).subscribe(res => {
-      // this.Data.banner = res.data.data.banner;
-      // this.Data.news = res.data.data.news;
+    this.http.get(this.common.domain).subscribe(res=>{
+      this.Data.banner = res['data'].banner;
+      this.Data.news = res['data'].news;
       if(this.refresh){
-        this.refresh.target.complete();
-      }
-    }, error => {
-      console.log(error)
+          this.refresh.target.complete();
+        }
     })
+    // forkJoin(
+    //   this.http.get(this.common.domain),
+    // ).subscribe((res) => {
+    //   console.log(res);return;
+    //   // this.Data.banner = res.data.banner;
+    //   // this.Data.news = res.data.news;
+    //   if(this.refresh){
+    //     this.refresh.target.complete();
+    //   }
+    // }, error => {
+    //   console.log(error)
+    // })
   }
   
 
