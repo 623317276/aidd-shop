@@ -19,8 +19,8 @@ export class LoginguardService implements CanActivate {
   ) { }
 
   canActivate(){
-    this.token = this.local.get('token');
-      if(!this.token){
+    this.userInfo = this.local.get('userInfo');
+      if(!this.userInfo){
           this.toast.presentToast('请先登录');
           this.router.navigate(['/login'] )
           return false;
@@ -44,8 +44,8 @@ export class UnloginguardService  implements CanActivate {
     ) { }
 
   canActivate(){
-    this.token = this.local.get('token');
-      if(this.token){
+    this.userInfo = this.local.get('userInfo');
+      if(this.userInfo){
         this.toast.presentToast('退出才能到登陆界面');
           this.router.navigate(['/'] )
           return false;

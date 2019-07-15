@@ -11,7 +11,7 @@ import { ModalService } from '../service/modal.service';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
+  public userInfo:any = {};
   public segment:string = 'person'; // 用于控制选中
 
   constructor(
@@ -21,6 +21,7 @@ export class Tab3Page {
     public toast: ToastService,
     public modal: ModalService,
     ) {
+      this.userInfo = this.localstorage.getObject('userInfo');
   }
 
   segmentChanged(ev: any) {

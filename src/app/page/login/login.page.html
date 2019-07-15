@@ -5,18 +5,18 @@
 
     <ion-item>
         <ion-label position="floating">手机号</ion-label>
-        <ion-input placeholder="请输入手机号"></ion-input>
+        <ion-input placeholder="请输入手机号" [(ngModel)]="loginData.mobile"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label position="floating">登陆密码</ion-label>
-        <ion-input placeholder="请输入登陆密码" type="password"></ion-input>
+        <ion-input placeholder="请输入登陆密码" type="password" [(ngModel)]="loginData.password"></ion-input>
     </ion-item>
 
     <ion-grid fixed>
         <ion-row>
             <ion-col offset="3" size="6">
-                <ion-button (click)="login()" style="width: 100%">
+                <ion-button (click)="login()" [disabled]="loginButton" style="width: 100%">
                     登陆
                 </ion-button>
             </ion-col>

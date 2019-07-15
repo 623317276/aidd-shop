@@ -13,7 +13,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit{
-
+  public userInfo:any = {};
   public Data:any = [];
   public refresh;
   constructor(
@@ -23,6 +23,7 @@ export class Tab1Page implements OnInit{
     public http: HttpClient,
     public modal: ModalService,
     ) {
+      this.userInfo = this.localstorage.getObject('userInfo');
   }
 
   // public head;
