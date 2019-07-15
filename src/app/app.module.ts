@@ -26,6 +26,8 @@ import { SetUpShopPage } from './page/set-up-shop/set-up-shop.page';
 import { SetUpShopPageModule } from './page/set-up-shop/set-up-shop.module';
 import { EditAddressPage } from './page/edit-address/edit-address.page';
 import { EditAddressPageModule } from './page/edit-address/edit-address.module';
+import { EditNicknamePage } from './page/edit-nickname/edit-nickname.page';
+import { EditNicknamePageModule } from './page/edit-nickname/edit-nickname.module';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,7 +37,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [AppComponent],
   entryComponents: [
     ChangePayPswPage,GoldMasterPage,CreditGrantingPage,NewsDetailPage,
-    AddressPage,SetUpShopPage,EditAddressPage
+    AddressPage,SetUpShopPage,EditAddressPage,EditNicknamePage
   ],
   imports: [
     BrowserModule, 
@@ -51,6 +53,7 @@ import { FormsModule } from '@angular/forms';
     EditAddressPageModule,
     SetUpShopPageModule,
     BrowserAnimationsModule,
+    EditNicknamePageModule,
     FormsModule
   ],
   providers: [

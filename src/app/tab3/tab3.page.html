@@ -15,8 +15,8 @@
           <ion-button fill="outline" slot="end" (click)="logout()"><p padding>退出</p></ion-button>
         </ion-item> 
         <ion-item padding style="padding-top: 0px;">
-            <ion-label><p>余额： 5000.00</p></ion-label>
-            <ion-label><p>积分： 5000.00</p></ion-label>
+            <ion-label [routerLink]="['/cash-detail/cash']"><p>余额： 5000.00</p></ion-label>
+            <ion-label [routerLink]="['/cash-detail/integral']"><p>积分： 5000.00</p></ion-label>
         </ion-item>
       </ion-card>
 
@@ -37,7 +37,10 @@
     <ion-list>
         <ion-item>
           <ion-label>昵称：</ion-label>
-          <ion-label class="text-right">nickName</ion-label>
+          <ion-label class="text-right" (click)="changePws('edit-nickname')">
+            nickName
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-label>
         </ion-item>
         <ion-item>
             <ion-label>手机号：</ion-label>
@@ -61,7 +64,7 @@
         </ion-item>
         <ion-item>
             <ion-label>申请开店：</ion-label>
-            <ion-label class="text-right" (click)="changePws('open-shop')">
+            <ion-label class="text-right" (click)="changePws('set-up-shop')">
                 <ion-icon name="arrow-forward"></ion-icon>
             </ion-label>
         </ion-item>
@@ -77,14 +80,14 @@
                 <ion-icon name="arrow-forward"></ion-icon>
             </ion-label>
         </ion-item>
-        <ion-item>
+        <!-- <ion-item>
             <ion-label>是否开启托管：</ion-label>
             <ion-toggle slot="end"></ion-toggle>
         </ion-item>
         <ion-item>
             <ion-label>注册时间：</ion-label>
             <ion-label class="text-right">2019-06-12 22:29</ion-label>
-        </ion-item>
+        </ion-item> -->
     </ion-list>
 </div>
       <!-- 个人资料部分 -->

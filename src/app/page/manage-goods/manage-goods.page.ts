@@ -1,28 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin } from 'rxjs';
 import { AlertService } from '../../service/alert.service';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
-  selector: 'app-shop-info',
-  templateUrl: './shop-info.page.html',
-  styleUrls: ['./shop-info.page.scss'],
+  selector: 'app-manage-goods',
+  templateUrl: './manage-goods.page.html',
+  styleUrls: ['./manage-goods.page.scss'],
 })
-export class ShopInfoPage implements OnInit {
-
+export class ManageGoodsPage implements OnInit {
   public refresh;
-  public id;
+  
   constructor(
     public http: HttpClient,
     public alert: AlertService,
-    public route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-       this.id = params.get('id');
-    });
   }
 
   doRefresh(event){
@@ -43,15 +37,12 @@ export class ShopInfoPage implements OnInit {
       console.log(error)
     })
   }
-  
-  buy(){
-    this.alert.presentAlertPrompt({},{},(res)=>{
-      let psw = res.psw;
-      this.http.post('',{
-        psw : psw,
-        id : this.id
-      });
+
+  delete(id){
+    this.alert.presentAlertConfirm({},{id:123},(res)=>{
+      // 回调函数, 确认删除需要做的操作写到如下
       console.log(res);
     });
   }
+
 }

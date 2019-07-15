@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>我的店铺</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card mode="ios">
+      <ion-item padding  style="padding-bottom: 0px;">
+        <ion-img style="width: 50px;padding: 5px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=418151285,2937997283&fm=26&gp=0.jpg"></ion-img>
+        <ion-label><p>昵称： right</p></ion-label>
+      </ion-item> 
+      <ion-item padding style="padding-top: 0px;">
+          <ion-label><p>余额： 5000.00</p></ion-label>
+          <ion-label><p>积分： 5000.00</p></ion-label>
+      </ion-item>
+    </ion-card>
+
+    <div>
+        <ion-list>
+            <ion-item [routerLink]="['/manage-goods']">
+                <ion-label>商品管理</ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/manage-order']">
+                <ion-label>订单管理</ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

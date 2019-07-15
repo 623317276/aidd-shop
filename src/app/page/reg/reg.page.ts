@@ -12,4 +12,7 @@ export class RegPage implements OnInit {
   ngOnInit() {
   }
 
+  reg(){}
+
+  
 }

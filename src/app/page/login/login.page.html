@@ -1,7 +1,7 @@
 
 <ion-content>
 
-    <div class="logo">logo</div>
+    <div class="logo" padding><ion-img [src]="'assets/icon/favicon.png'" style="width: 150px; margin:0 auto;"></ion-img></div>
 
     <ion-item>
         <ion-label position="floating">手机号</ion-label>
@@ -13,11 +13,23 @@
         <ion-input placeholder="请输入登陆密码" type="password"></ion-input>
     </ion-item>
 
-    <a [routerLink]="['/reg']">去注册</a>
-    <a [routerLink]="['/tabs/tab1']">回首页</a>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col offset="3" size="6">
+                <ion-button (click)="login()" style="width: 100%">
+                    登陆
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col offset="3" size="6">
+                <ion-button [routerLink]="['/reg']"  style="width: 100%">
+                    注册
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-    <ion-button (click)="login()">
-        登陆
-    </ion-button>
+    
     
 </ion-content>

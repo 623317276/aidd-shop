@@ -44,24 +44,32 @@ export class SetUpShopPage implements OnInit {
 
   onSubmit(){
     forkJoin(
-    // this.http.post('',[]),
-    ).subscribe(res => {
+    this.http.post('http://localhost/app-admin/index/uploadimg',{
+    //   params:{
+    //     // file: this.files
+    //      file: '111'
+    // }
+    file: 123
+  }, {
+    responseType: 'json'
+  }),
+  ).subscribe(()=>{
 
-    },error => {
-
-    })
+  },error=>{
+    
+  })
   }
 
 
 
   // 正面上传图片的操作
   public files = [
-            {
-              url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg' // 正面
-            },
-            {
-              url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg' // 反面
-            }
+            // {
+            //   url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg' // 正面
+            // },
+            // {
+            //   url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg' // 反面
+            // }
           ];
   public multiple = false;
   public multipleTab = 0;

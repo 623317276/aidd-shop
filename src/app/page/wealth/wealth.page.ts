@@ -16,8 +16,6 @@ export class WealthPage implements OnInit {
   public loginForm = this.formBuilder.group({
 
     'number': [0, [Validators.required]],
-
-    'numbers': [''],
     
     });
     
@@ -51,10 +49,25 @@ export class WealthPage implements OnInit {
   }
 
   segmentChanged(ev: any) {
-    // console.log('Segment changed', ev);
     this.segment = ev.detail.value;
     console.log(this.segment);
 
+  }
+
+  // 正面上传图片的操作
+  public files = [];
+  public multiple = false;
+  public multipleTab = 0;
+  changeMultiple(value: number) {
+  this.multipleTab = value;
+  }
+  fileChange(params) {
+  console.log(params);
+  const { files, type, index } = params;
+  this.files = files;
+  }
+  imageClick(params) {
+  console.log(params);
   }
 
 }

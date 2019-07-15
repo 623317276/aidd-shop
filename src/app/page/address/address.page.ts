@@ -21,7 +21,7 @@ export class AddressPage implements OnInit {
 
   newAddress(){
     // this.modal.presentModal({type:'edit-address'});
-  }r
+  }
   editAddress(id){    
     // this.modal.presentModal({type:'edit-address', id:id});
   }

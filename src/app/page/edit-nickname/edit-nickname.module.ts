@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 import { IonicModule } from '@ionic/angular';
 
-import { WealthPage } from './wealth.page';
+import { EditNicknamePage } from './edit-nickname.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: WealthPage
+    component: EditNicknamePage
   }
 ];
 
@@ -19,11 +18,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    NgZorroAntdMobileModule
+    ReactiveFormsModule
   ],
-  declarations: [WealthPage]
+  declarations: [EditNicknamePage]
 })
-export class WealthPageModule {}
+export class EditNicknamePageModule {}

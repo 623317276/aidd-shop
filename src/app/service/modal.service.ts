@@ -7,6 +7,7 @@ import { NewsDetailPage } from '../page/news-detail/news-detail.page';
 import { AddressPage } from '../page/address/address.page';
 import { SetUpShopPage } from '../page/set-up-shop/set-up-shop.page';
 import { EditAddressPage } from '../page/edit-address/edit-address.page';
+import { EditNicknamePage } from '../page/edit-nickname/edit-nickname.page';
 import { ToastService } from './toast.service';
 
 
@@ -18,6 +19,7 @@ export class ModalService {
 
   // 弹出页面type对应component
   public componentArr:any = {
+    'edit-nickname': EditNicknamePage, // 修改昵称
     'pay': ChangePayPswPage, // 修改支付密码
     'login': ChangePayPswPage, // 修改登陆密码
     'gold-master': GoldMasterPage, // 申请金主

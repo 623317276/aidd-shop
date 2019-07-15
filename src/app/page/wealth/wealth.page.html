@@ -33,10 +33,14 @@
         <ion-label position="floating">数量 <ion-text color="danger">*</ion-text></ion-label>
         <ion-input required formControlName="number" type="number" [ngModel]="loginForm.controls.number.value"></ion-input>
       </ion-item>
-        <ion-item>
+      <div>
         <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="file"></ion-input>
-      </ion-item>
+        <ImagePicker [files]="files"
+                 [selectable]="files.length < 1"
+                 [multiple]="multipleTab === 1"
+                 (onChange)="fileChange($event)"
+                 (onImageClick)="imageClick($event)"></ImagePicker>
+    </div>
       <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
         提交
       </ion-button>
@@ -48,19 +52,24 @@
 <div padding [hidden]="segment != 'integral'">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit('integral')">
     <ion-item>
-      <ion-label position="floating">数量 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-label position="floating">数量(1现金=10积分) <ion-text color="danger">*</ion-text></ion-label>
       <ion-input required formControlName="number" type="number" [ngModel]="loginForm.controls.number.value"></ion-input>
     </ion-item>
     
-    <ion-item>
+    <!-- <ion-item>
         <ion-label position="floating">积分 <ion-text color="danger">*</ion-text></ion-label>
         <ion-input formControlName="numbers" type="number" [disabled]="true">{{loginForm.controls.number.value * 10}} </ion-input>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item>
-      <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required type="file"></ion-input>
-    </ion-item>
+    <div>
+        <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
+        <ImagePicker [files]="files"
+                 [selectable]="files.length < 1"
+                 [multiple]="multipleTab === 1"
+                 (onChange)="fileChange($event)"
+                 (onImageClick)="imageClick($event)"></ImagePicker>
+    </div>
+
     <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
       提交
     </ion-button>

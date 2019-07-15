@@ -101,9 +101,8 @@ export class AlertService {
           }
         }, {
           text: config.okButton,
-          handler: () => {
-            console.log(alert.inputs[0].value);return;
-            cb(param);
+          handler: (res) => {
+            cb(res);
             console.log('Confirm Ok');
           }
         }
