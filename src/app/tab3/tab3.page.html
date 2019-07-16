@@ -11,12 +11,12 @@
     <ion-card mode="ios">
         <ion-item padding  style="padding-bottom: 0px;">
           <ion-img style="width: 50px;padding: 5px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=418151285,2937997283&fm=26&gp=0.jpg"></ion-img>
-          <ion-label><p>昵称： right</p></ion-label>
+          <ion-label><p>昵称： {{userInfo.account}}</p></ion-label>
           <ion-button fill="outline" slot="end" (click)="logout()"><p padding>退出</p></ion-button>
         </ion-item> 
         <ion-item padding style="padding-top: 0px;">
-            <ion-label [routerLink]="['/cash-detail/cash']"><p>余额： 5000.00</p></ion-label>
-            <ion-label [routerLink]="['/cash-detail/integral']"><p>积分： 5000.00</p></ion-label>
+            <ion-label [routerLink]="['/cash-detail/cash']"><p>余额： {{userInfo.cash}}</p></ion-label>
+            <ion-label [routerLink]="['/cash-detail/integral']"><p>积分： {{userInfo.integral}}</p></ion-label>
         </ion-item>
       </ion-card>
 
@@ -38,17 +38,17 @@
         <ion-item>
           <ion-label>昵称：</ion-label>
           <ion-label class="text-right" (click)="changePws('edit-nickname')">
-            nickName
+            {{userInfo.account}}
             <ion-icon name="arrow-forward"></ion-icon>
           </ion-label>
         </ion-item>
         <ion-item>
             <ion-label>手机号：</ion-label>
-            <ion-label class="text-right">13888888888</ion-label>
+            <ion-label class="text-right">{{userInfo.mobile}}</ion-label>
         </ion-item>
         <ion-item>
             <ion-label>邀请人：</ion-label>
-            <ion-label class="text-right">alice</ion-label>
+            <ion-label class="text-right">{{userInfo.pmobile}}</ion-label>
         </ion-item>
         <ion-item>
             <ion-label>修改登陆密码：</ion-label>

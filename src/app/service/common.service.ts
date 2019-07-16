@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 
 export class CommonService {
   public userInfo: any = [];
+  // public domain: string = 'http://appadmin.com/';
   public domain: string = 'http://www.whatphp.com/';
-  public domainImg: string = 'http://www.whatphp.com/Uploads/';
+  public domainImg: string = this.domain+'Uploads/';
+  public login: string = this.domain+'login/login'; // 登陆
+  public reg: string = this.domain+'login/reg'; // 注册
   constructor(
     public localstorage: LocalstorageService,
     public router: Router,

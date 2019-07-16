@@ -36,10 +36,10 @@
   <ion-grid fixed class="text-center">
       <ion-row>
         <ion-col [routerLink]="['/cash-detail/cash']">
-          <p>余额:10000.00</p>
+          <p>余额:{{userInfo.cash}}</p>
         </ion-col>
         <ion-col [routerLink]="['/cash-detail/integral']">
-          <p>积分:500.00</p>
+          <p>积分:{{userInfo.integral}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
