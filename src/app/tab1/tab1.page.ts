@@ -57,8 +57,8 @@ export class Tab1Page implements OnInit{
 
   getData(){
     this.http.get(this.common.domain).subscribe(res=>{
-      this.Data.banner = res['data'].banner;
-      this.Data.news = res['data'].news;
+      this.Data.banner = res['data'].data.banner;
+      this.Data.news = res['data'].data.news;
       if(this.refresh){
           this.refresh.target.complete();
         }
