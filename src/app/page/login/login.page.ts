@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
       this.loginButton = false;
       if(res.status === 1){
         this.localstorage.setObject('userInfo', res.data);
+        this.common.setUserInfo(res.data);
         this.toast.presentToast('登陆成功');
         this.router.navigate(['']);
         return ;

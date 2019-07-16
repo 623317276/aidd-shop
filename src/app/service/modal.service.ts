@@ -43,7 +43,7 @@ export class ModalService {
       }
       const modal = await this.modal.create({
         component: this.componentArr[this.type],
-        componentProps: data
+        componentProps: {data:data}
       });
       return await modal.present();
     }

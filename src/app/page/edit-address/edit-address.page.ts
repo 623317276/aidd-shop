@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-edit-address',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-address.page.scss'],
 })
 export class EditAddressPage implements OnInit {
-
+  @Input() data:any; 
   constructor(
-  ) { }
+  ) { 
+    console.log(this.data);
+  }
 
  
 

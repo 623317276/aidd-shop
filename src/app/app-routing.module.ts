@@ -24,12 +24,13 @@ const routes: Routes = [
   { path: 'manage-edit-goods/:id', loadChildren: './page/manage-edit-goods/manage-edit-goods.module#ManageEditGoodsPageModule' , canActivate:[LoginguardService]},
 
   // 都能访问的页面
-  { path: 'reg', loadChildren: './page/reg/reg.module#RegPageModule' },
+  { path: 'reg/:pmobile', loadChildren: './page/reg/reg.module#RegPageModule' },
   // { path: 'borrow', loadChildren: './page/borrow/borrow.module#BorrowPageModule' },
   // { path: 'gold-master', loadChildren: './page/gold-master/gold-master.module#GoldMasterPageModule' },
   // { path: 'credit-granting', loadChildren: './page/credit-granting/credit-granting.module#CreditGrantingPageModule' },
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
-  { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },  { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' },
+  { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
+  { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' },
   { path: 'edit-nickname', loadChildren: './page/edit-nickname/edit-nickname.module#EditNicknamePageModule' },
 
 

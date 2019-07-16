@@ -24,18 +24,23 @@ export class Tab1Page implements OnInit{
     public modal: ModalService,
     ) {
       this.userInfo = this.localstorage.getObject('userInfo');
+      console.log(this.userInfo);
+      this.common.update.subscribe((val)=>{
+        this.userInfo = val;
+      });
   }
 
   // public head;
   ngOnInit() {
-
+    
+    
   //   this.head =  {
   //     header: new HttpHeaders({
   //     'Content-Type' : 'application/json'
   //     // 'Content-Type' : 'application/x-www-form-urlencoded'
   //   })
   // };
-  //   this.http.post('http://localhost/app-admin/index/uploadimg',{
+  //   this.http.post(this.common.domain+'index/uploadimg',{
   //     type: 123
   //   }, this.head).subscribe((res)=>{
   //     console.log(res)

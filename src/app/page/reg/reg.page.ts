@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../service/common.service';
 import { ToastService } from '../../service/toast.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reg',
@@ -24,10 +24,13 @@ export class RegPage implements OnInit {
     public http: HttpClient,
     public common: CommonService,
     public toast: ToastService,
+    public activatedRouter: ActivatedRoute,
     public router: Router,
   ) { }
 
   ngOnInit() {
+    this.regData.pmobile = this.activatedRouter.snapshot.paramMap.get('pmobile');
+    console.log(this.regData.pmobile);
   }
 
   reg(){

@@ -8,7 +8,7 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <ion-item>
-          <ion-input required formControlName="nickName" type="text" [placeholder]="'输入昵称'"></ion-input>
+          <ion-input required formControlName="nickName" type="text" [placeholder]="'输入昵称'" [(ngModel)]="editData.nickName"></ion-input>
         </ion-item> 
         <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
           确定

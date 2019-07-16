@@ -9,7 +9,7 @@ export class LoadingService {
     public loadingController: LoadingController
   ) { }
 
-  async presentLoading(loadingData:any={message:'',duration:200}) {
+  async presentLoading(loadingData:any={message:'',duration:2000}) {
     loadingData.message = loadingData.message ? loadingData.message : '';
     loadingData.duration = loadingData.duration ? loadingData.duration : 200;
     const loading = await this.loadingController.create({
@@ -21,6 +21,10 @@ export class LoadingService {
     const { role, data } = await loading.onDidDismiss();
 
     console.log('Loading dismissed!');
+  }
+
+  cancel(){
+    this.loadingController.dismiss();
   }
 
   async presentLoadingWithOptions() {

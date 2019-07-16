@@ -62,13 +62,13 @@
                 <ion-icon name="arrow-forward"></ion-icon>
             </ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item [hidden]="userInfo.is_dailishang == '2'">
             <ion-label>申请开店：</ion-label>
             <ion-label class="text-right" (click)="changePws('set-up-shop')">
                 <ion-icon name="arrow-forward"></ion-icon>
             </ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item [hidden]="userInfo.is_dailishang != '2'">
             <ion-label>我的店铺：</ion-label>
             <ion-label class="text-right" [routerLink]="['/my-shop']">
                 <ion-icon name="arrow-forward"></ion-icon>
@@ -94,18 +94,14 @@
 
       <!-- 规则部分 -->
       <div padding [hidden]="segment != 'rule'">
-          <ion-text color="primary">
-            <p>rule rulerulerulerulerulerulerule</p>
-          </ion-text>
+          <ion-text color="primary" [innerHtml]="assembleHTML(Data.rule)"></ion-text>
+
       </div>
       <!-- 规则部分 -->
       
       <!-- 关于我们部分 -->
       <div padding [hidden]="segment != 'about'">
-          <ion-text color="primary">
-            <h1>关于我们部分</h1>
-            <p>alalalalalala</p>
-          </ion-text>
+          <ion-text color="primary" [innerHtml]="assembleHTML(Data.aboutUs)"></ion-text>
       </div>
       <!-- 关于我们部分 -->
 

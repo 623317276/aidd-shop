@@ -4,6 +4,10 @@ import { CommonService } from "../service/common.service";
 import { LocalstorageService } from '../service/localstorage.service';
 import { ToastService } from '../service/toast.service';
 import { ModalService } from '../service/modal.service';
+import { HttpClient } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
+
+import { DomSanitizer } from '@angular/platform-browser';//引入
 
 @Component({
   selector: 'app-tab3',
@@ -11,6 +15,10 @@ import { ModalService } from '../service/modal.service';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  public Data:any = {
+    aboutUs:'',
+    rule:''
+  };
   public userInfo:any = {};
   public segment:string = 'person'; // 用于控制选中
 
@@ -19,9 +27,20 @@ export class Tab3Page {
     public localstorage: LocalstorageService,
     public router: Router,
     public toast: ToastService,
+    public http: HttpClient,
     public modal: ModalService,
+    public sanitizer: DomSanitizer,
     ) {
       this.userInfo = this.localstorage.getObject('userInfo');
+      this.common.update.subscribe((val)=>{
+        this.userInfo = val;
+      });
+
+      this.getData();
+  }
+
+  assembleHTML(strHTML: any) {
+    return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
 
   segmentChanged(ev: any) {
@@ -29,6 +48,18 @@ export class Tab3Page {
     this.segment = ev.detail.value;
     console.log(this.segment);
 
+  }
+
+  getData(){
+    forkJoin(
+      this.http.get(this.common.aboutUs), // 关于我们
+    ).subscribe((res:any) => {
+      this.Data.aboutUs = res[0].data.about_us;
+      this.Data.rule = res[0].data.rule;
+      // console.log(this.Data.aboutUs);
+    }, error => {
+      console.log(error)
+    })
   }
 
   changePws(type:string='pay'){

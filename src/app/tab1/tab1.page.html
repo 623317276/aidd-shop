@@ -46,10 +46,10 @@
 
     <ion-grid fixed class="text-center">
       <ion-row>
-          <ion-col [routerLink]="['/my-shop']">
+          <ion-col [routerLink]="['/my-shop']" [hidden]="userInfo.is_dailishang != '2'">
             <p>店铺</p>
           </ion-col>
-        <ion-col (click)="gomodal('set-up-shop')">
+        <ion-col (click)="gomodal('set-up-shop')" [hidden]="userInfo.is_dailishang == '2'">
           <p>申请开店</p>
         </ion-col>
         <ion-col [routerLink]="['/wealth']">

@@ -3,7 +3,7 @@
   <ion-toolbar>
 
       <ion-buttons slot="start" [routerLink]="['/tabs/tab1']">
-        <ion-back-button></ion-back-button>
+        <ion-back-button [text]="'返回'"></ion-back-button>
       </ion-buttons>
 
     <ion-title>充值</ion-title>
@@ -16,6 +16,15 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="下拉刷新..."
+          refreshingSpinner="circles"
+          refreshingText=" 加载中...">
+        </ion-refresher-content>
+      </ion-refresher>
+
 
   <ion-segment (ionChange)="segmentChanged($event)" value="balance" padding>
     <ion-segment-button value="balance" >
@@ -31,7 +40,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit('balance')">
       <ion-item>
         <ion-label position="floating">数量 <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required formControlName="number" type="number" [ngModel]="loginForm.controls.number.value"></ion-input>
+        <ion-input required formControlName="number" type="number" [(ngModel)]="Data.number"></ion-input>
       </ion-item>
       <div>
         <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
@@ -52,8 +61,8 @@
 <div padding [hidden]="segment != 'integral'">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit('integral')">
     <ion-item>
-      <ion-label position="floating">数量(1现金=10积分) <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required formControlName="number" type="number" [ngModel]="loginForm.controls.number.value"></ion-input>
+      <ion-label position="floating">数量(1现金={{rate.integral}}积分) <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="number" type="number" [(ngModel)]="Data.number"></ion-input>
     </ion-item>
     
     <!-- <ion-item>

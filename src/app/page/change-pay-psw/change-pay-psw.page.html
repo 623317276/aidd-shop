@@ -9,15 +9,15 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <ion-item>
     <ion-label position="floating">输入旧密码 <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="oldPsw" type="password" ></ion-input>
+    <ion-input required formControlName="oldPsw" type="password" [(ngModel)]="editData.oldPsw"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">输入新密码 <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="newPsw" type="password" ></ion-input>
+    <ion-input required formControlName="newPsw" type="password" [(ngModel)]="editData.newPsw"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">确认新密码 <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="confirmNewPsw" type="password"></ion-input>
+    <ion-input required formControlName="confirmNewPsw" type="password" [(ngModel)]="editData.confirmNewPsw"></ion-input>
   </ion-item>
   <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
     确定

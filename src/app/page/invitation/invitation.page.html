@@ -11,7 +11,7 @@
 <ion-content>
 
   <div padding style="text-align: center;">
-      <qr-code [value]="'http://www.baidu.com'" [size]="200"></qr-code>
+      <qr-code [value]="common.appDomain + 'reg/' + userInfo.mobile" [size]="200"></qr-code>
       <p color="danger" padding>二维码不用你后台生成，前台自动生成</p>
   </div>
   
