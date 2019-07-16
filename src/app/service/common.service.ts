@@ -10,10 +10,10 @@ import { Subject } from 'rxjs';
 export class CommonService {
   public update:Subject<string> = new Subject<string>();
   public userInfo: any = [];
-  public appDomain: string = 'http://app.whatphp.com/';
-  public domain: string = 'http://localhost/app-admin/';
+  public appDomain: string = 'http://app.whatphp.com/'; // 用于邀请页面使用
+  // public domain: string = 'http://localhost/app-admin/';
   // public domain: string = 'http://appadmin.com/';
-  // public domain: string = 'http://www.whatphp.com/';
+  public domain: string = 'http://www.whatphp.com/';
   public domainImg: string = this.domain+'Uploads/';
   public login: string = this.domain+'login/login'; // 登陆
   public reg: string = this.domain+'login/reg'; // 注册
