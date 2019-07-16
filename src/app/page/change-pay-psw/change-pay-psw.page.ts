@@ -17,7 +17,7 @@ import { CommonService } from "../../service/common.service";
 
 
 export class ChangePayPswPage implements OnInit {
-  @Input() type:string;
+  @Input() data:string;
   public userInfo:any = {};
   public editData:any = {};
   loginForm = this.formBuilder.group({
