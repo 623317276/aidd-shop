@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../service/common.service';
 import { LocalstorageService } from '../service/localstorage.service';
 import { ToastService } from '../service/toast.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { ModalService } from '../service/modal.service';
 import { forkJoin } from 'rxjs';
