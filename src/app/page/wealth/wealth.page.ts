@@ -84,10 +84,13 @@ export class WealthPage implements OnInit {
     }
     this.loading.presentLoading();
     this.Data.type = type;
-    this.http.get(this.common.wealth, {params: this.Data}).subscribe((res:any)=>{
-      // if(res.status === 1){
-      //   this.router.navigate(['']);
-      // }
+    this.http.post(this.common.wealth, this.Data).subscribe((res:any)=>{
+      if(res.status === 1){
+        // 申请成功，数据复位
+        this.files = [];
+        this.Data.number = 0;
+        // this.router.navigate(['']);
+      }
       this.loading.cancel();
       this.toast.presentToast(res.msg);
       console.log(res);

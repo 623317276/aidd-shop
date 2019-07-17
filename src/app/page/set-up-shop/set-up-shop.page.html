@@ -5,19 +5,23 @@
 </ion-header>
 
 <ion-content>
+    <div [hidden]="userInfo.is_dailishang != 1" style="text-align: center;">
+      <p>申请成功过，后台审核中</p>
+    </div>
 
+  <div [hidden]="userInfo.is_dailishang != 0">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <ion-item>
           <ion-label position="floating">姓名 <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="name" type="text" ></ion-input>
+          <ion-input required formControlName="name" type="text" [(ngModel)]="Data.name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">身份证号 <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="idCardNumber" type="text" ></ion-input>
+          <ion-input required formControlName="idCardNumber" type="text" [(ngModel)]="Data.idCardNumber"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">手机号 <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="tel" type="tel"></ion-input>
+          <ion-input required formControlName="tel" type="tel" [(ngModel)]="Data.tel"></ion-input>
         </ion-item>
         <div>
             <ion-label position="floating">身份证正/反面 <ion-text color="danger">*</ion-text></ion-label>
@@ -38,5 +42,5 @@
           取消
         </ion-button>
       </form>
-
+    </div>
 </ion-content>

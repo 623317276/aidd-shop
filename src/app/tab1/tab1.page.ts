@@ -30,23 +30,15 @@ export class Tab1Page implements OnInit{
       });
   }
 
-  // public head;
-  ngOnInit() {
-    
-    
-  //   this.head =  {
-  //     header: new HttpHeaders({
-  //     'Content-Type' : 'application/json'
-  //     // 'Content-Type' : 'application/x-www-form-urlencoded'
-  //   })
-  // };
-  //   this.http.post(this.common.domain+'index/uploadimg',{
-  //     type: 123
-  //   }, this.head).subscribe((res)=>{
-  //     console.log(res)
-  //   },error=>{
-  //     console.log(error)
-  //   })
+  ngOnInit() {    
+    // this.http.post('/apidata/index/uploadimg',{
+    //   // this.http.post('/tp5/public/index.php/index/test',{
+    //   type: 123
+    // }).subscribe((res)=>{
+    //   console.log(res)
+    // },error=>{
+    //   console.log(error)
+    // })
     this.getData();
   }
 

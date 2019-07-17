@@ -1,12 +1,20 @@
 {
-  "/apidata/*":{
-    "target":"https://appadmin.com",
+  "/local/*":{
+    "target":"http://localhost/app-admin/",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true,
     "pathRewrite":{
-      "/apidata":""
+      "/local":""
     }
-
+  },
+  "/dev/*":{
+    "target":"http://www.whatphp.com/",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true,
+    "pathRewrite":{
+      "/dev":""
+    }
   }
 }

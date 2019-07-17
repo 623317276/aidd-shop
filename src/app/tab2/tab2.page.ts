@@ -30,8 +30,8 @@ export class Tab2Page {
     forkJoin(
       this.http.get(this.common.domain),
     ).subscribe(res => {
-      this.Data.banner = res[0]['data'].banner;
-      this.Data.news = res[0]['data'].news;
+      this.Data.banner = res[0]['data'].data.banner;
+      this.Data.news = res[0]['data'].data.news;
       if(this.refresh){
         this.refresh.target.complete();
       }

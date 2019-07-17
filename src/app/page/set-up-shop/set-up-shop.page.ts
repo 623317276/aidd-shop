@@ -3,7 +3,11 @@ import { ModalController } from '@ionic/angular';
 import { FormBuilder, Validators  } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { timeout } from 'q';
+import { CommonService } from '../../service/common.service';
+import { LocalstorageService } from '../../service/localstorage.service';
+import { LoadingService } from '../../service/loading.service';
+import { ToastService } from '../../service/toast.service';
+
 
 
 
@@ -17,13 +21,15 @@ import { timeout } from 'q';
 export class SetUpShopPage implements OnInit {
 
   // @Input() type:string;
+  public Data:any = {};
+  public userInfo:any;
   public loginForm = this.formBuilder.group({
 
-    'name': ['姓名', [Validators.required]],
+    'name': ['', [Validators.required]],
     
-    'idCardNumber': ['444444000011112222', [Validators.required]],
+    'idCardNumber': ['', [Validators.required]],
 
-    'tel': ['18877777777', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+    'tel': ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
 
     'agree': [false, [Validators.requiredTrue]],
     
@@ -31,9 +37,27 @@ export class SetUpShopPage implements OnInit {
 
   constructor(
     public modalController: ModalController,
+    public common:CommonService,
     public formBuilder:FormBuilder,
+    public localstorage:LocalstorageService,
+    public toast:ToastService,
+    public loading:LoadingService,
     public http: HttpClient,
-    ) { }
+    ) { 
+      this.userInfo = this.localstorage.getObject('userInfo');
+    this.common.update.subscribe((val)=>{
+      this.userInfo = val;
+    });
+    this.Data = {
+      userid: this.userInfo.userid,
+      mobile: this.userInfo.mobile,
+      name: '姓名', // 姓名
+      tel: '18877777777', // 手机号码
+      img1:'', // 正面
+      img2:'', // 反面
+      idCardNumber: '444444000011112222' // 号码
+    };
+    }
 
   ngOnInit() {
   }
@@ -43,21 +67,30 @@ export class SetUpShopPage implements OnInit {
   }
 
   onSubmit(){
-    forkJoin(
-    this.http.post('http://localhost/app-admin/index/uploadimg',{
-    //   params:{
-    //     // file: this.files
-    //      file: '111'
-    // }
-    file: 123
-  }, {
-    responseType: 'json'
-  }),
-  ).subscribe(()=>{
+    if(!this.Data.img1){
+      this.toast.presentToast('请上传身份证正面');
+      return ;
+    }
+    if(!this.Data.img2){
+      this.toast.presentToast('请上传身份证反面');
+      return ;
+    }
 
-  },error=>{
-    
-  })
+    this.loading.presentLoading();
+
+    this.http.post(this.common.applySetUpShop, this.Data).subscribe((res:any)=>{
+      if(res.status === 1){
+        // 广播 用户开店信息变化
+        this.userInfo.is_dailishang = 1;
+        this.common.setUserInfo(this.userInfo);
+      }
+      this.loading.cancel();
+      this.toast.presentToast(res.msg);
+    },error=>{
+      this.loading.cancel();
+      this.toast.presentToast('重试');
+    })
+
   }
 
 
@@ -80,6 +113,13 @@ export class SetUpShopPage implements OnInit {
     console.log(params);
     const { files, type, index } = params;
     this.files = files;
+    // console.log(this.files);return;
+    if(this.files[0]){
+      this.Data.img1 = this.files[0].url;
+    }
+    if(this.files[1]){
+      this.Data.img2 = this.files[1].url;
+    }
   }
   imageClick(params) {
     console.log(params);

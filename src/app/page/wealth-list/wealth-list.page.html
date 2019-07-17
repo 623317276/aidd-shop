@@ -35,10 +35,10 @@
             <ion-label>状态</ion-label>
             <ion-label>时间</ion-label>
           </ion-item>
-          <ion-item>
-            <ion-label>100</ion-label>
-            <ion-label>审核中</ion-label>
-            <ion-label>2019-7-12 12:00</ion-label>
+          <ion-item *ngFor="let item of Data.cash; let i=index">
+            <ion-label>{{item.amount}}</ion-label>
+            <ion-label>{{item.status}}</ion-label>
+            <ion-label>{{item.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
           </ion-item>
          
         </ion-list>
@@ -53,10 +53,10 @@
               <ion-label>状态</ion-label>
               <ion-label>时间</ion-label>
             </ion-item>
-            <ion-item>
-              <ion-label>100</ion-label>
-              <ion-label>审核中</ion-label>
-              <ion-label>2019-7-12 12:00</ion-label>
+            <ion-item *ngFor="let item of Data.integral; let i=index">
+                <ion-label>{{item.amount}}</ion-label>
+                <ion-label>{{item.status}}</ion-label>
+                <ion-label>{{item.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
             </ion-item>
         </ion-list>
   </div>
