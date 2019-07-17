@@ -41,49 +41,41 @@
     [tabBarActiveTextColor]="'#1890ff'"
     (onChange)="onChange($event)"
     (onTabClick)="onTabClick($event)">
-<TabPane [title]="titleTemplate">
-  <ng-template #titleTemplate>
+<TabPane [title]="titleTemplate1">
+  <ng-template #titleTemplate1>
     <!-- <Badge [text]="3"> -->
     <Badge>
       <div>套餐区</div>
     </Badge>
   </ng-template>
-  <div style="display: flex; align-items: center;justify-content: center;height: 150px;background-color: #fff">
+  <ion-grid>
+      <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]" *ngFor="let item of Data.titleTemplate1; let i=index">
+        <ion-img [src]="item.images"></ion-img>
+        <p align="center" style="margin: 5px;">{{item.name}}</p>
+        <span style="font-size: 12px;" [hidden]="item.mode != '1'">￥:{{item.price}}</span>
+        <span style="font-size: 12px;float: right;" [hidden]="item.mode == '1'">积分:{{item.price}}</span>
+    </ion-col>
+    </ion-grid>
 
-      <ion-grid fixed>
-          <ion-row>
-            <ion-col size="6" [routerLink]="[ '/shop-info/1']">
-                <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562263202625&di=a81b32da55fbc99e1a128dd5016c4bce&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20151109%2FImg425718790.jpg"></ion-img>
-                <p align="center" style="margin: 5px;">商品名称</p>
-                <span style="font-size: 12px;">￥:100000</span>
-                <span style="font-size: 12px;float: right;">积分:5000</span>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-
-  </div>
 </TabPane>
-<TabPane [title]="titleTemplate1">
-  <ng-template #titleTemplate1>
+<TabPane [title]="titleTemplate3">
+  <ng-template #titleTemplate3>
     <!-- <Badge [text]="'今日(20)'"> -->
     <Badge>
       <div>商城区</div>
     </Badge>
   </ng-template>
-  <div style="display: flex; align-items: center;justify-content: center;height: 150px;background-color: #fff">
+  
+  <ion-grid>
+      <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]" *ngFor="let item of Data.titleTemplate3; let i=index">
+        <ion-img [src]="item.images"></ion-img>
+        <p align="center" style="margin: 5px;">{{item.name}}</p>
+        <span style="font-size: 12px;" [hidden]="item.mode != '1'">￥:{{item.price}}</span>
+        <span style="font-size: 12px;float: right;" [hidden]="item.mode == '1'">积分:{{item.price}}</span>
+    </ion-col>
+    </ion-grid>
 
-      <ion-grid fixed>
-          <ion-row>
-            <ion-col size="6" [routerLink]="[ '/shop-info/1']">
-                <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562263202625&di=a81b32da55fbc99e1a128dd5016c4bce&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20151109%2FImg425718790.jpg"></ion-img>
-                <p align="center" style="margin: 5px;">商品名称</p>
-                <span style="font-size: 12px;">￥:100000</span>
-                <span style="font-size: 12px;float: right;">积分:5000</span>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
 
-  </div>
 </TabPane>
 <TabPane [title]="titleTemplate2">
   <ng-template #titleTemplate2>
@@ -92,20 +84,17 @@
       <div>礼品区</div>
     </Badge>
   </ng-template>
-  <div style="display: flex; align-items: center;justify-content: center;height: 150px;background-color: #fff">
+  
+  <ion-grid>
+      <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]" *ngFor="let item of Data.titleTemplate2; let i=index">
+        <ion-img [src]="item.images"></ion-img>
+        <p align="center" style="margin: 5px;">{{item.name}}</p>
+        <span style="font-size: 12px;" [hidden]="item.mode != '1'">￥:{{item.price}}</span>
+        <span style="font-size: 12px;float: right;" [hidden]="item.mode == '1'">积分:{{item.price}}</span>
+    </ion-col>
+    </ion-grid>
 
-    <ion-grid fixed>
-    <ion-row>
-      <ion-col size="6" [routerLink]="[ '/shop-info/1']">
-          <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562263202625&di=a81b32da55fbc99e1a128dd5016c4bce&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20151109%2FImg425718790.jpg"></ion-img>
-          <p align="center" style="margin: 5px;">商品名称</p>
-          <span style="font-size: 12px;">￥:100000</span>
-          <span style="font-size: 12px;float: right;">积分:5000</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 
-  </div>
 </TabPane>
 </Tabs>
 

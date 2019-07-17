@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { AlertService } from '../../service/alert.service';
+import { ToastService } from '../../service/toast.service';
+import { CommonService } from '../../service/common.service';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-info',
@@ -12,16 +14,21 @@ import { ActivatedRoute } from '@angular/router';
 export class ShopInfoPage implements OnInit {
 
   public refresh;
+  public Data:any = {};
   public id;
   constructor(
     public http: HttpClient,
+    public toast: ToastService,
     public alert: AlertService,
+    public router: Router,
+    public common: CommonService,
     public route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
        this.id = params.get('id');
+       this.getData();
     });
   }
 
@@ -31,11 +38,12 @@ export class ShopInfoPage implements OnInit {
   }
 
   getData(){
-    forkJoin(
-      this.http.get('https://cnodejs.org/api/v1/topics', { responseType: 'json' }),
-    ).subscribe(res => {
-      // this.Data.banner = res.data.data.banner;
-      // this.Data.news = res.data.data.news;
+    this.http.get(this.common.shoppingInfo, { params: {id:this.id}}).subscribe((res:any) => {
+      this.Data = res.data;
+      console.log(res);
+      if(res.status !== 1){
+        this.toast.presentToast(res.msg);
+      }
       if(this.refresh){
         this.refresh.target.complete();
       }
