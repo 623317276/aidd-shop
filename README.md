@@ -1,4 +1,4 @@
-# aidd-shop
+﻿# aidd-shop
 
 爱订订商城
 C:\Windows\System32\drivers\etc\hosts
@@ -11,3 +11,4 @@ phpstudy 站点域名管理 -> 做站点添加
 
 后台账号：admin
 后台密码：123456
+
