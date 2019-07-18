@@ -13,6 +13,9 @@ import { AngularDelegate } from '@ionic/angular';
 export class WealthListPage implements OnInit {
   public segment:string = 'balance'; // 用于控制选中
   public refresh;
+  public load = true;
+  public cashHidden = true;
+  public integralHidden = true;
   public params1:any;
   public params2:any;
   public Data = {
@@ -51,7 +54,8 @@ export class WealthListPage implements OnInit {
     this.getData();  
   }
 
-  getData(){
+  getData(){    
+    this.load = false;
     // type: 1现金2积分
     forkJoin(
       this.http.get(this.common.getWealthList,{params : this.params1}), // 余额数据
@@ -59,11 +63,15 @@ export class WealthListPage implements OnInit {
     ).subscribe((res:any)=>{
       this.Data.cash = res[0].data;
       this.Data.integral = res[1].data;
+      this.cashHidden = this.Data.cash.length > 0 ? true : false;
+      this.integralHidden = this.Data.integral.length > 0 ? true : false;
       if(this.refresh){
         this.refresh.target.complete();
       }
+      this.load = true;
     },error => {
       if(this.refresh){
+        this.load = true;
         this.refresh.target.complete();
       }
       this.toast.presentToast('获取失败，下拉重新获取');

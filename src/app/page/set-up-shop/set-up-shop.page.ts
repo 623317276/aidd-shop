@@ -7,6 +7,7 @@ import { CommonService } from '../../service/common.service';
 import { LocalstorageService } from '../../service/localstorage.service';
 import { LoadingService } from '../../service/loading.service';
 import { ToastService } from '../../service/toast.service';
+import { Router } from '@angular/router';
 
 
 
@@ -43,6 +44,7 @@ export class SetUpShopPage implements OnInit {
     public toast:ToastService,
     public loading:LoadingService,
     public http: HttpClient,
+    public router: Router,
     ) { 
       this.userInfo = this.localstorage.getObject('userInfo');
     this.common.update.subscribe((val)=>{
@@ -93,6 +95,26 @@ export class SetUpShopPage implements OnInit {
 
   }
 
+  public getStatus(){
+    this.loading.presentLoading();
+    this.http.post(this.common.getStatus, this.Data).subscribe((res:any)=>{
+      if(res.status === 1){
+        // 开店申请通过,广播用户信息改变
+        this.userInfo.is_dailishang = res.data;
+        this.common.setUserInfo(this.userInfo);
+        if(res.data === 2){
+          this.cancel();
+          this.router.navigate(['/my-shop']);
+        }        
+      }
+      this.loading.cancel();
+      this.toast.presentToast(res.msg);
+      console.log(res);
+    },error => {
+      this.loading.cancel();
+      this.toast.presentToast('重试');
+    });
+  }
 
 
   // 正面上传图片的操作

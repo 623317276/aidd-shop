@@ -6,7 +6,7 @@
 
 <ion-content>
   <!-- 样式失效 -->
-  <ion-textarea padding [innerHTML]="data.content"></ion-textarea>
+  <ion-textarea padding [innerHtml]="assembleHTML(data.content)"></ion-textarea>
   <ion-button block color="primary" (click)="cancel()">
     取消
   </ion-button>

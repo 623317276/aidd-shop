@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { DomSanitizer } from '@angular/platform-browser';//引入
 
 
 @Component({
@@ -10,6 +11,7 @@ import { ModalController } from '@ionic/angular';
 export class NewsDetailPage implements OnInit {
   @Input() data:any;
   constructor(
+    public sanitizer: DomSanitizer,
     public modalController: ModalController,
   ) { }
 
@@ -18,5 +20,9 @@ export class NewsDetailPage implements OnInit {
 
   cancel(){
     this.modalController.dismiss();
+  }
+
+  assembleHTML(strHTML: any) {
+    return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
 }

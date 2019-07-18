@@ -11,8 +11,8 @@ export class CommonService {
   public update:Subject<string> = new Subject<string>();
   public userInfo: any = [];
   public appDomain: string = 'http://app.whatphp.com/'; // 用于邀请页面使用
-  public domain: string = '/dev/'; // 正式环境
-  // public domain: string = '/local/'; // 本地
+  // public domain: string = '/dev/'; // 正式环境
+  public domain: string = '/local/'; // 本地
   public domainImg: string = this.domain+'Uploads/';
   public login: string = this.domain+'login/login'; // 登陆
   public reg: string = this.domain+'login/reg'; // 注册
@@ -23,6 +23,7 @@ export class CommonService {
   public wealth: string = this.domain+'user/wealth'; // 充值
   public getWealthList: string = this.domain+'user/get_wealth_list'; // 获取充值列表
   public applySetUpShop: string = this.domain+'user/apply_set_up_shop'; // 申请开店
+  public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页
   public shoppingInfo: string = this.domain+'shopping/info'; // 商城详情页
   constructor(

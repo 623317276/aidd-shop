@@ -5,6 +5,7 @@ import { ToastService } from '../../service/toast.service';
 import { CommonService } from '../../service/common.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';//引入
 
 @Component({
   selector: 'app-shop-info',
@@ -23,6 +24,7 @@ export class ShopInfoPage implements OnInit {
     public router: Router,
     public common: CommonService,
     public route: ActivatedRoute,
+    public sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
@@ -61,5 +63,9 @@ export class ShopInfoPage implements OnInit {
       });
       console.log(res);
     });
+  }
+
+  assembleHTML(strHTML: any) {
+    return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
 }
