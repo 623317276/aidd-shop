@@ -13,7 +13,7 @@ export class CommonService {
   public appDomain: string = 'http://app.whatphp.com/'; // 用于邀请页面使用
   public domain: string = '/dev/'; // 正式环境
   // public domain: string = '/local/'; // 本地
-  public domainImg: string = this.domain+'Uploads/';
+  // public domainImg: string = this.domain+'Uploads/';
   public login: string = this.domain+'login/login'; // 登陆
   public reg: string = this.domain+'login/reg'; // 注册
   public editNickname: string = this.domain+'user/edit_nickname'; // 修改用户信息

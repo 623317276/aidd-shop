@@ -20,7 +20,8 @@
       </ion-refresher-content>
     </ion-refresher>
 
-
+<div [hidden]="showPage">
+  
 <ion-slides>
     <ion-slide>
         <ion-img [routerLink]="['/shop-diy']" [src]="Data.images"></ion-img>      
@@ -33,10 +34,15 @@
   <ion-row>
     <ion-col><ion-label>{{Data.name}}</ion-label></ion-col>
     <ion-col style="text-align: right;">
-      <ion-label [hidden]="Data.mode == 2">￥:{{Data.price}}</ion-label>
-      <ion-label [hidden]="Data.mode == 1">积分:{{Data.price}}</ion-label>
+      <ion-label>{{Data.fictitious === '1' ? '实物' : '虚拟物品'}}</ion-label>
     </ion-col>
   </ion-row>
+  <ion-row>
+      <ion-col>
+        <ion-label [hidden]="Data.mode == 2">￥:{{Data.price}}</ion-label>
+        <ion-label [hidden]="Data.mode == 1">积分:{{Data.price}}</ion-label>
+      </ion-col>
+    </ion-row>
 </ion-grid>
 
 
@@ -48,5 +54,9 @@
 <div style="position: fixed; bottom:0px; width: 100%; background-color:white;">
     <ion-button style="float: right; width: 50%" (click)="buy()">购买</ion-button>
 </div>
+
+</div>
+
+
 
 </ion-content>

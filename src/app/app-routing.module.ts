@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'my-shop', loadChildren: './page/my-shop/my-shop.module#MyShopPageModule' , canActivate:[LoginguardService]},
   { path: 'manage-goods', loadChildren: './page/manage-goods/manage-goods.module#ManageGoodsPageModule' , canActivate:[LoginguardService]},
   { path: 'manage-edit-goods/:id', loadChildren: './page/manage-edit-goods/manage-edit-goods.module#ManageEditGoodsPageModule' , canActivate:[LoginguardService]},
+  { path: 'confirm-order', loadChildren: './page/confirm-order/confirm-order.module#ConfirmOrderPageModule' , canActivate:[LoginguardService]},
 
   // 都能访问的页面
   { path: 'reg/:pmobile', loadChildren: './page/reg/reg.module#RegPageModule' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
   { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' },
   { path: 'edit-nickname', loadChildren: './page/edit-nickname/edit-nickname.module#EditNicknamePageModule' },
+
 
 
 

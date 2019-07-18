@@ -20,7 +20,7 @@
   <!-- 轮播图 -->
     <ion-slides mode="ios" pager="ios">
       <ion-slide *ngFor="let item of Data.banner;let i = index"  tappable >
-        <ion-img [src]="common.domainImg + item.picture"></ion-img>         
+        <ion-img [src]="item.picture"></ion-img>         
       </ion-slide>
     </ion-slides>
     <!-- <ion-slides mode="ios" pager="ios">

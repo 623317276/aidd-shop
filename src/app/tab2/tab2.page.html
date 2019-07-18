@@ -20,7 +20,7 @@
       <!-- 轮播图 -->
     <ion-slides mode="ios" pager="ios">
       <ion-slide *ngFor="let item of Data.banner;let i = index"  tappable >
-        <ion-img [src]="common.domainImg + item.picture"></ion-img>         
+        <ion-img [src]="item.picture"></ion-img>         
       </ion-slide>
     </ion-slides>
     <!-- <ion-slides mode="ios" pager="ios">
@@ -51,7 +51,10 @@
   <ion-grid>
       <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]" *ngFor="let item of Data.titleTemplate1; let i=index">
         <ion-img [src]="item.images"></ion-img>
-        <p align="center" style="margin: 5px;">{{item.name}}</p>
+        <p style="padding: 5px;">
+          <span style="float:left; width: 50%;">{{item.name}}</span>
+          <span style="float:right; text-align: right; width: 50%;">{{item.fictitious === '1' ? '实物' : '虚拟物品'}}</span>          
+        </p>
         <span style="font-size: 12px;" [hidden]="item.mode != '1'">￥:{{item.price}}</span>
         <span style="font-size: 12px;float: right;" [hidden]="item.mode == '1'">积分:{{item.price}}</span>
     </ion-col>

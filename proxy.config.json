@@ -1,6 +1,6 @@
 {
   "/local/*":{
-    "target":"http://localhost/app-admin/",
+    "target":"http://appadmin.com/",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true,
