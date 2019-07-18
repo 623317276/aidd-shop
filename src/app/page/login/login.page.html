@@ -1,35 +1,38 @@
-
 <ion-content>
 
-    <div class="logo" padding><ion-img [src]="'assets/icon/favicon.png'" style="width: 150px; margin:0 auto;"></ion-img></div>
+    <div class="logo logo_bg">
+        <!-- <ion-img [src]="'/assets/images/login_bg.png'" style=" margin:0 auto;"></ion-img> -->
+        <div class="login_text">
+            <h3>您好！</h3>
+            <p class="">欢迎进入爱订订商城，请先登录</p>
+        </div>
 
-    <ion-item>
-        <ion-label position="floating">手机号</ion-label>
-        <ion-input placeholder="请输入手机号" [(ngModel)]="loginData.mobile"></ion-input>
-    </ion-item>
+    </div>
 
-    <ion-item>
-        <ion-label position="floating">登陆密码</ion-label>
-        <ion-input placeholder="请输入登陆密码" type="password" [(ngModel)]="loginData.password"></ion-input>
-    </ion-item>
+    <div class="login_content">
+        <ion-item>
+            <ion-label>手机号：</ion-label>
+            <ion-input type="tel" placeholder="请输入手机号" maxlength="11" required=true [(ngModel)]="loginData.mobile">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>密&nbsp;&nbsp;&nbsp;&nbsp;码：</ion-label>
+            <ion-input type="password" placeholder="请输入登陆密码" required=true [(ngModel)]="loginData.password"></ion-input>
+        </ion-item>
+    </div>
 
-    <ion-grid fixed>
-        <ion-row>
-            <ion-col offset="3" size="6">
-                <ion-button (click)="login()" [disabled]="loginButton" style="width: 100%">
-                    登陆
-                </ion-button>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col offset="3" size="6">
-                <ion-button [routerLink]="['/reg',0]"  style="width: 100%">
-                    注册
-                </ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <div class="login_btn" fixed>
 
-    
-    
+        <button class="login_button" [routerLink]="['/my-shop']"  [disabled]="loginButton">
+            <!-- (click)="login()" -->
+            登录
+        </button>
+
+        <button class="login_register" [routerLink]="['/my-shop']">
+            注册
+        </button>
+    </div>
+
+
+
 </ion-content>

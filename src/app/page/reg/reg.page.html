@@ -1,56 +1,51 @@
-
 <ion-content>
+    <div class="item_content" style="margin-top:1.25em">
+        <ion-item>
+            <ion-label >手机号：</ion-label>
+            <ion-input type="tel" placeholder="请输入手机号" maxlength="11" required=true [(ngModel)]="regData.mobile">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>验证码：</ion-label>
+            <ion-input placeholder="请输入验证码" [(ngModel)]="regData.verify" maxlength="6"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>邀请人：</ion-label>
+            <ion-input placeholder="邀请人手机号码" [(ngModel)]="regData.pmobile"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>设置登录密码：</ion-label>
+            <ion-input placeholder="请输入登陆密码" type="password" [(ngModel)]="regData.loginPsw"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>确认登录密码：</ion-label>
+            <ion-input placeholder="请输入确认密码" type="password" [(ngModel)]="regData.confirmLoginPsw"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>设置支付密码：</ion-label>
+            <ion-input placeholder="请输入支付密码" type="password" [(ngModel)]="regData.payPsw"></ion-input>
+        </ion-item>
 
-  <div class="logo" padding><ion-img [src]="'assets/icon/favicon.png'" style="width: 150px; margin:0 auto;"></ion-img></div>
+        <ion-item>
+            <ion-label>确认支付密码：</ion-label>
+            <ion-input placeholder="请输入确认支付密码" type="password" [(ngModel)]="regData.confirmPayPsw"></ion-input>
+        </ion-item>
+    </div>
 
-  <ion-item>
-    <ion-label position="floating">手机号</ion-label>
-    <ion-input placeholder="请输入手机号" [(ngModel)]="regData.mobile" maxlength="11"></ion-input>
-  </ion-item>
+    <div class="login_btn" fixed>
 
-  <ion-item>
-    <ion-label position="floating">验证码</ion-label>
-    <ion-input placeholder="请输入验证码" [(ngModel)]="regData.verify" maxlength="6"></ion-input>
-  </ion-item>
+        <button class="login_register" (click)="reg()" style="width: 100%" [disabled]="regButton">
+            注册
+        </button>
 
-  <ion-item>
-    <ion-label position="floating">邀请人</ion-label>
-    <ion-input placeholder="邀请人手机号码" [(ngModel)]="regData.pmobile"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">登陆密码</ion-label>
-    <ion-input placeholder="请输入登陆密码" type="password" [(ngModel)]="regData.loginPsw"></ion-input>
-  </ion-item>
+        <div size="12" style="text-align: center;padding:0">
+            <span style="color: #999">已有账号，</span>
+            <a [routerLink]="['/login']" routerDirection="back" style="color: #FE6176;text-decoration: underline">
+                去登录
+            </a>
+        </div>
 
-  <ion-item>
-    <ion-label position="floating">确认登陆密码</ion-label>
-    <ion-input placeholder="请输入确认密码" type="password" [(ngModel)]="regData.confirmLoginPsw"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">支付密码</ion-label>
-    <ion-input placeholder="请输入支付密码" type="password" [(ngModel)]="regData.payPsw"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">确认支付密码</ion-label>
-    <ion-input placeholder="请输入确认支付密码" type="password" [(ngModel)]="regData.confirmPayPsw"></ion-input>
-  </ion-item>
-
-  <ion-grid fixed>
-    <ion-row>
-        <ion-col size="6">
-            <ion-button [routerLink]="['/login']" routerDirection="back" style="width: 100%">
-                已有账号，去登陆
-            </ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button (click)="reg()"  style="width: 100%" [disabled]="regButton">
-              注册
-          </ion-button>
-      </ion-col>
-    </ion-row>
-</ion-grid>
+    </div>
 
 </ion-content>

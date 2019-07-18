@@ -1,3 +1,51 @@
 .logo{
-  text-align: center;
-}
+    color: #fff
+  }
+  .logo_bg{
+      overflow: hidden;
+      height: 11.25em;
+      background:url("src/assets/images/login_bg.png");
+      background-size: 100% 100%;
+  }
+  .login_text{
+      margin: 6.45em 0  0 2.5em;
+  }
+  .login_text h3{margin: 0;font-size: 1.25em}
+  .login_text p{margin: 0;font-size: 0.75em}
+  .login_content{
+      margin: 2.5em 0  2.5em 0;
+      padding-right: 16px
+  }
+  .login_content ion-label{
+      font-size: 0.875em
+  }
+  .login_btn{
+      padding:0 16px;
+  }
+  .login_btn button{
+      width: 100%;
+      border-radius: 4px;
+      --padding-top: 0;
+      --padding-bottom: 0;
+      --padding-start: 1em;
+      --padding-end: 1em;
+      --transition: background-color,opacity 100ms linear;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      height: 2.8em;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      border:1px solid #FE6176
+  }
+  
+  .login_button{
+      background:#FE6176;
+      color: #fff
+  }
+  
+  .login_register{
+      border:1px solid #FE6176;
+      background: #fff;
+      
+  }
