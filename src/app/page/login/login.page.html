@@ -23,8 +23,7 @@
 
     <div class="login_btn" fixed>
 
-        <button class="login_button" [routerLink]="['/my-shop']"  [disabled]="loginButton">
-            <!-- (click)="login()" -->
+        <button class="login_button" (click)="login()"  [disabled]="loginButton">
             登录
         </button>
 
