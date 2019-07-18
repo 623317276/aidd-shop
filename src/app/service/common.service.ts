@@ -11,8 +11,11 @@ export class CommonService {
   public update:Subject<string> = new Subject<string>();
   public userInfo: any = [];
   public appDomain: string = 'http://app.whatphp.com/'; // 用于邀请页面使用
-  public domain: string = '/dev/'; // 正式环境
+
+  public domain: string = 'http://www.whatphp.com/'; // 正式环境 --- 代理出错时使用
+  // public domain: string = '/dev/'; // 正式环境
   // public domain: string = '/local/'; // 本地
+
   // public domainImg: string = this.domain+'Uploads/';
   public login: string = this.domain+'login/login'; // 登陆
   public reg: string = this.domain+'login/reg'; // 注册

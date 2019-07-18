@@ -44,9 +44,9 @@ export class ShopInfoPage implements OnInit {
 
   getData(){    
     this.showPage = true;
-    this.loading.presentLoading();
+    // this.loading.presentLoading();
     this.http.get(this.common.shoppingInfo, { params: {id:this.id}}).subscribe((res:any) => {
-      this.loading.cancel();
+      // this.loading.cancel();
       this.showPage = false;
       this.Data = res.data;
       console.log(res);
@@ -57,7 +57,7 @@ export class ShopInfoPage implements OnInit {
         this.refresh.target.complete();
       }
     }, error => {
-      this.loading.cancel();
+      // this.loading.cancel();
       this.toast.presentToast('下拉刷新重试');
       console.log(error)
     })

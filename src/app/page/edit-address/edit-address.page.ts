@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-address',
@@ -8,13 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EditAddressPage implements OnInit {
   @Input() data:any; 
   constructor(
+    public modalController: ModalController,
+
   ) { 
-    console.log(this.data);
+    
   }
 
  
 
   ngOnInit() {
+    console.log(this.data);
   }
 
+  cancel(){
+    this.modalController.dismiss();
+  }
 }

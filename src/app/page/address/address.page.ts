@@ -11,7 +11,7 @@ import { ModalService } from '../../service/modal.service';
 export class AddressPage implements OnInit {
 
   constructor(
-    // public modal: ModalService,
+    public modal: ModalService,
     public modalController: ModalController,
     public alert: AlertService,
   ) { }
@@ -20,10 +20,10 @@ export class AddressPage implements OnInit {
   }
 
   newAddress(){
-    // this.modal.presentModal({type:'edit-address'});
+    this.modal.presentModal({type:'edit-address'});
   }
   editAddress(id){    
-    // this.modal.presentModal({type:'edit-address', id:id});
+    this.modal.presentModal({type:'edit-address', id:id});
   }
   delete(id){
     this.alert.presentAlertConfirm({},{id:123},(res)=>{

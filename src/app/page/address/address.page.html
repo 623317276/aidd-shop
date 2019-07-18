@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
+      <!-- <ion-buttons slot="start">
           <ion-button (click)="cancel()">
             <ion-icon name="arrow-back"></ion-icon>
           </ion-button>
+        </ion-buttons> -->
+        <ion-buttons slot="start">
+          <ion-back-button [text]="''"></ion-back-button>
         </ion-buttons>
       <ion-title>收货地址</ion-title>
 
@@ -32,8 +35,8 @@
             </ion-card>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="editAddress(0)" color="primary">修改</ion-item-option>
-        <ion-item-option (click)="delete(0)" color="danger">删除</ion-item-option>
+        <ion-item-option (click)="editAddress(1)" color="primary">修改</ion-item-option>
+        <ion-item-option (click)="delete(1)" color="danger">删除</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
 
@@ -50,8 +53,8 @@
               </ion-card>
         </ion-item>
         <ion-item-options side="end">
-          <ion-item-option (click)="editAddress(0)" color="primary">修改</ion-item-option>
-          <ion-item-option (click)="delete(0)" color="danger">删除</ion-item-option>
+          <ion-item-option (click)="editAddress(1)" color="primary">修改</ion-item-option>
+          <ion-item-option (click)="delete(1)" color="danger">删除</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
 

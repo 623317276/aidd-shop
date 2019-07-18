@@ -4,7 +4,6 @@ import { ChangePayPswPage } from '../page/change-pay-psw/change-pay-psw.page';
 import { GoldMasterPage } from '../page/gold-master/gold-master.page';
 import { CreditGrantingPage } from '../page/credit-granting/credit-granting.page';
 import { NewsDetailPage } from '../page/news-detail/news-detail.page';
-import { AddressPage } from '../page/address/address.page';
 import { SetUpShopPage } from '../page/set-up-shop/set-up-shop.page';
 import { EditAddressPage } from '../page/edit-address/edit-address.page';
 import { EditNicknamePage } from '../page/edit-nickname/edit-nickname.page';
@@ -25,7 +24,6 @@ export class ModalService {
     'gold-master': GoldMasterPage, // 申请金主
     'credit-granting': CreditGrantingPage, // 申请授信
     'news': NewsDetailPage, // 公告模板
-    'address': AddressPage, // 收货地址
     'set-up-shop': SetUpShopPage, // 申请开店
     'edit-address': EditAddressPage, // 添加、修改收货地址
   };

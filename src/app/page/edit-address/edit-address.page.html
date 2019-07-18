@@ -1,9 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit-address</ion-title>
+    <ion-title [hidden]="!data.id">修改地址-address</ion-title>
+    <ion-title [hidden]="data.id">添加地址-address</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-button (click)="cancel()">
+   取消
+  </ion-button>
 </ion-content>

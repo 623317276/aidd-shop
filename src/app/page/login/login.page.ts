@@ -35,16 +35,14 @@ export class LoginPage implements OnInit {
    login(){
     this.loginButton = true;
     this.http.get(this.common.login, {params: this.loginData}).subscribe((res:any)=>{
+      this.toast.presentToast(res.msg);
       this.loginButton = false;
       if(res.status === 1){
         this.localstorage.setObject('userInfo', res.data);
         this.common.setUserInfo(res.data);
-        this.toast.presentToast('登陆成功');
         this.router.navigate(['']);
         return ;
       }
-      this.toast.presentToast('账号密码错误');
-      console.log(res);
     },error => {
       this.loginButton = false;
       this.toast.presentToast('重试');
