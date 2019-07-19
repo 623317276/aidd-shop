@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'confirm-order', loadChildren: './page/confirm-order/confirm-order.module#ConfirmOrderPageModule' , canActivate:[LoginguardService]},
 
   // 都能访问的页面
-  { path: 'reg/:pmobile', loadChildren: './page/reg/reg.module#RegPageModule' },
+  { path: 'reg', loadChildren: './page/reg/reg.module#RegPageModule' },
   // { path: 'borrow', loadChildren: './page/borrow/borrow.module#BorrowPageModule' },
   // { path: 'gold-master', loadChildren: './page/gold-master/gold-master.module#GoldMasterPageModule' },
   // { path: 'credit-granting', loadChildren: './page/credit-granting/credit-granting.module#CreditGrantingPageModule' },

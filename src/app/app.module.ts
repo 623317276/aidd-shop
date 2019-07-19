@@ -28,7 +28,7 @@ import { EditAddressPage } from './page/edit-address/edit-address.page';
 import { EditAddressPageModule } from './page/edit-address/edit-address.module';
 import { EditNicknamePage } from './page/edit-nickname/edit-nickname.page';
 import { EditNicknamePageModule } from './page/edit-nickname/edit-nickname.module';
-
+import { HashLocationStrategy,LocationStrategy } from "@angular/common";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -59,7 +59,8 @@ import { FormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    // { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide:LocationStrategy, useClass: HashLocationStrategy }, // 访问angular站点会自动在根节点后面加一个#锚点，解决刷新报404错误
   ],
   bootstrap: [AppComponent]
 })
