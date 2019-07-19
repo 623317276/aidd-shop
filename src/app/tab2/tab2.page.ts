@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonService } from "../service/common.service";
 import { LoadingService } from "../service/loading.service";
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -29,13 +28,16 @@ export class Tab2Page {
   }
 
   getData(){
+    this.loading.presentLoading();
     this.http.get(this.common.domain).subscribe((res:any) => {
+      this.loading.cancel();
       this.Data.banner = res['data'].data.banner;
       this.Data.news = res['data'].data.news;
       if(this.refresh){
         this.refresh.target.complete();
       }
     }, error => {
+      this.loading.cancel();
       console.log(error)
     })
     // 获取3个区的商品

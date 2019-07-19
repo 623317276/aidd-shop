@@ -12,9 +12,9 @@ export class CommonService {
   public userInfo: any = [];
   
   public appDomain: string = 'http://app.whatphp.com/'; // 用于邀请页面使用
-  public domain: string = 'http://www.whatphp.com/'; // 正式环境 --- 代理出错时使用
+  // public domain: string = 'http://www.whatphp.com/'; // 正式环境 --- 代理出错时使用
   // public domain: string = '/dev/'; // 正式环境
-  // public domain: string = 'http://appadmin.com/'; // 本地
+  public domain: string = 'http://appadmin.com/'; // 本地
 
   public aboutUs: string = this.domain+'index/about_us'; // 关于我们
 
@@ -32,7 +32,7 @@ export class CommonService {
   public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页
   public shoppingInfo: string = this.domain+'shopping/info'; // 商城详情页
-
+  
   constructor(
     public localstorage: LocalstorageService,
     public router: Router,
