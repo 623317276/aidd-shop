@@ -46,13 +46,12 @@
                         *ngFor="let item of Data.titleTemplate1; let i=index">
                         <ion-card>
                             <ion-img [src]="item.images" class="img_box"></ion-img>
-
                             <ion-card-content>
                                 {{item.name}}
                             </ion-card-content>
                             <ion-card-header>
                                 <ion-card-title>
-                                    <span style="font-size: 15px; color: #FB1A38"
+                                    <span style="font-size: 16px; color: #FB1A38"
                                         [hidden]="item.mode != '1'">￥:{{item.price}}</span>
                                 </ion-card-title>
                                 <ion-card-subtitle>
@@ -63,11 +62,6 @@
                                 </ion-card-subtitle>
                             </ion-card-header>
                         </ion-card>
-                        <!-- <ion-img [src]="item.images"></ion-img>
-        <p style="padding: 5px;">
-          <span style="float:left; width: 50%;">{{item.name}}</span>
-                 
-        </p> -->
 
 
                     </ion-col>
@@ -91,7 +85,7 @@
                                 <ion-card-content> {{item.name}}</ion-card-content>
                                 <ion-card-header>
                                     <ion-card-title>
-                                        <span style="font-size: 15px; color: #FB1A38"
+                                        <span style="font-size: 16px; color: #FB1A38"
                                             [hidden]="item.mode != '1'">￥:{{item.price}}</span>
                                     </ion-card-title>
                                     <ion-card-subtitle>
@@ -102,11 +96,6 @@
                                     </ion-card-subtitle>
                                 </ion-card-header>
                             </ion-card>
-
-                        
-                        <!-- <p align="center" style="margin: 5px;">{{item.name}}</p>
-                        <span style="font-size: 12px;" [hidden]="item.mode != '1'">￥:{{item.price}}</span>
-                        <span style="font-size: 12px;float: right;" [hidden]="item.mode == '1'">积分:{{item.price}}</span> -->
                     </ion-col>
                 </ion-row>
 
@@ -141,10 +130,6 @@
                                     </ion-card-subtitle>
                                 </ion-card-header>
                             </ion-card>
-                        <!-- <ion-img [src]="item.images"></ion-img>
-                        <p align="center" style="margin: 5px;">{{item.name}}</p>
-                        <span style="font-size: 12px;" [hidden]="item.mode != '1'">￥:{{item.price}}</span>
-                        <span style="font-size: 12px;float: right;" [hidden]="item.mode == '1'">积分:{{item.price}}</span> -->
                     </ion-col>
                 </ion-row>
             </ion-grid>

@@ -45,6 +45,7 @@ export class SetUpShopPage implements OnInit {
     public loading:LoadingService,
     public http: HttpClient,
     public router: Router,
+    public alertCtrl: ModalController
     ) { 
       this.userInfo = this.localstorage.getObject('userInfo');
     this.common.update.subscribe((val)=>{
@@ -147,6 +148,4 @@ export class SetUpShopPage implements OnInit {
     console.log(params);
   }
 
-
-  
 }

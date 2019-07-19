@@ -1,52 +1,92 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>申请开店</ion-title>
-  </ion-toolbar>
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <ion-title>申请开店</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div [hidden]="userInfo.is_dailishang != 1" style="text-align: center;">
-      <p>申请成功过，后台审核中</p>
-      <ion-button block color="primary" (click)="cancel()">
-        确定
-      </ion-button>
-      <ion-button block color="primary" (click)="getStatus()">
-          查询申请状态
-      </ion-button>
+    <!--  -->
+    <div [hidden]="userInfo.is_dailishang != 1" style="text-align: center; margin:4em auto">
+        <p>申请成功过，后台审核中</p>
+        <!-- <ion-button block color="primary" (click)="cancel()">
+            确定
+        </ion-button>
+        <ion-button block color="primary" (click)="getStatus()">
+            查询申请状态
+        </ion-button> -->
+
+        <div class="btn_box">
+            <ion-button block expand="block" color="primary" class="active_button"  (click)="getStatus()">
+                查询申请状态
+            </ion-button>
+            <ion-button block expand="block" class="courr_button" (click)="cancel()">
+                确定
+            </ion-button>
+        </div>
+
     </div>
 
-  <div [hidden]="userInfo.is_dailishang != 0">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <ion-item>
-          <ion-label position="floating">姓名 <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="name" type="text" [(ngModel)]="Data.name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">身份证号 <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="idCardNumber" type="text" [(ngModel)]="Data.idCardNumber"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">手机号 <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="tel" type="tel" [(ngModel)]="Data.tel"></ion-input>
-        </ion-item>
-        <div>
-            <ion-label position="floating">身份证正/反面 <ion-text color="danger">*</ion-text></ion-label>
+
+    <!--  -->
+    <div padding class="login_content" [hidden]="userInfo.is_dailishang != 0">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <ion-item>
+                <ion-label>
+                    <ion-text color="danger">*</ion-text>姓名:
+                </ion-label>
+                <ion-input required formControlName="name" type="text" [(ngModel)]="Data.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-text color="danger">*</ion-text>身份证号:
+                </ion-label>
+                <ion-input required formControlName="idCardNumber" type="text" [(ngModel)]="Data.idCardNumber">
+                </ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-text color="danger">*</ion-text>手机号:
+                </ion-label>
+                <ion-input required formControlName="tel" type="tel" [(ngModel)]="Data.tel"></ion-input>
+            </ion-item>
+            <div class="upload-title">
+                <ion-label>
+                    <ion-text color="danger">*</ion-text>身份证正/反面:
+                </ion-label>
+            </div>
+            <div class="upload">
+                <ImagePicker [files]="files" [selectable]="files.length < 2" [multiple]="multipleTab === 2"
+                    (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
+            </div>
+            <!-- <div>
+            <ion-label><ion-text color="danger">*</ion-text>身份证正/反面: </ion-label>
             <ImagePicker [files]="files"
                      [selectable]="files.length < 2"
                      [multiple]="multipleTab === 2"
                      (onChange)="fileChange($event)"
                      (onImageClick)="imageClick($event)"></ImagePicker>
-        </div>
-          <ion-item>
-              <ion-label>同意协议</ion-label>
-              <ion-checkbox slot="start" required formControlName="agree"></ion-checkbox>
+        </div> -->
+
+            <ion-item lines="none">
+                <ion-label>同意协议</ion-label>
+                <ion-checkbox slot="start" required formControlName="agree"></ion-checkbox>
             </ion-item>
-        <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
-          确定
-        </ion-button>
-        <ion-button block color="primary" (click)="cancel()">
-          取消
-        </ion-button>
-      </form>
+
+            <div class="btn_box">
+                <ion-button block expand="block" color="primary" class="active_button" type="submit"
+                    [disabled]="loginForm.invalid">
+                    确定
+                </ion-button>
+                <ion-button block expand="block" class="courr_button" (click)="cancel()">
+                    取消
+                </ion-button>
+                <!-- <ion-button expand="block" class="active_button" type="submit" [disabled]="loginForm.invalid">
+                    确定
+                </ion-button>
+                <ion-button expand="block" class="courr_button" (click)="cancel()">取消</ion-button> -->
+            </div>
+
+
+        </form>
     </div>
 </ion-content>

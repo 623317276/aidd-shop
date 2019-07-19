@@ -1,62 +1,66 @@
-<ion-header>
+<ion-header class="card-background-page">
 
-  <ion-toolbar>
-      <ion-buttons slot="start" routerDirection="back">
-          <ion-back-button [text]="'返回'"></ion-back-button>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" routerDirection="back">
+            <ion-back-button [text]="'返回'"></ion-back-button>
         </ion-buttons>
-    <ion-title>商品详情</ion-title>
-  </ion-toolbar>
-  
+        <ion-title>商品详情</ion-title>
+    </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
 
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content
-        pullingIcon="arrow-dropdown"
-        pullingText="下拉刷新..."
-        refreshingSpinner="circles"
-        refreshingText=" 加载中...">
-      </ion-refresher-content>
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新..." refreshingSpinner="circles"
+            refreshingText=" 加载中...">
+        </ion-refresher-content>
     </ion-refresher>
 
-<div [hidden]="showPage">
-  
-<ion-slides>
-    <ion-slide>
-        <ion-img [routerLink]="['/shop-diy']" [src]="Data.images"></ion-img>      
-  </ion-slide>
-</ion-slides>
+    <div [hidden]="showPage">
+
+        <ion-slides>
+            <ion-slide>
+                <ion-img [routerLink]="['/shop-diy']" [src]="Data.images"></ion-img>
+            </ion-slide>
+        </ion-slides>
+
+
+        <ion-grid fixed padding>
+            <ion-row>
+                <ion-col>
+                    <ion-text class="title_text">{{Data.name}}</ion-text>
+                </ion-col>
+                <!-- <ion-col style="text-align: right;">
+            <ion-label>{{Data.fictitious === '1' ? '实物' : '虚拟物品'}}</ion-label>
+            </ion-col> -->
+            </ion-row>
+            <ion-row>
+                <ion-col size="6">
+                    <ion-label [hidden]="Data.mode == 2">￥:{{Data.price}}</ion-label>
+                    <ion-label [hidden]="Data.mode == 1">积分:{{Data.price}}</ion-label>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-label>-</ion-label><ion-input placeholder="Address Line 2"></ion-input><ion-label>+</ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
 
 
-<ion-grid fixed padding>
-  <ion-row>
-    <ion-col><ion-label>{{Data.name}}</ion-label></ion-col>
-    <ion-col style="text-align: right;">
-      <ion-label>{{Data.fictitious === '1' ? '实物' : '虚拟物品'}}</ion-label>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-      <ion-col>
-        <ion-label [hidden]="Data.mode == 2">￥:{{Data.price}}</ion-label>
-        <ion-label [hidden]="Data.mode == 1">积分:{{Data.price}}</ion-label>
-      </ion-col>
-    </ion-row>
-</ion-grid>
+        <ion-item class="shop_info" lines="none">
+            <ion-label position="stacked">商品详情：</ion-label>
+            <!-- [innerHtml]="assembleHTML(Data.content)" -->
+            <div>是否合适了开服活动是佛是否山东矿机还鬼哭数据啊党和国家卡萨丁很关键看的撒回访记录四大行福克斯的回复见客户萨菲罗斯氪金大佬开发解放路开始大家奥拉夫咖啡是父节点坑两份 几十块的垃圾分类开始大家发了多少罚款了几点上来附近的顺口溜核发的酸辣粉就德生科技福达合金发黄金时代开发是大黄会计法和德生科技返回圣诞节开发收到货付款角度来说阖家安康删掉了开关和四大皆空返回都是看见过很多房间看个梵蒂冈地方了估计哦我哦热加工快递费栏事件孤苦伶仃复合弓东方精工梵蒂冈那父节点，干哈梵蒂冈经费抵抗力个的父级看过你打飞机可给你发的监控干哈的借款方个后端开发是就不能少放到控件给你看节点父京昆高速，改还是点开链接
+                时代峰峻卡号是少考虑减肥的沙隆达荆防颗粒绝对是离开发几啊圣诞快乐返回的螺丝孔发上来的合肥市肯德基很过分肯德基gSDFDS FSDF SDF SDF DSF SD FSDF SDF Shkl</div>
+        </ion-item>
 
-
-<ion-item>
-  <ion-label position="stacked">商品详情：</ion-label>
-  <div [innerHtml]="assembleHTML(Data.content)"></div>
-</ion-item>
-
-<div style="position: fixed; bottom:0px; width: 100%; background-color:white;">
-    <ion-button style="float: right; width: 50%" (click)="buy()">购买</ion-button>
-</div>
-
-</div>
-
+    </div>
+    <div style="position: fixed; bottom:0px; width: 100%; background-color:white;">
+            <section class="full-width">
+                    <ion-button expand="full" color="primary" (click)="buy()">购买</ion-button>
+                </section>
+    </div>
 
 
 </ion-content>

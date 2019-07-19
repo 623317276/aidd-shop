@@ -1,18 +1,21 @@
-<ion-header>
 
-  <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button [text]="'返回'"></ion-back-button>
+<ion-header class="card-background-page">
+
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button [text]="'返回'"></ion-back-button>
         </ion-buttons>
-    <ion-title>扫我注册</ion-title>
-  </ion-toolbar>
+        <ion-title>扫我注册</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div padding style="text-align: center;">
+        <div class="code_box">
+            <qr-code [value]="common.appDomain + 'reg/' + userInfo.mobile" [size]="200"></qr-code>
+            <p class="code_text">扫码注册</p>
+        </div>
+        <!-- <p color="danger" padding>二维码不用你后台生成，前台自动生成</p> -->
+    </div>
 
-  <div padding style="text-align: center;">
-      <qr-code [value]="common.appDomain + '#/reg/;pmobile=' + userInfo.mobile" [size]="200"></qr-code>
-      <p color="danger" padding>扫我注册</p>
-  </div>
-  
 </ion-content>
