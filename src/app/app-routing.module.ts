@@ -23,6 +23,9 @@ const routes: Routes = [
   { path: 'manage-goods', loadChildren: './page/manage-goods/manage-goods.module#ManageGoodsPageModule' , canActivate:[LoginguardService]},
   { path: 'manage-edit-goods/:id', loadChildren: './page/manage-edit-goods/manage-edit-goods.module#ManageEditGoodsPageModule' , canActivate:[LoginguardService]},
   { path: 'confirm-order', loadChildren: './page/confirm-order/confirm-order.module#ConfirmOrderPageModule' , canActivate:[LoginguardService]},
+  { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' , canActivate:[LoginguardService]},
+  { path: 'edit-nickname', loadChildren: './page/edit-nickname/edit-nickname.module#EditNicknamePageModule' , canActivate:[LoginguardService]},
+  { path: 'textarea', loadChildren: './page/textarea/textarea.module#TextareaPageModule' },
 
   // 都能访问的页面
   { path: 'reg', loadChildren: './page/reg/reg.module#RegPageModule' },
@@ -31,8 +34,7 @@ const routes: Routes = [
   // { path: 'credit-granting', loadChildren: './page/credit-granting/credit-granting.module#CreditGrantingPageModule' },
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
   { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
-  { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' },
-  { path: 'edit-nickname', loadChildren: './page/edit-nickname/edit-nickname.module#EditNicknamePageModule' },
+
 
 
 

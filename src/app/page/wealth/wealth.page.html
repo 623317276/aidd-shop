@@ -13,12 +13,6 @@
 
 
 <ion-content>
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新..." refreshingSpinner="circles"
-            refreshingText=" 加载中...">
-        </ion-refresher-content>
-    </ion-refresher>
-
 
     <ion-segment (ionChange)="segmentChanged($event)" value="balance">
         <ion-segment-button value="balance">

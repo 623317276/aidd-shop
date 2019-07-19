@@ -14,7 +14,6 @@ import { Router,ActivatedRoute } from '@angular/router';
   styleUrls: ['./wealth.page.scss'],
 })
 export class WealthPage implements OnInit {
-  public refresh;
   public segment:string = 'balance'; // 用于控制选中
   public Data:any = {};
   public userInfo:any = {};
@@ -53,22 +52,12 @@ export class WealthPage implements OnInit {
     this.getData();
   }
 
-  doRefresh(event){
-    this.refresh = event;
-    this.getData();  
-  }
 
   getData(){
     this.http.get(this.common.getWealth).subscribe((res:any)=>{
       this.rate.cash = res.data.cash;
       this.rate.integral = res.data.integral;
-      if(this.refresh){
-        this.refresh.target.complete();
-      }
     },error => {
-      if(this.refresh){
-        this.refresh.target.complete();
-      }
       this.toast.presentToast('比例获取失败，下拉重新获取');
     });
   }

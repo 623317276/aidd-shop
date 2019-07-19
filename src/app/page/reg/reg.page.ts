@@ -30,6 +30,7 @@ export class RegPage implements OnInit {
 
   ngOnInit() {
     this.regData.pmobile = this.activatedRouter.snapshot.paramMap.get('pmobile');
+    console.log(this.regData.pmobile);
     if(!this.regData.pmobile){
         this.regData.pmobile = '0';
     }

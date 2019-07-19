@@ -39,6 +39,8 @@ export class Tab3Page {
       this.getData();
   }
 
+
+
   assembleHTML(strHTML: any) {
     return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
@@ -51,15 +53,7 @@ export class Tab3Page {
   }
 
   getData(){
-    forkJoin(
-      this.http.get(this.common.aboutUs), // 关于我们
-    ).subscribe((res:any) => {
-      this.Data.aboutUs = res[0].data.about_us;
-      this.Data.rule = res[0].data.rule;
-      // console.log(this.Data.aboutUs);
-    }, error => {
-      console.log(error)
-    })
+ 
   }
 
   changePws(type:string='pay'){

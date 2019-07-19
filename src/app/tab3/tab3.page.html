@@ -19,7 +19,7 @@
             <ion-label [routerLink]="['/cash-detail/integral']"><p>积分： {{userInfo.integral}}</p></ion-label>
         </ion-item>
       </ion-card>
-
+<!-- 
       <ion-segment (ionChange)="segmentChanged($event)" value="person" padding style="padding-top: 0px;">
           <ion-segment-button value="person" >
             <ion-label>个人资料</ion-label>
@@ -30,7 +30,7 @@
           <ion-segment-button value="about">
             <ion-label>关于我们</ion-label>
           </ion-segment-button>
-      </ion-segment>
+      </ion-segment> -->
 
       <!-- 个人资料部分 -->
 <div padding [hidden]="segment != 'person'">
@@ -82,15 +82,17 @@
         </ion-item>
         <ion-item>
                 <ion-label>关于我们：</ion-label>
-                <ion-label class="text-right" [routerLink]="['/address']">
+                <ion-label class="text-right" [routerLink]="['/textarea']" [queryParams]="{type:'aboutUs'}">
                     <ion-icon name="arrow-forward"></ion-icon>
                 </ion-label>
             </ion-item>
-        <!-- <ion-item>
-            <ion-label>是否开启托管：</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
+         <ion-item>
+            <ion-label>规则：</ion-label>
+            <ion-label class="text-right" [routerLink]="['/textarea']" [queryParams]="{type:'rule'}">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </ion-label>
         </ion-item>
-        <ion-item>
+       <!-- <ion-item>
             <ion-label>注册时间：</ion-label>
             <ion-label class="text-right">2019-06-12 22:29</ion-label>
         </ion-item> -->
@@ -99,16 +101,16 @@
       <!-- 个人资料部分 -->
 
       <!-- 规则部分 -->
-      <div padding [hidden]="segment != 'rule'">
+      <!-- <div padding [hidden]="segment != 'rule'">
           <ion-text color="primary" [innerHtml]="assembleHTML(Data.rule)"></ion-text>
 
-      </div>
+      </div> -->
       <!-- 规则部分 -->
       
       <!-- 关于我们部分 -->
-      <div padding [hidden]="segment != 'about'">
+      <!-- <div padding [hidden]="segment != 'about'">
           <ion-text color="primary" [innerHtml]="assembleHTML(Data.aboutUs)"></ion-text>
-      </div>
+      </div> -->
       <!-- 关于我们部分 -->
 
 </ion-content>
