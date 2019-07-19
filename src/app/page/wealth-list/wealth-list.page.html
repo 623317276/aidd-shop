@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="card-background-page">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button [text]="'返回'"></ion-back-button>
@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content>
-
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content
           pullingIcon="arrow-dropdown"
@@ -18,29 +17,32 @@
         </ion-refresher-content>
       </ion-refresher>
   
-    <ion-segment (ionChange)="segmentChanged($event)" value="balance" padding>
+    <ion-segment (ionChange)="segmentChanged($event)" value="balance">
         <ion-segment-button value="balance" >
-          <ion-label>余额充值</ion-label>
+          <ion-label>余额充值记录</ion-label>
         </ion-segment-button>
         <ion-segment-button value="integral">
-          <ion-label>积分充值</ion-label>
+          <ion-label>积分充值记录</ion-label>
         </ion-segment-button>
     </ion-segment>
     
     <!-- 余额充值 -->
-   <div padding [hidden]="segment != 'balance'">
+   <div [hidden]="segment != 'balance'" style="padding-top: 1px" class="list_box" >
       <ion-list>
-          <ion-item>
-            <ion-label>充值数量</ion-label>
-            <ion-label>状态</ion-label>
-            <ion-label>时间</ion-label>
-          </ion-item>
+          <div class="item-header">
+                <ion-item  lines="none">
+                        <ion-label>充值金额(元)</ion-label>
+                        <ion-label>状态</ion-label>
+                        <ion-label>时间</ion-label>
+                      </ion-item>
+          </div>
+          
           <ion-item [hidden]="load">
               <ion-label></ion-label>
               <ion-label><ion-spinner name="crescent" ></ion-spinner></ion-label>
               <ion-label></ion-label>          
         </ion-item>
-          <ion-item *ngFor="let item of Data.cash; let i=index" [hidden]="!load">
+          <ion-item *ngFor="let item of Data.cash; let i=index" [hidden]="!load" lines="none">
             <ion-label>{{item.amount}}</ion-label>
             <ion-label>{{item.status}}</ion-label>
             <ion-label>{{item.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
@@ -56,19 +58,21 @@
   <!-- 余额充值 -->
   
   <!-- 积分充值 -->
-  <div padding [hidden]="segment != 'integral'">
+  <div [hidden]="segment != 'integral'" style="padding-top: 1px" class="list_box">
       <ion-list>
-          <ion-item>
+            <div class="item-header">
+          <ion-item lines="none">
               <ion-label>充值数量</ion-label>
               <ion-label>状态</ion-label>
               <ion-label>时间</ion-label>
             </ion-item>
+            </div>
             <ion-item [hidden]="load">
                 <ion-label></ion-label>
                 <ion-label><ion-spinner name="crescent" ></ion-spinner></ion-label>
                 <ion-label></ion-label>          
           </ion-item>
-          <ion-item *ngFor="let item of Data.integral; let i=index" [hidden]="!load">
+          <ion-item *ngFor="let item of Data.integral; let i=index" [hidden]="!load" lines="none">
               <ion-label>{{item.amount}}</ion-label>
               <ion-label>{{item.status}}</ion-label>
               <ion-label>{{item.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>

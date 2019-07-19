@@ -1,89 +1,109 @@
-<ion-header>
- 
-  <ion-toolbar>
-
-      <ion-buttons slot="start" [routerLink]="['/tabs/tab1']">
-        <ion-back-button [text]="'返回'"></ion-back-button>
-      </ion-buttons>
-
-    <ion-title>充值</ion-title>
-
-    <ion-buttons slot="primary" [routerLink]="['/wealth-list']">
-      <ion-label>充值记录</ion-label>
-    </ion-buttons>
-  </ion-toolbar>
-  
+<ion-header class="card-background-page">
+    <ion-toolbar>
+        <ion-buttons  [routerLink]="['/tabs/tab1']">
+            <ion-back-button [text]="'返回'"></ion-back-button>
+        </ion-buttons>
+        <ion-title>充值</ion-title>
+        <ion-buttons slot="primary" [routerLink]="['/wealth-list']">
+            <ion-label>充值记录</ion-label>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content>
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-          pullingIcon="arrow-dropdown"
-          pullingText="下拉刷新..."
-          refreshingSpinner="circles"
-          refreshingText=" 加载中...">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新..." refreshingSpinner="circles"
+            refreshingText=" 加载中...">
         </ion-refresher-content>
-      </ion-refresher>
+    </ion-refresher>
 
 
-  <ion-segment (ionChange)="segmentChanged($event)" value="balance" padding>
-    <ion-segment-button value="balance" >
-      <ion-label>余额充值</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="integral">
-      <ion-label>积分充值</ion-label>
-    </ion-segment-button>
-</ion-segment>
+    <ion-segment (ionChange)="segmentChanged($event)" value="balance">
+        <ion-segment-button value="balance">
+            <ion-label>余额充值</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="integral">
+            <ion-label>积分充值</ion-label>
+        </ion-segment-button>
+    </ion-segment>
 
-   <!-- 余额充值 -->
-   <div padding [hidden]="segment != 'balance'">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit('balance')">
-      <ion-item>
-        <ion-label position="floating">数量 <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required formControlName="number" type="number" [(ngModel)]="Data.number"></ion-input>
-      </ion-item>
-      <div>
-        <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
-        <ImagePicker [files]="files"
-                 [selectable]="files.length < 1"
-                 [multiple]="multipleTab === 1"
-                 (onChange)="fileChange($event)"
-                 (onImageClick)="imageClick($event)"></ImagePicker>
+    <!-- 余额充值 -->
+    <div padding [hidden]="segment != 'balance'">
+        <div class="login_content">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit('balance')">
+                <ion-item>
+                    <ion-label>
+                        <ion-text color="danger">*</ion-text>数量:
+                    </ion-label>
+                    <ion-input required formControlName="number" type="number" [(ngModel)]="Data.number"></ion-input>
+                </ion-item>
+                <div class="upload-title">
+                    <ion-label>
+                        <ion-text color="danger">*</ion-text>上传凭证
+                    </ion-label>
+                </div>
+                <div class="upload">
+                    <ImagePicker [files]="files" [selectable]="files.length < 1" [multiple]="multipleTab === 1"
+                        (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
+                </div>
+
+                <div class="login_btn">
+                    <button class="login_button" block color="primary" type="submit" [disabled]="loginForm.invalid">
+                        提交
+                    </button>
+
+                </div>
+            </form>
+        </div>
+
     </div>
-      <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
-        提交
-      </ion-button>
-    </form>
-</div>
-<!-- 余额充值 -->
+    <!-- 余额充值 -->
 
-<!-- 积分充值 -->
-<div padding [hidden]="segment != 'integral'">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit('integral')">
-    <ion-item>
-      <ion-label position="floating">数量(1现金={{rate.integral}}积分) <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required formControlName="number" type="number" [(ngModel)]="Data.number"></ion-input>
-    </ion-item>
-    
-    <!-- <ion-item>
+    <!-- 积分充值 -->
+    <div padding [hidden]="segment != 'integral'">
+            <div class="login_content">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit('integral')">
+            <ion-item>
+                <ion-label> <ion-text color="danger">*</ion-text>充值数量：
+                </ion-label>
+                <ion-input required formControlName="number" placeholder="(1现金={{rate.integral}}积分)" type="number" [(ngModel)]="Data.number"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item>
         <ion-label position="floating">积分 <ion-text color="danger">*</ion-text></ion-label>
         <ion-input formControlName="numbers" type="number" [disabled]="true">{{loginForm.controls.number.value * 10}} </ion-input>
     </ion-item> -->
 
-    <div>
-        <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text></ion-label>
-        <ImagePicker [files]="files"
-                 [selectable]="files.length < 1"
-                 [multiple]="multipleTab === 1"
-                 (onChange)="fileChange($event)"
-                 (onImageClick)="imageClick($event)"></ImagePicker>
-    </div>
+    <div class="upload-title">
+            <ion-label>
+                <ion-text color="danger">*</ion-text>上传凭证
+            </ion-label>
+        </div>
+        <div class="upload">
+                <ImagePicker [files]="files" [selectable]="files.length < 1" [multiple]="multipleTab === 1"
+                (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
+        </div>
 
-    <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
-      提交
-    </ion-button>
-  </form>
-</div>
-<!-- 积分充值 -->
+            <!-- <div>
+                <ion-label position="floating">上传凭证 <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ImagePicker [files]="files" [selectable]="files.length < 1" [multiple]="multipleTab === 1"
+                    (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
+            </div> -->
+            <div class="login_btn" fixed>
+                    <button class="login_button" block color="primary" type="submit" [disabled]="loginForm.invalid">
+                        提交
+                    </button>
+
+                </div>
+            <!-- <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+                提交
+            </ion-button> -->
+        </form>
+        </div>
+    </div>
+    <!-- 积分充值 -->
 
 </ion-content>

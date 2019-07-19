@@ -1,0 +1,53 @@
+.sc-ion-back-button-ios-h{
+    --color: #fff;
+  }
+.card-background-page{
+    ion-toolbar{
+    --background:#FE6176;
+      color:#fff;
+
+    }
+    ion-title{
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    ion-icon{
+        width: 24px;
+        height: 24px;
+    }
+ 
+
+  }
+  ion-item{
+    --padding-start: 0px;
+    text-align: center;
+}
+.item-inner{
+    padding-left:16px;
+}
+  .list_box {
+    ion-label{
+        color: #333;
+        font-size: 14px;
+    }
+}
+
+.item-header{
+    ion-item{
+        --background: rgb(248, 194, 186);
+    }
+    ion-label{
+        color: #333;
+        font-size: 14px;
+    }
+}
+
+ion-item:nth-child(1n){
+    
+    --background: rgb(252, 226, 223);
+}
+
+ion-item:nth-child(2n){
+    --background: rgb(253, 238, 235);
+}

@@ -1,0 +1,67 @@
+
+.card-background-page{
+    ion-toolbar{
+    --background:#FE6176;
+      color:#fff;
+
+    }
+    ion-title{
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    ion-icon{
+        width: 24px;
+        height: 24px;
+    }
+ 
+
+  }
+  .login_content{
+    margin-top:1em;
+    padding-right: 16px
+}
+.login_content ion-label{
+    font-size: 0.875em
+}
+
+  .login_btn{
+    margin-top: 2.5em;
+    padding:0 16px;
+}
+.login_btn {
+    ion-button{
+    width: 100%;
+    border-radius: 4px;
+    --border-radius: 4px;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 1em;
+    --padding-end: 1em;
+    --transition: background-color,opacity 100ms linear;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    height: 2.8em;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    border:1px solid #FE6176;
+    --background:#fff;
+    --opacity: 1;
+    }
+    .active_button{
+
+            --background:#FE6176;
+            color: #fff
+        
+        
+    }
+    
+    .courr_button{
+        background: #fff;
+        color: #333;
+        --background-activated:#FE6176;
+        
+    }
+}
+

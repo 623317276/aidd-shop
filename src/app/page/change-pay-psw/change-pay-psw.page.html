@@ -1,31 +1,48 @@
-<ion-header>
+<!-- <ion-header class="card-background-pag">
   <ion-toolbar>
-    <ion-title [hidden]="data.type != 'pay'">change-pay-psw</ion-title>
-    <ion-title [hidden]="data.type != 'login'">change-login-psw</ion-title>
+    <ion-title [hidden]="data.type != 'pay'">修改支付密码</ion-title>
+    <ion-title [hidden]="data.type != 'login'">修改登录密码</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+
+
+<ion-header class="card-background-page">
+        <ion-toolbar>
+                <ion-title [hidden]="data.type != 'pay'">修改支付密码</ion-title>
+                <ion-title [hidden]="data.type != 'login'">修改登录密码</ion-title>
+              </ion-toolbar>
+    </ion-header>
 
 <ion-content>
+        <div class="login_content">
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <ion-item>
-    <ion-label position="floating">输入旧密码 <ion-text color="danger">*</ion-text></ion-label>
+    <ion-label> <ion-text color="danger">*</ion-text>输入旧密码:</ion-label>
     <ion-input required formControlName="oldPsw" type="password" [(ngModel)]="editData.oldPsw"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">输入新密码 <ion-text color="danger">*</ion-text></ion-label>
+    <ion-label> <ion-text color="danger">*</ion-text>输入新密码:</ion-label>
     <ion-input required formControlName="newPsw" type="password" [(ngModel)]="editData.newPsw"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">确认新密码 <ion-text color="danger">*</ion-text></ion-label>
+    <ion-label><ion-text color="danger">*</ion-text>确认新密码: </ion-label>
     <ion-input required formControlName="confirmNewPsw" type="password" [(ngModel)]="editData.confirmNewPsw"></ion-input>
   </ion-item>
-  <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+  <!-- <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
     确定
   </ion-button>
   <ion-button block color="primary" (click)="cancel()">
     取消
-  </ion-button>
+  </ion-button> -->
+  <div class="login_btn">
+
+        <ion-button expand="block" class="active_button" type="submit" [disabled]="loginForm.invalid">
+                确定
+              </ion-button>
+        <ion-button expand="block" class="courr_button" (click)="cancel()">取消</ion-button>
+    </div>
 </form>
+</div>
 
 
 </ion-content>

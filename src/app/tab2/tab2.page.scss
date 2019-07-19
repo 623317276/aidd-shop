@@ -1,3 +1,38 @@
 /deep/ .am-badge {
     text-align: right;
   }
+.shop_list{
+    ion-card-header{
+        padding:8px;
+        overflow: hidden;
+    }
+    ion-card-subtitle{
+        font-weight: normal;
+    }
+}
+ .shop_list .sc-ion-card-ios-h {
+    margin-left: unset;
+    margin-right: unset;
+     -webkit-margin-start: 0; 
+     margin-inline-start: 0px; 
+     -webkit-margin-end: 0px; 
+     margin-inline-end: 0px; 
+     margin: 0;
+}
+
+.shop_list .card-content-ios {
+    margin-top: 8px;
+    padding:0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    height: 40px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    width:100%;
+}
+.shop_list  .img_box{
+    width: 100%;
+    height: 145px;
+    max-height:100% ;
+    border-bottom: 1px solid #ddd
+}
