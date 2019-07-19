@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" routerDirection="back">
+          <ion-back-button [text]="'返回'"></ion-back-button>
+        </ion-buttons>
+    <ion-title>确认订单</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+      <div>
+
+      <ion-card>
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>xx收货人  18888888888</ion-label>
+          <ion-icon name="arrow-forward" slot="end"></ion-icon>
+        </ion-item>
+      
+        <ion-card-content>
+          广东省深圳市罗湖区xx路xx号
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card>
+          <ion-item padding>
+            <ion-img style="width: 100px; height:100px;" [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'"></ion-img>
+            <ion-label>这里是商品名称</ion-label>
+              
+
+          </ion-item>
+        </ion-card>
+
+      </div>
+</ion-content>
