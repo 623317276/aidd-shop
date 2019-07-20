@@ -33,7 +33,8 @@ const routes: Routes = [
   // { path: 'gold-master', loadChildren: './page/gold-master/gold-master.module#GoldMasterPageModule' },
   // { path: 'credit-granting', loadChildren: './page/credit-granting/credit-granting.module#CreditGrantingPageModule' },
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
-  { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
+  { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },  { path: 'news', loadChildren: './page/news/news.module#NewsPageModule' },
+
 
 
 

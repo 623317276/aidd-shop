@@ -37,7 +37,7 @@
           <ion-item *ngFor="let item of Data.cash; let i=index" [hidden]="!load" lines="none">
             <ion-label>{{item.amount}}</ion-label>
             <ion-label>{{item.status}}</ion-label>
-            <ion-label>{{item.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
+            <ion-label>{{item.create_time}}</ion-label>
           </ion-item>
           <ion-item [hidden]="cashHidden">
               <ion-label></ion-label>
@@ -67,7 +67,7 @@
           <ion-item *ngFor="let item of Data.integral; let i=index" [hidden]="!load" lines="none">
               <ion-label>{{item.amount}}</ion-label>
               <ion-label>{{item.status}}</ion-label>
-              <ion-label>{{item.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
+              <ion-label>{{item.create_time}}</ion-label>
           </ion-item>
           <ion-item [hidden]="integralHidden">
               <ion-label></ion-label>
