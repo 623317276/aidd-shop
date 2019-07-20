@@ -19,3 +19,33 @@
 .shop_info{
     padding-bottom: 50px;
 }
+
+.shop_title{
+    background: #F4F3F3;
+    --background: #F4F3F3;
+}
+
+.num_box{
+    overflow: hidden;
+}
+.num_btn{
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    background: #D5D4D3;
+    text-align: center;
+    
+}
+.num_input{
+    width: 60px; 
+    float: right;
+    border: 1px solid #D5D4D3;
+    background: #fff; 
+    overflow: hidden;
+    text-align: center;
+    --padding-start: 5px; 
+    --padding-end: 5px; 
+    --padding-top: 3px;
+    --padding-bottom: 3px;
+}

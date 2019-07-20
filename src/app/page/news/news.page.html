@@ -1,29 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button [text]="''"></ion-back-button>
-    </ion-buttons>
-    <ion-title>news</ion-title>
-  </ion-toolbar>
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button [text]="''"></ion-back-button>
+        </ion-buttons>
+        <ion-title>公告</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <NoticeBar *ngIf="!isMobile"
-    style="margin-bottom: 10px"
-    [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
-></NoticeBar>
-<PullToRefresh [ngStyle]="dtPullToRefreshStyle"
-        [direction]="state.direction"
-        [(ngModel)]="state.refreshState"
-        [endReachedRefresh]="state.endReachedRefresh"
-        (onRefresh)="pullToRefresh($event)"
->
-<div *ngFor="let i of this.state.data" style="text-align: center; padding: 20px">{{i}}</div>
-</PullToRefresh>
+    <NoticeBar *ngIf="!isMobile" style="margin-bottom: 10px; padding: 20px"
+        [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"></NoticeBar>
+    <PullToRefresh [ngStyle]="dtPullToRefreshStyle" [direction]="state.direction" [(ngModel)]="state.refreshState"
+        [endReachedRefresh]="state.endReachedRefresh" (onRefresh)="pullToRefresh($event)">
+            <ion-list>
+                  <ion-item *ngFor="let i of this.state.data">
+                    <ion-label>
+                      <h3><span style="font-size: 18px;margin-right: 4px">·</span>{{i}}荣耀MagicBook新品活动公告</h3>
+                    </ion-label>
+                  </ion-item>
+            </ion-list>
 
-<ng-template #loading>
-<Icon type="loading"></Icon>
-</ng-template>
+    </PullToRefresh>
+
+    <ng-template #loading>
+        <Icon type="loading"></Icon>
+    </ng-template>
 
 </ion-content>
