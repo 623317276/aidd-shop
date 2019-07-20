@@ -1,25 +1,7 @@
 .text-right{
     text-align: right;
 }
-.card-background-page{
-    ion-title{
-        font-weight: normal;
-        font-size: 18px;
-    }
 
-    ion-icon{
-        width: 24px;
-        height: 24px;
-    }
- 
-
-  }
-
-  .item_content{
-    ion-label{
-        font-size: 14px
-    }
-} 
 
 .logo_bg{
     height: 100px;
@@ -40,6 +22,7 @@
     font-size: 15px
 }
 
+
 .login_btn {
     margin-top: 2.5em;
     padding:0 16px;
@@ -56,10 +39,9 @@
         margin-top: 4px;
         margin-bottom: 15px;
         height: 2.8em;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         letter-spacing: -0.03em;
-        border:1px solid #FE6176;
         --background:#fff;
         --opacity: 1;
     }
@@ -70,5 +52,22 @@
         color: #FE6176;
         --background-activated:#FE6176;
         
+        
     }
 }
+
+.item_content {
+    ion-item{
+        --padding-start: 0;
+    }
+
+    ion-icon{
+        margin-right: 8px;
+    }
+}
+
+[class^='icon'], [class*='icon'] {
+    
+    font-size: 24px;
+}
+
