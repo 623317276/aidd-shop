@@ -1,25 +1,72 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      我的
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <ion-buttons [routerLink]="['/tabs/tab1']">
+            <ion-back-button [text]="'返回'"></ion-back-button>
+        </ion-buttons>
+        <ion-title>我的</ion-title>
+        <ion-buttons slot="primary" [routerLink]="['/textarea']" [queryParams]="{type:'rule'}">
+            <ion-label>规则</ion-label>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content>
+    <div padding class="logo_bg">
+            <ion-list class="userinfo">
+                    <ion-item  lines="none" style="height: 70px;position: relative;">
+                      <ion-avatar slot="start">
+                            <ion-img style="width: 50px;height: 50px;"
+                            src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=418151285,2937997283&fm=26&gp=0.jpg">
+                        </ion-img>
+                      </ion-avatar>
+                      <ion-label >
+                        <h2 style="margin-top: 12px">昵称： {{userInfo.account}}<ion-icon name="create" (click)="changePws('edit-nickname')" ></ion-icon></h2>
+                        <p>{{userInfo.mobile}}</p>
+                      </ion-label>
+                      <ion-label style="position: absolute;bottom:0;right:0">
+                            <ion-img style="width: 21px;height: 19px;"
+                            src="/assets/images/shopImg.png"></ion-img>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none" style="position: relative;margin-top: 8px;">
+                            <ion-label  [routerLink]="['/cash-detail/cash']">
+                                <p>余额： <span class="red">{{userInfo.cash}}元</span></p>
+                            </ion-label>
+                            <ion-label [routerLink]="['/cash-detail/integral']">
+                                <p>积分： <span class="red">{{userInfo.integral}}</span></p>
+                            </ion-label>
+                            <ion-label style="position: absolute;top:-8px;right:-8px" [routerLink]="['/cash-detail/integral']">
+                                <ion-img style="width: 40px;height: 40px;"
+                            src="/assets/images/note.png"></ion-img>
+                            </ion-label>
+                        </ion-item>
+                  </ion-list>
+        <!-- <ion-card mode="ios">
+            <ion-item padding style="padding-bottom: 0px;">
 
-    <ion-card mode="ios">
-        <ion-item padding  style="padding-bottom: 0px;">
-          <ion-img style="width: 50px;padding: 5px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=418151285,2937997283&fm=26&gp=0.jpg"></ion-img>
-          <ion-label><p>昵称： {{userInfo.account}}</p></ion-label>
-          <ion-button fill="outline" slot="end" (click)="logout()"><p padding>退出</p></ion-button>
-        </ion-item> 
-        <ion-item padding style="padding-top: 0px;">
-            <ion-label [routerLink]="['/cash-detail/cash']"><p>余额： {{userInfo.cash}}</p></ion-label>
-            <ion-label [routerLink]="['/cash-detail/integral']"><p>积分： {{userInfo.integral}}</p></ion-label>
-        </ion-item>
-      </ion-card>
-<!-- 
+                <ion-img style="width: 50px;padding: 5px;"
+                    src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=418151285,2937997283&fm=26&gp=0.jpg">
+                </ion-img>
+                <ion-label>
+                    <p>昵称： {{userInfo.account}}</p>
+                </ion-label>
+                <ion-button fill="outline" slot="end" (click)="logout()">
+                    <p padding>退出</p>
+                </ion-button>
+            </ion-item>
+            <ion-item padding style="padding-top: 0px;">
+                <ion-label [routerLink]="['/cash-detail/cash']">
+                    <p>余额： {{userInfo.cash}}</p>
+                </ion-label>
+                <ion-label [routerLink]="['/cash-detail/integral']">
+                    <p>积分： {{userInfo.integral}}</p>
+                </ion-label>
+            </ion-item>
+        </ion-card> -->
+
+    </div>
+
+    <!-- 
       <ion-segment (ionChange)="segmentChanged($event)" value="person" padding style="padding-top: 0px;">
           <ion-segment-button value="person" >
             <ion-label>个人资料</ion-label>
@@ -32,85 +79,92 @@
           </ion-segment-button>
       </ion-segment> -->
 
-      <!-- 个人资料部分 -->
-<div padding [hidden]="segment != 'person'">
-    <ion-list>
-        <ion-item>
-          <ion-label>昵称：</ion-label>
-          <ion-label class="text-right" (click)="changePws('edit-nickname')">
-            {{userInfo.account}}
-            <ion-icon name="arrow-forward"></ion-icon>
-          </ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>手机号：</ion-label>
-            <ion-label class="text-right">{{userInfo.mobile}}</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>邀请人：</ion-label>
-            <ion-label class="text-right">{{userInfo.pmobile}}</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>修改登陆密码：</ion-label>
-            <ion-label class="text-right" (click)="changePws('login')">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>修改支付密码：</ion-label>
-            <ion-label class="text-right" (click)="changePws('pay')">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </ion-label>
-        </ion-item>
-        <ion-item [hidden]="userInfo.is_dailishang == '2'">
-            <ion-label>申请开店：</ion-label>
-            <ion-label class="text-right" (click)="changePws('set-up-shop')">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </ion-label>
-        </ion-item>
-        <ion-item [hidden]="userInfo.is_dailishang != '2'">
-            <ion-label>我的店铺：</ion-label>
-            <ion-label class="text-right" [routerLink]="['/my-shop']">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>收货地址：</ion-label>
-            <ion-label class="text-right" [routerLink]="['/address']">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </ion-label>
-        </ion-item>
-        <ion-item>
-                <ion-label>关于我们：</ion-label>
+    <!-- 个人资料部分 -->
+    <div padding [hidden]="segment != 'person'">
+        <ion-list>
+            <!-- <ion-item>
+                <ion-label>昵称：</ion-label>
+                <ion-label class="text-right" (click)="changePws('edit-nickname')">
+                    {{userInfo.account}}
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item> -->
+            <!-- <ion-item>
+                <ion-label>手机号：</ion-label>
+                <ion-label class="text-right">{{userInfo.mobile}}</ion-label>
+            </ion-item> -->
+            <ion-item>
+                <ion-label>邀请人</ion-label>
+                <ion-label class="text-right">{{userInfo.pmobile}}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>修改登陆密码</ion-label>
+                <ion-label class="text-right" (click)="changePws('login')">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>修改支付密码</ion-label>
+                <ion-label class="text-right" (click)="changePws('pay')">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item>
+            <ion-item [hidden]="userInfo.is_dailishang == '2'">
+                <ion-label>申请开店</ion-label>
+                <ion-label class="text-right" (click)="changePws('set-up-shop')">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item>
+            <ion-item [hidden]="userInfo.is_dailishang != '2'">
+                <ion-label>我的店铺</ion-label>
+                <ion-label class="text-right" [routerLink]="['/my-shop']">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>收货地址</ion-label>
+                <ion-label class="text-right" [routerLink]="['/address']">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>关于我们</ion-label>
                 <ion-label class="text-right" [routerLink]="['/textarea']" [queryParams]="{type:'aboutUs'}">
                     <ion-icon name="arrow-forward"></ion-icon>
                 </ion-label>
             </ion-item>
-         <ion-item>
-            <ion-label>规则：</ion-label>
-            <ion-label class="text-right" [routerLink]="['/textarea']" [queryParams]="{type:'rule'}">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </ion-label>
-        </ion-item>
-       <!-- <ion-item>
+            <!-- <ion-item>
+                <ion-label>规则：</ion-label>
+                <ion-label class="text-right" [routerLink]="['/textarea']" [queryParams]="{type:'rule'}">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-label>
+            </ion-item> -->
+            <!-- <ion-item>
             <ion-label>注册时间：</ion-label>
             <ion-label class="text-right">2019-06-12 22:29</ion-label>
         </ion-item> -->
-    </ion-list>
-</div>
-      <!-- 个人资料部分 -->
+        </ion-list>
+    </div>
+    <!-- 个人资料部分 -->
 
-      <!-- 规则部分 -->
-      <!-- <div padding [hidden]="segment != 'rule'">
+    <!-- 规则部分 -->
+    <!-- <div padding [hidden]="segment != 'rule'">
           <ion-text color="primary" [innerHtml]="assembleHTML(Data.rule)"></ion-text>
 
       </div> -->
-      <!-- 规则部分 -->
-      
-      <!-- 关于我们部分 -->
-      <!-- <div padding [hidden]="segment != 'about'">
+    <!-- 规则部分 -->
+
+    <!-- 关于我们部分 -->
+    <!-- <div padding [hidden]="segment != 'about'">
           <ion-text color="primary" [innerHtml]="assembleHTML(Data.aboutUs)"></ion-text>
       </div> -->
-      <!-- 关于我们部分 -->
+    <!-- 关于我们部分 -->
+
+    <div class="login_btn" >
+            <ion-button expand="block" fill="outline" slot="end" class="courr_button" (click)="logout()">
+                    <p padding>退出登录</p>
+            </ion-button>
+        </div>
+    
 
 </ion-content>

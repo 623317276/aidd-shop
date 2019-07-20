@@ -1,21 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>修改昵称</ion-title>
-  </ion-toolbar>
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <ion-title>修改昵称</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div class="login_content" >
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <ion-item>
+                <ion-label>
+                    新昵称:
+                </ion-label>
+                <ion-input required formControlName="nickName" type="text" [placeholder]="'输入昵称'"
+                    [(ngModel)]="editData.nickName"></ion-input>
+            </ion-item>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <ion-item>
-          <ion-input required formControlName="nickName" type="text" [placeholder]="'输入昵称'" [(ngModel)]="editData.nickName"></ion-input>
-        </ion-item> 
-        <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
-          确定
-        </ion-button>
-        <ion-button block color="primary" (click)="cancel()">
-          取消
-        </ion-button>
-      </form>
+            <div class="login_btn" >
+                <ion-button expand="block" color="primary" class="active_button" type="submit"
+                    [disabled]="loginForm.invalid">
+                    确定
+                </ion-button>
+                <ion-button expand="block" class="courr_button" (click)="cancel()">
+                    取消
+                </ion-button>
+            </div>
+        </form>
+    </div>
 
 </ion-content>
