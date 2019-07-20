@@ -1,0 +1,179 @@
+*{
+    font-size: 14px;
+}
+
+@font-face {font-family: "icon";
+    src: url('../font/iconfont.eot?t=1563598646201'); /* IE9 */
+    src: url('../font/iconfont.eot?t=1563598646201#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff?t=1563598646201') format('woff'),
+    url('../font/iconfont.ttf?t=1563598646201') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('../font/iconfont.svg?t=1563598646201#iconfont') format('svg'); /* iOS 4.1- */
+  }
+  
+  [class^='icon'],[class*='icon']{
+      font-family: 'icon' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+    //   font-size: 20px;
+    
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  
+  
+    .iconshangcheng11:before {
+        content: "\e64c";
+      }
+      
+      .iconguize:before {
+        content: "\e606";
+      }
+      
+      .icondianpu:before {
+        content: "\e657";
+      }
+      
+      .iconxiugaizhifumima-gerenzhongxin:before {
+        content: "\e638";
+      }
+      
+      .iconguanyuwomen:before {
+        content: "\e642";
+      }
+      
+      .icondizhi:before {
+        content: "\e622";
+      }
+      
+      .iconyaoqingren:before {
+        content: "\e662";
+      }
+      
+      .iconxiugaidenglumima:before {
+        content: "\e631";
+      }
+      
+      .iconxinzeng:before {
+        content: "\e729";
+      }
+      
+      .iconfanhui1-copy-copy:before {
+        content: "\e600";
+      }
+      
+      .iconfanhui:before {
+        content: "\e601";
+      }
+      
+      .iconfanhui1-copy-copy-copy:before {
+        content: "\e663";
+      }
+      
+      .iconxinzeng-copy:before {
+        content: "\e72a";
+      }
+
+      .iconwodedangxuan:before {
+        content: "\e607";
+      }
+      
+ion-tab-button {
+    ion-icon{
+        font-size: 28px;
+    }
+}
+
+
+
+.ion-icon{
+    width: 24px;
+    height: 24px;
+}
+
+
+  .card-background-page{
+    ion-title{
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    ion-icon{
+        width: 24px;
+        height: 24px;
+    }
+ 
+
+  }
+
+.item_content{
+    ion-label{
+        font-size: 14px
+    }
+} 
+
+
+
+
+.login_content ion-label{
+    font-size: 0.875em
+}
+
+ion-button{
+    --border-radius: 2px;
+}
+
+// 重置icon-item摸块按钮
+.item_content_list{
+    margin-top:1em;
+    padding-right: 16px
+}
+
+.item_content_list{
+    ion-label{
+        font-size: 14px;
+    }
+} 
+
+// 重置该模块里面的按钮
+.login_btn {
+    margin-top: 2.5em;
+    padding:0 16px;
+
+    ion-button{
+        width: 100%;
+        border-radius: 4px;
+        --border-radius: 4px;
+        --padding-top: 0;
+        --padding-bottom: 0;
+        --padding-start: 1em;
+        --padding-end: 1em;
+        --transition: background-color,opacity 100ms linear;
+        margin-top: 4px;
+        margin-bottom: 15px;
+        height: 2.8em;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        --background:#fff;
+        --opacity: 1;
+    }
+    
+    .active_button{
+            --background:#FE6176;
+            color: #fff
+        
+        
+    }
+    
+    .courr_button{
+        border:1px solid #666;
+        background: #fff;
+        color: #333;
+        --background-activated:#FE6176;
+        
+    }
+}
