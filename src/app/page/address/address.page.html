@@ -1,64 +1,86 @@
-<ion-header>
-  <ion-toolbar>
-      <!-- <ion-buttons slot="start">
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <!-- <ion-buttons slot="start">
           <ion-button (click)="cancel()">
             <ion-icon name="arrow-back"></ion-icon>
           </ion-button>
         </ion-buttons> -->
         <ion-buttons slot="start">
-          <ion-back-button [text]="''"></ion-back-button>
+            <ion-back-button [text]="''"></ion-back-button>
         </ion-buttons>
-      <ion-title>收货地址</ion-title>
+        <ion-title>收货地址</ion-title>
 
         <ion-label slot="primary" style="padding-right: 5px;" (click)="newAddress()">
-          <p color="dark">添加新地址</p>
+            <!-- <p color="dark">添加新地址</p> -->
+            <ion-icon name="add-circle-outline"></ion-icon>
         </ion-label>
     </ion-toolbar>
 
 
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen=true>
+    <!-- List of Sliding Items -->
+    <ion-list class="content_list" style="background: #F4F3F3" mode="ios">
+        <ion-item-sliding>
+            <ion-item class="item-con"  lines="none" >
+                <ion-card style="width: 100%">
+                    <ion-item lines="none">
+                        <ion-label style="maring-bottom:5px">
+                            <h3 class="float-left">嘻嘻嘻</h3><span class="address_tel" style="">18833882288</span>
+                            <span class="default" >默认</span>
+                        </ion-label>
+                        <ion-icon name="create" class="edit" ></ion-icon>
+                        <ion-icon name="trash" class="del" ></ion-icon>
+                    </ion-item>
+                    <ion-card-content  style="padding:0 16px 10px;font-size: 12px">
+                        广东省深圳市南山区粤海街道办事处001号
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+            <!-- <ion-item-options side="end">
+                <ion-item-option (click)="editAddress(1)" color="primary">修改</ion-item-option>
+                <ion-item-option (click)="delete(1)" color="danger">删除</ion-item-option>
+            </ion-item-options> -->
+        </ion-item-sliding>
 
-  <!-- List of Sliding Items -->
-<ion-list>
-    <ion-item-sliding>
-      <ion-item>
-          <ion-card  style="width: 100%">
-              <ion-item>
-                <ion-label>嘻嘻嘻：18833882288</ion-label>
-                <ion-button fill="outline" slot="end" >默认</ion-button>
-              </ion-item>
-              <ion-card-content>
-                  广东省深圳市南山区粤海街道办事处001号
-              </ion-card-content>
-            </ion-card>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="editAddress(1)" color="primary">修改</ion-item-option>
-        <ion-item-option (click)="delete(1)" color="danger">删除</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-sliding>
-        <ion-item>
-            <ion-card  style="width: 100%">
-                <ion-item>
-                  <ion-label>湖北武汉</ion-label>
-                  <ion-button fill="outline" slot="end">设为默认</ion-button>
+        <ion-item-sliding>
+                <ion-item class="item-con"  lines="none" >
+                    <ion-card style="width: 100%">
+                        <ion-item lines="none">
+                            <ion-label style="maring-bottom:5px">
+                                <h3 class="float-left">湖北武汉</h3><span class="address_tel" style="">18833882288</span>
+                                <span class="default" >设为默认</span>
+                            </ion-label>
+                            <ion-icon name="create" class="edit" ></ion-icon>
+                            <ion-icon name="trash" class="del" ></ion-icon>
+                        </ion-item>
+                        <ion-card-content  style="padding:0 16px 10px;font-size: 12px">
+                                粤海街道办事处002号
+                        </ion-card-content>
+                    </ion-card>
                 </ion-item>
-                <ion-card-content>
-                  粤海街道办事处002号
-                </ion-card-content>
-              </ion-card>
-        </ion-item>
-        <ion-item-options side="end">
-          <ion-item-option (click)="editAddress(1)" color="primary">修改</ion-item-option>
-          <ion-item-option (click)="delete(1)" color="danger">删除</ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+            </ion-item-sliding>
 
-  </ion-list>
-    
+        <!-- <ion-item-sliding>
+            <ion-item>
+                <ion-card style="width: 100%">
+                    <ion-item>
+                        <ion-label>湖北武汉</ion-label>
+                        <ion-button fill="outline" slot="end">设为默认</ion-button>
+                    </ion-item>
+                    <ion-card-content>
+                        粤海街道办事处002号
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option (click)="editAddress(1)" color="primary">修改</ion-item-option>
+                <ion-item-option (click)="delete(1)" color="danger">删除</ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding> -->
+
+    </ion-list>
+
 
 </ion-content>

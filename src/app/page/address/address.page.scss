@@ -1,0 +1,58 @@
+.float-left{
+    float: left;
+}
+
+ion-content{
+    --background:#F4F3F3
+}
+
+ion-card{
+    margin:0 0 15px 0 ;
+    border-radius: 4px;
+    -webkit-margin-start: 0px;
+    margin-inline-start: 0px;
+    -webkit-margin-end: 0px;
+    margin-inline-end: 0px;
+    background: #fff
+}
+
+.content_list{
+    padding: 16px 16px 0 16px;
+    ion-item{
+        --background: transparent;
+        background: transparent
+    }
+    
+
+}
+
+.item-con{
+    --padding-start:0px ;
+    --inner-padding-end: 0px;
+}
+
+.address_tel{
+    font-size: 12px;
+    float: left;
+    line-height: 20px;
+    margin-left: 8px
+}
+.address_user{
+
+}
+
+.edit{
+    color: #3880ff; font-size: 20px;margin-right: 10px 
+}
+
+.del{
+    color: #f04141; font-size: 20px
+}
+.default{
+    border: 1px dotted #FE6176; 
+    font-size: 12px;
+    margin-left: 8px;
+    color:#FE6176;
+    float: left;
+    padding:0 3px
+}
