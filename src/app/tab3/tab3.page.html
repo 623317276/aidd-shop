@@ -73,8 +73,8 @@
                         <h3>申请开店</h3>
                     </ion-label>
                 </ion-item>
-                <!-- [hidden]="userInfo.is_dailishang != '2'" -->
-                <ion-item button [routerLink]="['/my-shop']">
+                <!--  -->
+                <ion-item button [hidden]="userInfo.is_dailishang != '2'" [routerLink]="['/my-shop']">
                     <ion-icon slot="start" class="icondianpu" style="color:#7e57ff"></ion-icon>
                     <ion-label>
                         <h3>我的店铺</h3>
