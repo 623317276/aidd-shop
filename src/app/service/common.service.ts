@@ -28,6 +28,7 @@ export class CommonService {
   public getWealthList: string = this.domain+'user/get_wealth_list'; // 获取充值列表
   public applySetUpShop: string = this.domain+'user/apply_set_up_shop'; // 申请开店
   public getTranmoney: string = this.domain+'user/get_tranmoney'; // 获取用户资产变动记录
+  public getAssets: string = this.domain+'user/get_assets'; // 获取用户资产---个人中心里刷新个人资产数据使用
 
   public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页
