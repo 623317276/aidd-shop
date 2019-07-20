@@ -1,12 +1,53 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="card-background-page">
+        <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button [text]="'返回'"></ion-back-button>
     </ion-buttons>
-    <ion-title>manage-edit-goods</ion-title>
+    <ion-title>商品管理</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div padding>
+            <div class="login_content">
+                <form  >
+                    <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>商品名称:
+                        </ion-label>
+                        <ion-input required  type="number"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                            <ion-label>
+                                <ion-text color="danger">*</ion-text>价格:
+                            </ion-label>
+                            <ion-input required  type="number" ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                                <ion-label>
+                                    <ion-text color="danger">*</ion-text>数量:
+                                </ion-label>
+                                <ion-input required  type="number" ></ion-input>
+                            </ion-item>
+                    <div class="upload-title">
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>商品图片（最少一张）
+                        </ion-label>
+                    </div>
+                    <!-- <div class="upload">
+                        <ImagePicker [files]="files" [selectable]="files.length < 1" [multiple]="multipleTab === 1"
+                            (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
+                    </div> -->
+    
+                    <div class="login_btn">
 
+                            <ion-button expand="block" class="active_button" type="submit" >
+                                确定
+                            </ion-button>
+                            <ion-button expand="block" class="courr_button" (click)="cancel()">取消</ion-button>
+                        </div>
+                </form>
+            </div>
+    
+        </div>
 </ion-content>

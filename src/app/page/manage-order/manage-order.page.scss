@@ -1,0 +1,40 @@
+ion-content{
+    --background:#F4F3F3
+}
+ion-list{
+    --background:#F4F3F3;
+    background:#F4F3F3;
+
+}
+
+.order_list{
+    background:#fff;
+    ion-item{
+        --background: transparent;
+        background: transparent
+    }
+    
+
+}
+.default{
+    border: 1px solid #FE6176; 
+    font-size: 12px;
+    margin-right: 8px;
+    color:#FE6176;
+    float: left;
+    padding:8px 30px ;
+    border-radius: 15px;
+
+
+}
+.shop_info_title{
+    padding: 0;height: 40px;overflow: hidden;white-space:normal;margin-bottom: 8px;
+}
+
+.order_list{
+    border-radius: 4px;
+    margin: 16px 16px 0;
+    border-bottom:1px solid  #ddd;
+    overflow: hidden;
+    padding-bottom: 10px
+}

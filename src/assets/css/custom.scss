@@ -17,7 +17,7 @@
       font-weight: normal;
       font-variant: normal;
       text-transform: none;
-    //   font-size: 20px;
+       font-size: 24px;
     
       /* Better Font Rendering =========== */
       -webkit-font-smoothing: antialiased;
@@ -81,6 +81,11 @@
         content: "\e607";
       }
       
+
+.text-center{
+    text-align: center
+}
+
 ion-tab-button {
     ion-icon{
         font-size: 28px;

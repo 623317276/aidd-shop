@@ -1,0 +1,40 @@
+.num_box{
+    overflow: hidden;
+    width: 50%;
+    float: left;
+}
+
+.shop_info_title{
+    padding: 0;height: 40px;overflow: hidden;white-space:normal;margin-bottom: 8px;
+}
+
+.shop_info_right{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.default{
+    border: 1px solid #FE6176; 
+    font-size: 12px;
+    margin-right: 8px;
+    color:#FE6176;
+    float: left;
+    padding:8px 30px ;
+    border-radius: 15px;
+    float: right
+
+
+}
+
+.edit_btn{
+    border: 1px solid rgb(68, 29, 240); 
+    color:rgb(68, 29, 240);
+}
+
+.goods_list{
+    // border-radius: 4px;
+    // margin: 16px 16px 0;
+    border-bottom:1px solid  #ddd;
+    overflow: hidden;
+    padding-bottom: 10px;
+    
+}

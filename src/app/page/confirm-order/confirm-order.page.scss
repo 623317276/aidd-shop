@@ -1,0 +1,55 @@
+ion-content{
+    --background:#F4F3F3
+}
+
+.confirm_add{
+    margin: 10px 0;
+}
+
+.shop_con {
+  
+}
+
+.shop_info_title{
+    padding: 0;height: 40px;overflow: hidden;white-space:normal;margin-bottom: 8px;
+}
+
+.shop_info_right{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.num_box{
+    overflow: hidden;
+    width: 50%;
+    float: left;
+}
+.num_btn{
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    background: #D5D4D3;
+    text-align: center;
+    
+}
+.num_input{
+    width: 60px; 
+    float: right;
+    border: 1px solid #D5D4D3;
+    background: #fff; 
+    overflow: hidden;
+    text-align: center;
+    padding: 3px;
+
+}
+
+.confirm_btn{
+    width: 40%;float: right;height: 40px; line-height: 40px;background: #FE6176;text-align: center;color: #fff;
+}
+.total{
+    width: 60%;float: left;height: 40px; line-height: 40px;padding-left: 16px;
+}
+.pice{
+    font-size: 16px; color:#FB1A38
+}
