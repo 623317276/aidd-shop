@@ -31,20 +31,22 @@ export class Tab1Page implements OnInit{
   }
 
   ngOnInit() {    
-    // this.http.post('/apidata/index/uploadimg',{
-    //   // this.http.post('/tp5/public/index.php/index/test',{
-    //   type: 123
-    // }).subscribe((res)=>{
-    //   console.log(res)
-    // },error=>{
-    //   console.log(error)
-    // })
+    this.getShopList('1');
     this.getData();
   }
 
   doRefresh(event){
     this.refresh = event;
     this.getData();  
+  }
+
+  getShopList(item:string='1',page:string='1'){
+    this.http.get(this.common.shopping,{params: {type:item,page:page}}).subscribe((res:any) => {
+      this.Data['shop'] = res.data.view;
+      console.log(this.Data);
+    }, error => {
+      console.log(error)
+    })
   }
 
   getData(){

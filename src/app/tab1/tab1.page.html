@@ -73,28 +73,19 @@
     <!-- 推荐商品 -->
     <ion-grid class="shop_list">
         <ion-row>
-            <ion-col size="6" [routerLink]="">
+
+            <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]" *ngFor="let item of Data.shop; let i=index">
                 <ion-card>
-                    <ion-img [src]="" class="img_box"></ion-img>
-                    <ion-card-content>进口牛油果 6个装 单果重约130-180g</ion-card-content>
+                    <ion-img [src]="item.images" class="img_box"></ion-img>
+                    <ion-card-content>{{item.name}}</ion-card-content>
                     <ion-card-header>
                         <ion-card-title>
-                            <span class="price" [hidden]="">￥:36.9</span>
+                            <span class="price" [hidden]="">￥:{{item.price}}</span>
                         </ion-card-title>
                     </ion-card-header>
                 </ion-card>
             </ion-col>
-            <ion-col size="6" [routerLink]="">
-                <ion-card>
-                    <ion-img [src]="" class="img_box"></ion-img>
-                    <ion-card-content>良田悦味 泰国山竹5A级 新鲜水果山竹 生鲜水果...</ion-card-content>
-                    <ion-card-header>
-                        <ion-card-title>
-                            <span class="price" [hidden]="">￥:36.9</span>
-                        </ion-card-title>
-                    </ion-card-header>
-                </ion-card>
-            </ion-col>
+
         </ion-row>
     </ion-grid>
 
