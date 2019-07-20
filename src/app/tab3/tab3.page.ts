@@ -21,6 +21,7 @@ export class Tab3Page {
   };
   public userInfo:any = {};
   public segment:string = 'person'; // 用于控制选中
+  public refresh;
 
   constructor(
     public common: CommonService,
@@ -39,7 +40,10 @@ export class Tab3Page {
       this.getData();
   }
 
-
+  doRefresh(event){
+    this.refresh = event;
+    this.getData();  
+  }
 
   assembleHTML(strHTML: any) {
     return this.sanitizer.bypassSecurityTrustHtml(strHTML);
@@ -53,7 +57,18 @@ export class Tab3Page {
   }
 
   getData(){
- 
+    this.http.get(this.common.getAssets,{params:{userid:this.userInfo.userid,mobile:this.userInfo.mobile}}).subscribe((res:any) => {
+      if(res.status === 1){
+        this.userInfo.cash = res.data.cangku_num;
+        this.userInfo.integral = res.data.fengmi_num;
+      }
+      
+      if(this.refresh){
+        this.refresh.target.complete();
+      }
+    }, error => {
+      console.log(error)
+    })
   }
 
   changePws(type:string='pay'){
