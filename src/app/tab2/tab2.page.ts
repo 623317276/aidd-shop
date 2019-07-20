@@ -10,7 +10,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Tab2Page {
   public index = 0;
-  public Data = {};
+  public Data = {
+      titleTemplate1:[],
+      hasMore1:true,
+      titleTemplate2:[],
+      hasMore2:true,
+      titleTemplate3:[],
+      hasMore3:true,
+  };
   
   constructor(
     public loading: LoadingService,
