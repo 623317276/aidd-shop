@@ -8,39 +8,28 @@
 
 <ion-content>
 
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新..." refreshingSpinner="circles"
-            refreshingText=" 加载中...">
-        </ion-refresher-content>
-    </ion-refresher>
 
-    <!-- 轮播图 -->
-    <ion-slides mode="ios" pager="ios">
-        <ion-slide *ngFor="let item of Data.banner;let i = index" tappable>
-            <ion-img [src]="item.picture"></ion-img>
-        </ion-slide>
-    </ion-slides>
-    <!-- <ion-slides mode="ios" pager="ios">
-        <ion-slide  tappable >
-          <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563424326&di=b414d3f72a7fa98e77bd8c9e2ef76ca2&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.gtimg.com%2Fauto%2Fpics%2Fhv1%2F78%2F169%2F985%2F64092798.jpg"></ion-img>         
-        </ion-slide>
-        <ion-slide  tappable >
-            <ion-img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563424326&di=b414d3f72a7fa98e77bd8c9e2ef76ca2&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.gtimg.com%2Fauto%2Fpics%2Fhv1%2F78%2F169%2F985%2F64092798.jpg"></ion-img>         
-          </ion-slide>
-      </ion-slides> -->
-    <!-- 轮播图 -->
-
-
-    <Tabs [useOnPan]="true" [swipeable]="true" [activeTab]="index" [page]="3" [tabBarActiveTextColor]="'#1890ff'"
+    <Tabs [useOnPan]="true" [swipeable]="false" [activeTab]="index" [page]="3" [tabBarActiveTextColor]="'#1890ff'"
         (onChange)="onChange($event)" (onTabClick)="onTabClick($event)">
         <TabPane [title]="titleTemplate1">
             <ng-template #titleTemplate1>
-                <!-- <Badge [text]="3"> -->
                 <Badge>
                     <div>套餐区</div>
                 </Badge>
             </ng-template>
-            <ion-grid class="shop_list">
+            
+
+        <NoticeBar *ngIf="!isMobile"
+                style="margin-bottom: 10px"
+                [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
+            ></NoticeBar>
+        <PullToRefresh [ngStyle]="dtPullToRefreshStyle"
+                [direction]="state.direction"
+                [(ngModel)]="state.refreshState"
+                [endReachedRefresh]="state.endReachedRefresh"
+                (onRefresh)="pullToRefresh($event)">
+
+        <ion-grid class="shop_list">
                 <ion-row>
                     <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]"
                         *ngFor="let item of Data.titleTemplate1; let i=index">
@@ -66,10 +55,14 @@
 
                     </ion-col>
                 </ion-row>
+
             </ion-grid>
 
+        </PullToRefresh>
+    
+
         </TabPane>
-        <ion-grid class="shop_list">
+        <!-- <ion-grid class="shop_list">
             <ion-row>
                 <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]"
                     *ngFor="let item of Data.titleTemplate1; let i=index">
@@ -95,14 +88,23 @@
 
                 </ion-col>
             </ion-row>
-        </ion-grid>
+        </ion-grid> -->
         <TabPane [title]="titleTemplate3">
             <ng-template #titleTemplate3>
-                <!-- <Badge [text]="'今日(20)'"> -->
                 <Badge>
                     <div>商城区</div>
                 </Badge>
             </ng-template>
+
+            <NoticeBar *ngIf="!isMobile"
+                style="margin-bottom: 10px"
+                [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
+            ></NoticeBar>
+        <PullToRefresh [ngStyle]="dtPullToRefreshStyle"
+                [direction]="state.direction"
+                [(ngModel)]="state.refreshState"
+                [endReachedRefresh]="state.endReachedRefresh"
+                (onRefresh)="pullToRefresh($event)">
 
             <ion-grid class="shop_list">
                 <ion-row>
@@ -128,15 +130,25 @@
 
             </ion-grid>
 
+        </PullToRefresh>
 
         </TabPane>
         <TabPane [title]="titleTemplate2">
             <ng-template #titleTemplate2>
-                <!-- <Badge [dot]="true"> -->
                 <Badge>
                     <div>礼品区</div>
                 </Badge>
             </ng-template>
+
+            <NoticeBar *ngIf="!isMobile"
+                style="margin-bottom: 10px"
+                [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
+            ></NoticeBar>
+        <PullToRefresh [ngStyle]="dtPullToRefreshStyle"
+                [direction]="state.direction"
+                [(ngModel)]="state.refreshState"
+                [endReachedRefresh]="state.endReachedRefresh"
+                (onRefresh)="pullToRefresh($event)">
 
             <ion-grid class="shop_list">
                 <ion-row>
@@ -161,6 +173,7 @@
                 </ion-row>
             </ion-grid>
 
+        </PullToRefresh>
 
         </TabPane>
     </Tabs>
@@ -188,9 +201,6 @@
       </ion-col>
     </ion-row>
   </ion-grid> -->
-
-
-
 
 
 </ion-content>
