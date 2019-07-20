@@ -15,7 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';//引入
 })
 export class ShopInfoPage implements OnInit {
 
-  public refresh;
+  // public refresh;
   public Data:any = {};
   public id;
   public showPage = true;
@@ -37,10 +37,10 @@ export class ShopInfoPage implements OnInit {
     });
   }
 
-  doRefresh(event){
-    this.refresh = event;
-    this.getData();  
-  }
+  // doRefresh(event){
+  //   this.refresh = event;
+  //   this.getData();  
+  // }
 
   getData(){    
     this.showPage = true;
@@ -53,9 +53,9 @@ export class ShopInfoPage implements OnInit {
       if(res.status !== 1){
         this.toast.presentToast(res.msg);
       }
-      if(this.refresh){
-        this.refresh.target.complete();
-      }
+      // if(this.refresh){
+      //   this.refresh.target.complete();
+      // }
     }, error => {
       // this.loading.cancel();
       this.toast.presentToast('下拉刷新重试');
