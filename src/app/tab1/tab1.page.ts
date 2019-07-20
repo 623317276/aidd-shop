@@ -38,6 +38,7 @@ export class Tab1Page implements OnInit{
   doRefresh(event){
     this.refresh = event;
     this.getData();  
+    this.getShopList('1');
   }
 
   getShopList(item:string='1',page:string='1'){
