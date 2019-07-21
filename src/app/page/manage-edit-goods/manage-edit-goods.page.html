@@ -1,7 +1,7 @@
 <ion-header class="card-background-page">
         <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button [text]="'返回'"></ion-back-button>
+      <ion-back-button [text]="'返回'" id="backButton"></ion-back-button>
     </ion-buttons>
     <ion-title>商品管理</ion-title>
   </ion-toolbar>
@@ -15,36 +15,59 @@
                         <ion-label>
                             <ion-text color="danger">*</ion-text>商品名称:
                         </ion-label>
-                        <ion-input required  type="number"></ion-input>
+                        <ion-input required  type="text" name="name" [(ngModel)]="Data.name"></ion-input>
                     </ion-item>
                     <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>价格:
+                        </ion-label>
+                        <ion-input required  type="number" name="price" [(ngModel)]="Data.price"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>库存:
+                        </ion-label>
+                        <ion-input required  type="number" name="stock" [(ngModel)]="Data.stock"></ion-input>
+                    </ion-item>
+                    <!-- <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>类型:
+                        </ion-label>
+                        <ion-select placeholder="Select One" name="fictitious" [(ngModel)]="Data.fictitious">
+                            <ion-select-option value="1">实物</ion-select-option>
+                            <ion-select-option value="2" selected>虚拟</ion-select-option>
+                        </ion-select>
+                    </ion-item> -->
+                    <ion-item>
                             <ion-label>
-                                <ion-text color="danger">*</ion-text>价格:
+                                <ion-text color="danger">*</ion-text>购买方式:
                             </ion-label>
-                            <ion-input required  type="number" ></ion-input>
+                            <ion-select placeholder="Select One" name="mode" [(ngModel)]="Data.mode">
+                                <ion-select-option value="1" selected>余额</ion-select-option>
+                                <ion-select-option value="2">积分</ion-select-option>
+                            </ion-select>
                         </ion-item>
-                        <ion-item>
-                                <ion-label>
-                                    <ion-text color="danger">*</ion-text>数量:
-                                </ion-label>
-                                <ion-input required  type="number" ></ion-input>
-                            </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>详情:
+                        </ion-label>
+                        <ion-textarea name="content" [(ngModel)]="Data.content"></ion-textarea>
+                    </ion-item>
                     <div class="upload-title">
                         <ion-label>
-                            <ion-text color="danger">*</ion-text>商品图片（最少一张）
+                            <ion-text color="danger">*</ion-text>商品图片
                         </ion-label>
                     </div>
-                    <!-- <div class="upload">
+                    <div class="upload">
                         <ImagePicker [files]="files" [selectable]="files.length < 1" [multiple]="multipleTab === 1"
                             (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
-                    </div> -->
+                    </div>
     
                     <div class="login_btn">
 
-                            <ion-button expand="block" class="active_button" type="submit" >
+                            <ion-button expand="block" class="active_button" type="submit" (click)="onSubmit()">
                                 确定
                             </ion-button>
-                            <ion-button expand="block" class="courr_button" (click)="cancel()">取消</ion-button>
                         </div>
                 </form>
             </div>

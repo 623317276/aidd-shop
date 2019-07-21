@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../service/alert.service';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs';
+import { ToastService } from '../../service/toast.service';
+import { LoadingService } from '../../service/loading.service';
+import { CommonService } from '../../service/common.service';
+import { LocalstorageService } from '../../service/localstorage.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';//引入
 
 @Component({
   selector: 'app-manage-goods',
@@ -9,37 +14,44 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./manage-goods.page.scss'],
 })
 export class ManageGoodsPage implements OnInit {
-  public refresh;
-  
+  public showPage = true;
+  public userInfo:any = {};
+  public Data:any = {};
+
   constructor(
     public http: HttpClient,
+    public toast: ToastService,
     public alert: AlertService,
-  ) { }
+    public router: Router,
+    public localstorage: LocalstorageService,
+    public common: CommonService,
+    public loading: LoadingService,
+    public route: ActivatedRoute,
+    public sanitizer: DomSanitizer,
+  ) { 
+    this.userInfo = this.localstorage.getObject('userInfo');
+      this.common.update.subscribe((val)=>{
+        this.userInfo = val;
+      });
+  }
 
   ngOnInit() {
+    this.getData();
   }
 
-  doRefresh(event){
-    this.refresh = event;
-    this.getData();  
-  }
 
-  getData(){
-    forkJoin(
-      this.http.get('https://cnodejs.org/api/v1/topics', { responseType: 'json' }),
-    ).subscribe(res => {
-      // this.Data.banner = res.data.data.banner;
-      // this.Data.news = res.data.data.news;
-      if(this.refresh){
-        this.refresh.target.complete();
-      }
+  getData(){    
+    this.http.get(this.common.getMyShop, { params: {userid:this.userInfo.userid, mobile:this.userInfo.mobile}}).subscribe((res:any) => {
+      this.Data = res.data;
+      this.showPage = this.Data.shopping.length > 0 ? true : false;
     }, error => {
+      this.toast.presentToast('网络错误');
       console.log(error)
     })
   }
 
   delete(id){
-    this.alert.presentAlertConfirm({},{id:123},(res)=>{
+    this.alert.presentAlertConfirm({},{id:id},(res)=>{
       // 回调函数, 确认删除需要做的操作写到如下
       console.log(res);
     });

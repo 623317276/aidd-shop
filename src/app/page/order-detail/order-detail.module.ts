@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ManageEditGoodsPage } from './manage-edit-goods.page';
-import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
+import { OrderDetailPage } from './order-detail.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ManageEditGoodsPage
+    component: OrderDetailPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    NgZorroAntdMobileModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [ManageEditGoodsPage]
+  declarations: [OrderDetailPage]
 })
-export class ManageEditGoodsPageModule {}
+export class OrderDetailPageModule {}

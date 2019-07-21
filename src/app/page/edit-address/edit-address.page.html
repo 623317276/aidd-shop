@@ -12,7 +12,7 @@
                 <ion-label>
                     收货人:
                 </ion-label>
-                <ion-input required type="text" [placeholder]="'请输入收货人名字'">
+                <ion-input required type="text" [placeholder]="'请输入收货人名字'" name="name" [(ngModel)]="Data.name">
                 </ion-input>
             </ion-item>
 
@@ -20,30 +20,30 @@
                 <ion-label>
                     手机号:
                 </ion-label>
-                <ion-input type="tel" placeholder="请输入手机号" maxlength="11" required=true >
+                <ion-input type="tel" placeholder="请输入手机号" maxlength="11" required=true name="telephone" [(ngModel)]="Data.telephone">
                 </ion-input>
             </ion-item>
 
-            <ion-item>
+            <!-- <ion-item>
                 <ion-label>
                     所在地址:
                 </ion-label>
-                <ion-input required  type="text" [placeholder]="'请输入收货人名字'" >
+                <ion-input required  type="text" [placeholder]="'请输入所在地址'" [(ngModel)]="Data.address">
                 </ion-input>
-            </ion-item>
+            </ion-item> -->
 
             <ion-item>
-                <ion-textarea placeholder="请输入详细地址"></ion-textarea>
+                <ion-textarea placeholder="请输入详细地址" [(ngModel)]="Data.address" name="addrss"></ion-textarea>
             </ion-item>
 
                 <ion-item>
                         <ion-label>设置默认地址</ion-label>
-                        <ion-toggle name="cherry" color="primary" ></ion-toggle>
+                        <ion-toggle name="is_default" color="primary" [(ngModel)]="Data.is_default"></ion-toggle>
                     </ion-item>
 
 
             <div class="login_btn">
-                <ion-button expand="block" color="primary" class="active_button" type="submit" [disabled]="">
+                <ion-button expand="block" color="primary" class="active_button" (click)="submit()">
                     保存
                 </ion-button>
                 <ion-button expand="block" class="courr_button" (click)="cancel()">

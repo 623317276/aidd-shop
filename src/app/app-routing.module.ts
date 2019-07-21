@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'wealth-list', loadChildren: './page/wealth-list/wealth-list.module#WealthListPageModule' , canActivate:[LoginguardService]},
   { path: 'my-shop', loadChildren: './page/my-shop/my-shop.module#MyShopPageModule' , canActivate:[LoginguardService]},
   { path: 'manage-goods', loadChildren: './page/manage-goods/manage-goods.module#ManageGoodsPageModule' , canActivate:[LoginguardService]},
-  { path: 'manage-edit-goods/:id', loadChildren: './page/manage-edit-goods/manage-edit-goods.module#ManageEditGoodsPageModule' , canActivate:[LoginguardService]},
+  { path: 'manage-edit-goods', loadChildren: './page/manage-edit-goods/manage-edit-goods.module#ManageEditGoodsPageModule' , canActivate:[LoginguardService]},
   { path: 'confirm-order', loadChildren: './page/confirm-order/confirm-order.module#ConfirmOrderPageModule' , canActivate:[LoginguardService]},
   { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' , canActivate:[LoginguardService]},
   { path: 'edit-nickname', loadChildren: './page/edit-nickname/edit-nickname.module#EditNicknamePageModule' , canActivate:[LoginguardService]},
@@ -33,7 +33,10 @@ const routes: Routes = [
   // { path: 'gold-master', loadChildren: './page/gold-master/gold-master.module#GoldMasterPageModule' },
   // { path: 'credit-granting', loadChildren: './page/credit-granting/credit-granting.module#CreditGrantingPageModule' },
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
-  { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },  { path: 'news', loadChildren: './page/news/news.module#NewsPageModule' },
+  { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
+  { path: 'news', loadChildren: './page/news/news.module#NewsPageModule' },
+  { path: 'order-list', loadChildren: './page/order-list/order-list.module#OrderListPageModule' },
+  { path: 'order-detail', loadChildren: './page/order-detail/order-detail.module#OrderDetailPageModule' },
 
 
 

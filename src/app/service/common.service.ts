@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { LocalstorageService } from '../service/localstorage.service';
 import { ToastService } from '../service/toast.service';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 
 export class CommonService {
   public update:Subject<string> = new Subject<string>();
+  public subject:Subject<string> = new Subject<string>(); // 用于页面间通讯使用
   public userInfo: any = [];
   
   public appDomain: string = 'http://app.whatphp.com/'; // 用于邀请页面使用
@@ -29,10 +30,19 @@ export class CommonService {
   public applySetUpShop: string = this.domain+'user/apply_set_up_shop'; // 申请开店
   public getTranmoney: string = this.domain+'user/get_tranmoney'; // 获取用户资产变动记录
   public getAssets: string = this.domain+'user/get_assets'; // 获取用户资产---个人中心里刷新个人资产数据使用
+  public getAddressList: string = this.domain+'user/address'; // 获取用户地址列表
+  public AddressAdd: string = this.domain+'user/address_add'; // 添加收货地址
+  public AddressUp: string = this.domain+'user/address_up'; // 编辑收货地址
+  public AddressCount: string = this.domain+'user/address_cont'; // 收货地址详情
+  public AddressDel: string = this.domain+'user/address_del'; // 删除收货地址
+  public getDefalutAddress: string = this.domain+'user/get_defalut_address'; // 获取用户默认地址
+  public getMyShop: string = this.domain+'user/get_my_shop'; // 获取我的店铺的详情
+  public upShop: string = this.domain+'user/up_shop'; // 上传商品
 
   public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页
   public shoppingInfo: string = this.domain+'shopping/info'; // 商城详情页
+  public shoppingBuy: string = this.domain+'shopping/buy'; // 确认订单->购买
   
   constructor(
     public localstorage: LocalstorageService,
@@ -58,4 +68,13 @@ export class CommonService {
     this.toast.presentToast('logout success');
     this.router.navigate(['/login']);
   }
+
+  send(message: any) {
+    this.subject.next(message);
+  }
+
+  get(): Observable<any> {
+      return this.subject.asObservable();
+  }
+
 }

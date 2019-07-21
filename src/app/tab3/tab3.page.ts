@@ -61,6 +61,7 @@ export class Tab3Page {
       if(res.status === 1){
         this.userInfo.cash = res.data.cangku_num;
         this.userInfo.integral = res.data.fengmi_num;
+        this.common.setUserInfo(this.userInfo);
       }
       
       if(this.refresh){

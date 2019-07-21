@@ -65,14 +65,6 @@ export class ShopInfoPage implements OnInit {
   
   buy(){
     this.router.navigate(['/confirm-order',{"shoppingId":this.Data.id}]);
-    // this.alert.presentAlertPrompt({},{},(res)=>{
-    //   let psw = res.psw;
-    //   this.http.post('',{
-    //     psw : psw,
-    //     id : this.id
-    //   });
-    //   console.log(res);
-    // });
   }
 
   assembleHTML(strHTML: any) {
