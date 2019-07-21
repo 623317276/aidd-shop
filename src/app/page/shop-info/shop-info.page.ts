@@ -70,4 +70,13 @@ export class ShopInfoPage implements OnInit {
   assembleHTML(strHTML: any) {
     return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
+
+  // 轮播图部分
+   beforeChange(event) {
+    console.log('slide ' + event.from + ' to ' + event.to);
+  }
+
+  afterChange(event) {
+    console.log('slide to ' + event);
+  }
 }

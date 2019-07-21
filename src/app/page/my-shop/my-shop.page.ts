@@ -33,6 +33,13 @@ export class MyShopPage implements OnInit {
       this.common.update.subscribe((val)=>{
         this.userInfo = val;
       });
+
+      // 监听编辑地址页面传过来的值， 是否需要刷新数据
+     this.common.get().subscribe((result) => {
+      if(result.page === 'manage-goods'){
+        this.getData();
+      }
+    })
   }
 
   ngOnInit() {

@@ -30,9 +30,16 @@ export class ManageGoodsPage implements OnInit {
     public sanitizer: DomSanitizer,
   ) { 
     this.userInfo = this.localstorage.getObject('userInfo');
-      this.common.update.subscribe((val)=>{
-        this.userInfo = val;
-      });
+    this.common.update.subscribe((val)=>{
+      this.userInfo = val;
+    });
+
+     // 监听编辑地址页面传过来的值， 是否需要刷新数据
+     this.common.get().subscribe((result) => {
+      if(result.page === 'manage-goods'){
+        this.getData();
+      }
+    })
   }
 
   ngOnInit() {
@@ -53,7 +60,16 @@ export class ManageGoodsPage implements OnInit {
   delete(id){
     this.alert.presentAlertConfirm({},{id:id},(res)=>{
       // 回调函数, 确认删除需要做的操作写到如下
-      console.log(res);
+      this.http.get(this.common.shoppingDel, { params: {userid:this.userInfo.userid, mobile:this.userInfo.mobile, id:id}}).subscribe((res:any) => {
+        if(res.status === 1){
+          this.getData();
+        }
+        this.toast.presentToast(res.msg);
+      }, error => {
+        this.toast.presentToast('网络错误');
+        console.log(error)
+      })
+    
     });
   }
 

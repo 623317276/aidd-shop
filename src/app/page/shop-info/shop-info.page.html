@@ -19,12 +19,22 @@
 
     <div [hidden]="showPage">
 
-        <ion-slides>
-            <ion-slide>
-                <ion-img [routerLink]="['/shop-diy']" [src]="Data.images"></ion-img>
-            </ion-slide>
-        </ion-slides>
-
+        <WingBlank>
+            <Carousel [infinite]="true"
+                        [vertical]="false"
+                        [selectedIndex]="1"
+                        (beforeChange)="beforeChange($event)"
+                        (afterChange)="afterChange($event)"
+            >
+                <CarouselSlide>
+                <div style="display: inline-block; width: 100%;">
+                    <!-- <img [src]="Data.images" style=" pointer-events: none; width: 100%;" [routerLink]="['/shop-diy']"/> -->
+                    <img [src]="Data.images" style=" pointer-events: none; width: 100%;"/>
+                </div>
+                </CarouselSlide>
+            </Carousel>
+        </WingBlank>
+            
 
         <ion-grid fixed padding class="shop_title">
             <ion-row>

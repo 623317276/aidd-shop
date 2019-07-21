@@ -38,7 +38,7 @@
                         </ion-label>
                     </ion-item>
                     <div>
-                            <span class="default edit_btn" [routerLink]="['/manage-edit-goods', item.id]">修改</span>
+                            <span class="default edit_btn" [routerLink]="['/manage-edit-goods']" [queryParams]="{id:item.id}">修改</span>
                             <span class="default" (click)="delete(item.id)" color="danger">删除</span>
                     </div>
                 </div>

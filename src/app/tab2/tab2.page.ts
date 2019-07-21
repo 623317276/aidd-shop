@@ -60,7 +60,7 @@ export class Tab2Page {
     this.http.get(this.common.shopping,{params: {type:item,page:page}}).subscribe((res:any) => {
       let index = 'titleTemplate'+item;
       let has = 'hasMore'+item;
-      if(res.data.view.length < 2){
+      if(res.data.view.length < 20){
         this.Data[has] = false; // 没有更多数据的标记
       }     
       this.addItems(index, res.data.view);

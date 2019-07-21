@@ -38,11 +38,13 @@ export class CommonService {
   public getDefalutAddress: string = this.domain+'user/get_defalut_address'; // 获取用户默认地址
   public getMyShop: string = this.domain+'user/get_my_shop'; // 获取我的店铺的详情
   public upShop: string = this.domain+'user/up_shop'; // 上传商品
+  public getOrderList: string = this.domain+'user/get_order_list'; // 获取我购买订单的列表
 
   public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页
-  public shoppingInfo: string = this.domain+'shopping/info'; // 商城详情页
+  public shoppingInfo: string = this.domain+'shopping/info'; // 商品详情页
   public shoppingBuy: string = this.domain+'shopping/buy'; // 确认订单->购买
+  public shoppingDel: string = this.domain+'shopping/shopping_del'; // 删除我的商品
   
   constructor(
     public localstorage: LocalstorageService,

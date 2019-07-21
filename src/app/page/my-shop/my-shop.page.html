@@ -44,7 +44,7 @@
 
     <!-- 销量最好的或者新上的 商品、活动折扣-->
     <ion-list style="margin-bottom: 15px">
-        <ion-item class="shop_con" *ngFor="let item of Data.shopping; let i=index">
+        <ion-item class="shop_con" *ngFor="let item of Data.shopping; let i=index" [routerLink]="[ '/shop-info/', item.id]">
             <ion-img style="width: 80px; height:80px; margin:10px 5px 10px 0;"
                 [src]="item.images">
             </ion-img>
