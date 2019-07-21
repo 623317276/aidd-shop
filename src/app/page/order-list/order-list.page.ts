@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-list.page.scss'],
 })
 export class OrderListPage implements OnInit {
-
+    public segment:string = 'balance'; // 用于控制选中
   constructor() { }
 
   ngOnInit() {
   }
 
+  segmentChanged(ev: any) {
+    this.segment = ev.detail.value;
+    console.log(this.segment);
+
+  }
 }

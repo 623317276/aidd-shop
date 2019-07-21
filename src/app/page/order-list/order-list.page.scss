@@ -1,0 +1,107 @@
+ion-content{
+    --background:#F4F3F3
+}
+ion-list{
+    --background:#F4F3F3;
+    background:#F4F3F3;
+    margin-top: 1px;
+}
+
+ion-segment-button{
+    padding: 0.875em;
+}
+
+ion-segment{
+    background: #fff;
+}
+
+.text_right{
+    text-align: right;
+}
+
+.imgWidth{
+    width: 80px; height:80px; margin:10px 5px 10px 0;
+}
+
+.float_right{
+    float: right
+}
+.total{
+    font-size:12px;color:#999; text-align: right
+}
+.total .pice{
+    color: #999;float: right
+}
+.shop_pice{
+    font-size:16px;color: #FB1A38;float: left
+}
+
+.shop_num{
+    color: #999;float: right
+}
+
+
+.segment-button-has-label{
+    border-bottom: 1px solid #C0C0C0;
+        color: #666;
+        font-size: 16px;
+
+}
+.segment-button-checked{
+    border-bottom: 1px solid #FE6176;
+    color: #FE6176;
+}
+
+  .sc-ion-segment-ios-h{
+      --background: transparent;
+      --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.1);
+      --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);
+      --background-checked: transparent;
+      --color: var(--ion-color-primary,#3880ff);
+      --color-checked: #FE6176;
+      --color-disabled: rgba(var(--ion-color-primary-rgb,56,128,255),0.3);
+      --color-checked-disabled: rgba(var(--ion-color-primary-contrast-rgb,255,255,255),0.3);
+      --border-color: transparent;
+      --indicator-color: transparent;
+      --font-size:0.875em;
+  }
+
+  .sc-ion-back-button-ios-h{
+
+    --color: #fff;
+  }
+
+
+.order_list{
+    
+    background:#fff;
+    ion-item{
+        --background: transparent;
+        background: transparent
+    }
+    
+
+}
+.default{
+    border: 1px solid #FE6176; 
+    font-size: 12px;
+    margin-right: 8px;
+    color:#FE6176;
+    float: left;
+    padding:8px 30px ;
+    border-radius: 15px;
+
+
+}
+.shop_info_title{
+    padding: 0;height: 40px;overflow: hidden;white-space:normal;margin-bottom: 8px;
+}
+
+.order_list{
+    border-radius: 4px;
+    margin: 16px 16px 0;
+    border-bottom:1px solid  #ddd;
+    overflow: hidden;
+    padding-bottom: 10px
+}
+

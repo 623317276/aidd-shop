@@ -52,7 +52,16 @@
             </ion-item>
         </ion-list>
     </div>
-
+    <!-- <ion-row>
+        <ion-col [routerLink]="['/order-list']">
+            <ion-img [src]="'/assets/images/shop.png'" class="icon_box"></ion-img>
+            <p>进入订单列表页</p>
+        </ion-col>
+        <ion-col [routerLink]="['/order-detail']">
+            <ion-img [src]="'/assets/images/shop.png'" class="icon_box" ></ion-img>
+            <p>进入订单详情页</p>
+        </ion-col>
+    </ion-row> -->
 
     <!-- 个人资料部分 -->
     <div padding [hidden]="segment != 'person'">
@@ -67,13 +76,18 @@
                         <h3>{{userInfo.pmobile}}</h3>
                     </ion-label>
                 </ion-item>
+                <ion-item [routerLink]="['/order-list']">
+                    <ion-icon slot="start" name="list-box" style="font-size: 20px;vertical-align: middle;color: cornflowerblue;margin-left: 2px"></ion-icon>
+                    <ion-label>
+                        <h3>我的订单</h3>
+                    </ion-label>
+                </ion-item>
                 <ion-item button [hidden]="userInfo.is_dailishang == '2'" (click)="changePws('set-up-shop')">
                     <ion-icon slot="start" class="icondianpu" style="color:#7e57ff"></ion-icon>
                     <ion-label>
                         <h3>申请开店</h3>
                     </ion-label>
                 </ion-item>
-                <!--  -->
                 <ion-item button [hidden]="userInfo.is_dailishang != '2'" [routerLink]="['/my-shop']">
                     <ion-icon slot="start" class="icondianpu" style="color:#7e57ff"></ion-icon>
                     <ion-label>
