@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-list',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-list.page.scss'],
 })
 export class OrderListPage implements OnInit {
-    public segment:string = 'balance'; // 用于控制选中
-  constructor() { }
+    public segment:string = 'allList'; // 用于控制选中
+
+  constructor(
+    public router: Router,
+  ) {
+      
+   }
 
   ngOnInit() {
   }
@@ -16,5 +22,9 @@ export class OrderListPage implements OnInit {
     this.segment = ev.detail.value;
     console.log(this.segment);
 
+  }
+
+  detail(){
+    this.router.navigate(['/order-detail']);
   }
 }

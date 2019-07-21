@@ -22,7 +22,7 @@
             <ion-label>待收货</ion-label>
         </ion-segment-button>
     </ion-segment>
-    
+
 
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新..." refreshingSpinner="circles"
@@ -42,7 +42,7 @@
                         <!-- 交易状态 -->
                         <ion-label class="text_right" color="primary">交易成功</ion-label>
                     </ion-item>
-                    <ion-item lines="none">
+                    <ion-item lines="none" (click)="detail()">
                         <ion-img class="imgWidth"
                             [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
                         </ion-img>
@@ -57,13 +57,13 @@
                             </div>
                         </ion-label>
                     </ion-item>
-                    <ion-item lines="none">
+                    <ion-item lines="none" (click)="detail()">
                         <!-- 统计商品 -->
                         <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
                     </ion-item>
                     <ion-item lines="none">
                         <div style="width: 100%">
-                            <span class="default" (click)="delete(0)" color="danger" style="float: right">查看订单</span>
+                            <span class="default" (click)="detail()" color="danger" style="float: right">查看订单</span>
                             <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
                         </div>
 
@@ -75,137 +75,137 @@
 
     </div>
 
-     <!-- 待付款 [hidden]="segment != 'waitPay"-->
-     <div padding [hidden]="">
-            <ion-list>
-                <ion-item-sliding>
-                    <div class="order_list">
-                        <ion-item lines="none">
-                            <!-- 店铺名称 点击跳到店铺里面-->
-                            <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
-                            <!-- 交易状态 -->
-                            <ion-label class="text_right" color="primary">交易成功</ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <ion-img class="imgWidth"
-                                [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
-                            </ion-img>
-                            <ion-label class="shop_info_right">
-                                <!-- 商品名称 -->
-                                <div class="shop_info_title">
-                                    商品名称
-                                </div>
-                                <div style="line-height: 25px;">
-                                    <ion-label class="shop_pice">￥:1288</ion-label>
-                                    <ion-label class="shop_num">X1</ion-label>
-                                </div>
-                            </ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <!-- 统计商品 -->
-                            <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <div style="width: 100%">
-                                <span class="default" (click)="delete(0)" color="danger" style="float: right">查看订单</span>
-                                <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
-                            </div>
-    
-                        </ion-item>
-                    </div>
-    
-                </ion-item-sliding>
-            </ion-list>
-    
-        </div>
-
-         <!-- 待发货 [hidden]="segment != 'toBeShipped'"-->
+    <!-- 待付款 [hidden]="segment != 'waitPay"-->
     <div padding [hidden]="">
-            <ion-list>
-                <ion-item-sliding>
-                    <div class="order_list">
-                        <ion-item lines="none">
-                            <!-- 店铺名称 点击跳到店铺里面-->
-                            <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
-                            <!-- 交易状态 -->
-                            <ion-label class="text_right" color="primary">交易成功</ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <ion-img class="imgWidth"
-                                [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
-                            </ion-img>
-                            <ion-label class="shop_info_right">
-                                <!-- 商品名称 -->
-                                <div class="shop_info_title">
-                                    商品名称
-                                </div>
-                                <div style="line-height: 25px;">
-                                    <ion-label class="shop_pice">￥:1288</ion-label>
-                                    <ion-label class="shop_num">X1</ion-label>
-                                </div>
-                            </ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <!-- 统计商品 -->
-                            <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <div style="width: 100%">
-                                <span class="default" (click)="delete(0)" color="danger" style="float: right">查看订单</span>
-                                <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
+        <ion-list>
+            <ion-item-sliding>
+                <div class="order_list">
+                    <ion-item lines="none">
+                        <!-- 店铺名称 点击跳到店铺里面-->
+                        <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
+                        <!-- 交易状态 -->
+                        <ion-label class="text_right" color="primary">交易成功</ion-label>
+                    </ion-item>
+                    <ion-item lines="none" (click)="detail()">
+                        <ion-img class="imgWidth"
+                            [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
+                        </ion-img>
+                        <ion-label class="shop_info_right">
+                            <!-- 商品名称 -->
+                            <div class="shop_info_title">
+                                商品名称
                             </div>
-    
-                        </ion-item>
-                    </div>
-    
-                </ion-item-sliding>
-            </ion-list>
-    
-        </div>
+                            <div style="line-height: 25px;">
+                                <ion-label class="shop_pice">￥:1288</ion-label>
+                                <ion-label class="shop_num">X1</ion-label>
+                            </div>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none" (click)="detail()">
+                        <!-- 统计商品 -->
+                        <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <div style="width: 100%">
+                            <span class="default" (click)="detail()" color="danger" style="float: right">查看订单</span>
+                            <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
+                        </div>
 
-         <!-- 待收货 [hidden]="segment != 'toBeReceived'"-->
+                    </ion-item>
+                </div>
+
+            </ion-item-sliding>
+        </ion-list>
+
+    </div>
+
+    <!-- 待发货 [hidden]="segment != 'toBeShipped'"-->
     <div padding [hidden]="">
-            <ion-list>
-                <ion-item-sliding>
-                    <div class="order_list">
-                        <ion-item lines="none">
-                            <!-- 店铺名称 点击跳到店铺里面-->
-                            <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
-                            <!-- 交易状态 -->
-                            <ion-label class="text_right" color="primary">交易成功</ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <ion-img class="imgWidth"
-                                [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
-                            </ion-img>
-                            <ion-label class="shop_info_right">
-                                <!-- 商品名称 -->
-                                <div class="shop_info_title">
-                                    商品名称
-                                </div>
-                                <div style="line-height: 25px;">
-                                    <ion-label class="shop_pice">￥:1288</ion-label>
-                                    <ion-label class="shop_num">X1</ion-label>
-                                </div>
-                            </ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <!-- 统计商品 -->
-                            <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <div style="width: 100%">
-                                <span class="default" (click)="delete(0)" color="danger" style="float: right">查看订单</span>
-                                <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
+        <ion-list>
+            <ion-item-sliding>
+                <div class="order_list">
+                    <ion-item lines="none">
+                        <!-- 店铺名称 点击跳到店铺里面-->
+                        <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
+                        <!-- 交易状态 -->
+                        <ion-label class="text_right" color="primary">交易成功</ion-label>
+                    </ion-item>
+                    <ion-item lines="none" (click)="detail()">
+                        <ion-img class="imgWidth"
+                            [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
+                        </ion-img>
+                        <ion-label class="shop_info_right">
+                            <!-- 商品名称 -->
+                            <div class="shop_info_title">
+                                商品名称
                             </div>
-    
-                        </ion-item>
-                    </div>
-    
-                </ion-item-sliding>
-            </ion-list>
-    
-        </div>
+                            <div style="line-height: 25px;">
+                                <ion-label class="shop_pice">￥:1288</ion-label>
+                                <ion-label class="shop_num">X1</ion-label>
+                            </div>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none" (click)="detail()">
+                        <!-- 统计商品 -->
+                        <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <div style="width: 100%">
+                            <span class="default" (click)="detail()" color="danger" style="float: right">查看订单</span>
+                            <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
+                        </div>
+
+                    </ion-item>
+                </div>
+
+            </ion-item-sliding>
+        </ion-list>
+
+    </div>
+
+    <!-- 待收货 [hidden]="segment != 'toBeReceived'"-->
+    <div padding [hidden]="">
+        <ion-list>
+            <ion-item-sliding>
+                <div class="order_list">
+                    <ion-item lines="none">
+                        <!-- 店铺名称 点击跳到店铺里面-->
+                        <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
+                        <!-- 交易状态 -->
+                        <ion-label class="text_right" color="primary">交易成功</ion-label>
+                    </ion-item>
+                    <ion-item lines="none" (click)="detail()">
+                        <ion-img class="imgWidth"
+                            [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
+                        </ion-img>
+                        <ion-label class="shop_info_right">
+                            <!-- 商品名称 -->
+                            <div class="shop_info_title">
+                                商品名称
+                            </div>
+                            <div style="line-height: 25px;">
+                                <ion-label class="shop_pice">￥:1288</ion-label>
+                                <ion-label class="shop_num">X1</ion-label>
+                            </div>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none" (click)="detail()">
+                        <!-- 统计商品 -->
+                        <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <div style="width: 100%">
+                            <span class="default" (click)="detail()" color="danger" style="float: right">查看订单</span>
+                            <span class="default" (click)="delete(0)" color="danger" style="float: right">删除</span>
+                        </div>
+
+                    </ion-item>
+                </div>
+
+            </ion-item-sliding>
+        </ion-list>
+
+    </div>
 
 
 
