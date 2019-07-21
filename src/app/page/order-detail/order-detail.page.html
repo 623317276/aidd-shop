@@ -1,12 +1,164 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>订单详情页面</ion-title>
-  </ion-toolbar>
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button [text]="''" id='backButton'></ion-back-button>
+        </ion-buttons>
+        <ion-title>订单详情</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <!-- 交易状态 -->
+    <div padding class="logo_bg">
+        交易状态
+    </div>
+    <div class="confirm_add">
+        <ion-item lines="none">
+            <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
+            <ion-label>
+                <h3>收件人 <span style="font-size: 12px;color:#666">16887765555</span></h3>
+                <ion-card-content style="padding: 0;font-size:12px;">
+                    适得府君书的父级适得府君书的浪费节点事件分类点击
+                </ion-card-content>
+            </ion-label>
+        </ion-item>
+    </div>
+
+    <div [hidden]="">
+
+            <div class="order_list">
+                <ion-item lines="none">
+                    <!-- 店铺名称 点击跳到店铺里面-->
+                    <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
+                </ion-item>
+                <ion-item lines="none" (click)="detail()">
+                    <ion-img class="imgWidth"
+                        [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
+                    </ion-img>
+                    <ion-label class="shop_info_right">
+                        <!-- 商品名称 -->
+                        <div class="shop_info_title">
+                            商品名称
+                        </div>
+                        <div style="line-height: 25px;">
+                            <ion-label class="shop_pice">￥:1288</ion-label>
+                            <ion-label class="shop_num">X1</ion-label>
+                        </div>
+                    </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <div style="width: 100%">
+                        <span class="default" (click)="detail()" color="danger" style="float: right">申请售后</span>
+                    </div>
+                </ion-item>
+                <div class="totalbox">
+                    <ion-item lines="none">
+                        <!-- 统计商品 -->
+                        <ion-label class="total"> 商品总价<span class="pice">￥299.44</span></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <!-- 统计商品 -->
+                        <ion-label class="total">运费(快递)<span class="pice">￥0.00</span></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <!-- 统计商品 -->
+                        <ion-label class="total" style="font-size: 14px; color:#333"> 订单总价<span class="pice"
+                                style="font-size: 14px;color:#333">￥299.44</span>
+                        </ion-label>
+                    </ion-item>
+
+                </div>
+                <div style="padding-right: 8px;border-bottom: 10px solid #F4F3F3;">
+                    <ion-item lines="none">
+                        <ion-label class="total" style="font-size: 14px; color:#333"> 实际付款<span class="pice"
+                                style="font-size: 14px; color:#FB1A38">￥299.44</span>
+                        </ion-label>
+                    </ion-item>
+                </div>
+                <ion-item lines="none">
+                    <ion-label class="total" style="font-size: 14px; color:#333">订单信息
+                    </ion-label>
+                </ion-item>
+                <div class="order_info"
+                    style="padding-right: 8px; padding-bottom: 10px; border-bottom: 10px solid #F4F3F3;">
+
+                    <ion-item lines="none">
+                        <ion-label class="total">订单编号：12333444444444
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label class="total">创建时间：2019-07-22 20:29:00
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label class="total">付款时间：2019-07-22 20:20:00
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label class="total">发货时间：2019-07-22 20:20:00
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none" style="border-bottom: 1px solid #ddd">
+                        <ion-label class="total">成交时间：2019-07-22 20:20:00
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none" style="--padding-end:0px">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <span class="default" (click)="delete()" color="danger"
+                                style="float: right; margin-right:0">删除订单</span>
+                            <span class="default" (click)="detail()" color="danger" style="float: right">联系卖家</span>
+                        </div>
+                    </ion-item>
+                </div>
+            </div>
+
+        <!-- 猜你喜欢的商品 -->
+        <div class="guess_list">
+            <h3 style="text-align: center">------猜你喜欢------</h3>
+            <ion-grid class="shop_list">
+                <ion-row>
+                    <ion-col size="6" [routerLink]="">
+                        <ion-card>
+                            <ion-img [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'" class="img_box"></ion-img>
+                            <ion-card-content class="title_con"> 商品名称</ion-card-content>
+                            <ion-card-header>
+                                <ion-card-title>
+                                    <span style="font-size: 15px; color: #FB1A38"
+                                        >￥:222</span>
+                                </ion-card-title>
+                                <ion-card-subtitle>
+                                    <span style="font-size: 12px;float: left; width: 50%;color: #999"
+                                        >积分:222</span>
+                                    <span
+                                        style="float:right; text-align: right; width: 50%;font-size: 12px;color: #999">实物</span>
+                                </ion-card-subtitle>
+                            </ion-card-header>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="6" [routerLink]="">
+                            <ion-card>
+                                <ion-img [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'" class="img_box"></ion-img>
+                                <ion-card-content class="title_con"> 商品名称</ion-card-content>
+                                <ion-card-header>
+                                    <ion-card-title>
+                                        <span style="font-size: 15px; color: #FB1A38"
+                                            >￥:222</span>
+                                    </ion-card-title>
+                                    <ion-card-subtitle>
+                                        <span style="font-size: 12px;float: left; width: 50%;color: #999"
+                                            >积分:222</span>
+                                        <span
+                                            style="float:right; text-align: right; width: 50%;font-size: 12px;color: #999">实物</span>
+                                    </ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+                        </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+    </div>
+
+
 
 </ion-content>
