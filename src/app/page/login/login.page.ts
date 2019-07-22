@@ -16,8 +16,10 @@ import { HttpClient } from '@angular/common/http';
 export class LoginPage implements OnInit {
 
   public loginData = {
-    'mobile' : '18978429109',
-    'password' : '123123',
+    // 'mobile' : '18978429109',
+    // 'password' : '123123',
+    'mobile' : '',
+    'password' : '',
   };
   public loginButton = false;
   constructor(

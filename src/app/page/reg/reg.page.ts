@@ -12,13 +12,20 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class RegPage implements OnInit {
   public regButton = false;
   public regData = {
-      mobile:'18978429109',
+      // mobile:'18978429109',
+      // verify:'8888',
+      // pmobile:'0',
+      // loginPsw:'123123',
+      // confirmLoginPsw:'123123',
+      // payPsw:'123123',
+      // confirmPayPsw:'123123',
+      mobile:'',
       verify:'8888',
       pmobile:'0',
-      loginPsw:'123123',
-      confirmLoginPsw:'123123',
-      payPsw:'123123',
-      confirmPayPsw:'123123',
+      loginPsw:'',
+      confirmLoginPsw:'',
+      payPsw:'',
+      confirmPayPsw:'',
 }
   constructor(
     public http: HttpClient,

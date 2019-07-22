@@ -52,13 +52,20 @@ export class SetUpShopPage implements OnInit {
       this.userInfo = val;
     });
     this.Data = {
+      // userid: this.userInfo.userid,
+      // mobile: this.userInfo.mobile,
+      // name: '姓名', // 姓名
+      // tel: '18877777777', // 手机号码
+      // img1:'', // 正面
+      // img2:'', // 反面
+      // idCardNumber: '444444000011112222' // 号码
       userid: this.userInfo.userid,
       mobile: this.userInfo.mobile,
-      name: '姓名', // 姓名
-      tel: '18877777777', // 手机号码
+      name: '', // 姓名
+      tel: '', // 手机号码
       img1:'', // 正面
       img2:'', // 反面
-      idCardNumber: '444444000011112222' // 号码
+      idCardNumber: '' // 号码
     };
     }
 
