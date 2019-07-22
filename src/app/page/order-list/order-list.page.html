@@ -41,7 +41,7 @@
                         <!-- 店铺名称 点击跳到店铺里面-->
                         <ion-label>店铺:{{item.shop_name}}</ion-label>
                         <!-- 交易状态 -->
-                        <ion-label class="text_right" color="primary">{{item.status === '1' ? '已支付' : '已发货'}}</ion-label>
+                        <ion-label class="text_right" color="primary" [ngStyle]="{'color':item.status === '1' ? '' : 'green' }">{{item.status === '1' ? '待发货' : '已发货'}}</ion-label>
                     </ion-item>
                     <ion-item lines="none">
                         <ion-img class="imgWidth"
