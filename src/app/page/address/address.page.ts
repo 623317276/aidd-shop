@@ -36,6 +36,7 @@ export class AddressPage implements OnInit {
       // 监听编辑地址页面传过来的值， 是否需要刷新数据
     this.common.get().subscribe((result) => {
       if(result.page === 'address' && result.data){
+        console.log(result);
         this.getData();
       }
     })

@@ -45,6 +45,8 @@ export class CommonService {
   public shoppingInfo: string = this.domain+'shopping/info'; // 商品详情页
   public shoppingBuy: string = this.domain+'shopping/buy'; // 确认订单->购买
   public shoppingDel: string = this.domain+'shopping/shopping_del'; // 删除我的商品
+  public getMyShopOrderList: string = this.domain+'shopping/get_my_shop_order_list'; // 获取我的店铺的订单list
+  public postThing: string = this.domain+'shopping/post_thing'; // 发货，填写订单快递信息
   
   constructor(
     public localstorage: LocalstorageService,
@@ -79,4 +81,8 @@ export class CommonService {
       return this.subject.asObservable();
   }
 
+  public order_detail = {}; // 用于订单list页面传递对象到订单详情页
+  getOrderDetail(){
+    return this.order_detail;
+  }
 }

@@ -14,7 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';//引入
   styleUrls: ['./order-list.page.scss'],
 })
 export class OrderListPage implements OnInit {
-  public Data:any = {};
+  public Data:any = [];
   public userInfo:any = {};
   public hasMore = true;
 
@@ -43,7 +43,7 @@ export class OrderListPage implements OnInit {
     this.http.get(this.common.getOrderList, { params: {userid:this.userInfo.userid, mobile:this.userInfo.mobile,page:p}}).subscribe((res:any) => {
       this.loading.cancel();
       if(res.status === 1){
-        if(res.data.length < 20){
+        if(res.data.length < this.pageLimit){
           this.hasMore = false;
         }
       }
@@ -60,6 +60,12 @@ export class OrderListPage implements OnInit {
     })
   }
 
+  orderDetail(obj:any){
+    this.router.navigate(['/order-detail']);
+    this.common.order_detail = obj;
+  }
+
+  // 上下拉
   isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
   pageLimit = 20;
   public directionCount = 0;

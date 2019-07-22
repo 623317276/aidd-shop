@@ -1,7 +1,7 @@
 <ion-header class="card-background-page">
     <ion-toolbar color="primary">
         <ion-buttons slot="start">
-            <ion-back-button [text]="''" id='backButton'></ion-back-button>
+            <ion-back-button [text]="''" id='backButton' [routerLink]="['/tabs/tab3']" routerDirection="back"></ion-back-button>
         </ion-buttons>
         <ion-title>我的订单</ion-title>
     </ion-toolbar>
@@ -24,7 +24,6 @@
     </ion-segment> -->
 
     <!-- 全部订单  [hidden]="segment != 'allList'"-->
-    <div>
         <NoticeBar *ngIf="!isMobile"
         style="margin-bottom: 10px"
         [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
@@ -36,48 +35,49 @@
             (onRefresh)="pullToRefresh($event)">
 
         <ion-list>
-            <ion-item-sliding>
+            <ion-item-sliding *ngFor="let item of Data; let i=index">
                 <div class="order_list">
                     <ion-item lines="none">
                         <!-- 店铺名称 点击跳到店铺里面-->
-                        <ion-label [routerLink]="['/order-list']">XX特产品点</ion-label>
+                        <ion-label>店铺:{{item.shop_name}}</ion-label>
                         <!-- 交易状态 -->
-                        <ion-label class="text_right" color="primary">交易成功</ion-label>
+                        <ion-label class="text_right" color="primary">{{item.status === '1' ? '已支付' : '已发货'}}</ion-label>
                     </ion-item>
                     <ion-item lines="none">
                         <ion-img class="imgWidth"
-                            [src]="'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564033039&di=039a2a072d8daea97b4f6035f38ac638&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160415%2Fb9b14370f6b247529c8731e15c2e3ea0.jpg'">
+                            [src]="item.com_img">
                         </ion-img>
                         <ion-label class="shop_info_right">
                             <!-- 商品名称 -->
                             <div class="shop_info_title">
-                                商品名称
+                                {{item.com_name}}
                             </div>
                             <div style="line-height: 25px;">
-                                <ion-label class="shop_pice">￥:1288</ion-label>
-                                <ion-label class="shop_num">X1</ion-label>
+                                <ion-label class="shop_pice" [hidden]="item.pay_type === '2'">余额:{{item.pay_money}}</ion-label>
+                                <ion-label class="shop_pice" [hidden]="item.pay_type === '1'">积分:{{item.pay_money}}</ion-label>
+                                <ion-label class="shop_num">X{{item.com_num}}</ion-label>
                             </div>
                         </ion-label>
                     </ion-item>
                     <ion-item lines="none">
                         <!-- 统计商品 -->
-                        <ion-label class="total">共计1件商品 合计：￥<span class="pice">299.44</span></ion-label>
+                        <ion-label class="total">共计{{item.com_num}}件商品 合计：￥<span class="pice">{{item.pay_money}}</span></ion-label>
                     </ion-item>
                     <ion-item lines="none">
                         <div style="width: 100%">
-                            <span class="default" color="danger" style="float: right">查看订单</span>
+                            <span class="default" color="danger" style="float: right"  (click)="orderDetail(item)">查看订单</span>
                             <span class="default" color="danger" style="float: right">删除</span>
                         </div>
 
                     </ion-item>
                 </div>
 
+                
             </ion-item-sliding>
         </ion-list>
 
     </PullToRefresh>
 
-    </div>
 
 
 

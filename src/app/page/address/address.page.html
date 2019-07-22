@@ -22,11 +22,11 @@
 <ion-content fullscreen=true>
     <!-- List of Sliding Items -->
     <ion-list class="content_list" style="background: #F4F3F3" mode="ios">
-        <ion-item-sliding *ngFor="let item of Data; let i=index" (click)="onClick(item)">
+        <ion-item-sliding *ngFor="let item of Data; let i=index">
             <ion-item class="item-con"  lines="none" >
                 <ion-card style="width: 100%">
                     <ion-item lines="none">
-                        <ion-label style="margin-bottom:5px">
+                        <ion-label style="margin-bottom:5px" (click)="onClick(item)">
                             <h3 class="float-left">{{item.name}}</h3><span class="address_tel">{{item.telephone}}</span>
                             <span class="default" [hidden]="item.zt_ !== '1'">默认</span>
                         </ion-label>

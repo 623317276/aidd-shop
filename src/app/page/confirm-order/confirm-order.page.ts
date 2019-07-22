@@ -15,9 +15,14 @@ import { elementStart } from '@angular/core/src/render3';
   styleUrls: ['./confirm-order.page.scss'],
 })
 export class ConfirmOrderPage implements OnInit {
+  public noAddress = false;
   public userInfo:any = {};
   public shopData:any = {};
-  public DefaultAddress:any = {};
+  public DefaultAddress:any = {
+    name:'',
+    telephone:'',
+    address:'',
+  };
   public Data:any = {
     userid: '',
     mobile: '',
@@ -55,6 +60,7 @@ export class ConfirmOrderPage implements OnInit {
     this.common.get().subscribe((result) => {
       if(result.page === 'confirm-order'){
         this.DefaultAddress = result.data;
+        this.noAddress = false;
         this.Data.address_id = this.DefaultAddress.address_id;
       }
     })
@@ -77,6 +83,7 @@ export class ConfirmOrderPage implements OnInit {
             this.userInfo.integral = parseFloat(this.userInfo.integral) - parseFloat(res.data);
           }
           this.common.setUserInfo(this.userInfo);
+          this.router.navigate(['/order-list']);
         }
         this.toast.presentToast(res.msg);
       }, error => {
@@ -97,8 +104,13 @@ export class ConfirmOrderPage implements OnInit {
     ).subscribe((res:any)=>{
       this.loading.cancel();
       this.shopData = res[0].data;
-      this.DefaultAddress = res[1].data;
-      this.Data.address_id = res[1].data.address_id;
+      if(res[1].data){
+        this.DefaultAddress = res[1].data;
+        this.Data.address_id = res[1].data.address_id;
+      }else{
+        this.noAddress = true;
+      }
+      
     },error=>{
       this.loading.cancel();
     })

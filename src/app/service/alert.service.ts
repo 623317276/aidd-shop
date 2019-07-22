@@ -112,6 +112,54 @@ export class AlertService {
     await alert.present();
   }
 
+  // 输入快递公司，快递单号
+  async expressAlertPrompt(confirm:any = {}, params:any = {}, cb?: Function) {
+    let config = {
+      "header" : '发货',
+      "message" : '<strong>填写数据</strong>',
+      "cancelButton" : '取消',
+      "okButton" : '确定',
+    };
+    config.header = confirm.header ? confirm.header : config.header;
+    config.message = confirm.message ? confirm.message : config.message;
+    config.cancelButton = confirm.cancelButton ? confirm.cancelButton : config.cancelButton;
+    config.okButton = confirm.okButton ? confirm.okButton : config.okButton;
+    const alert = await this.alertController.create({
+      header: config.header,
+      inputs: [
+        {
+          name: 'kd_name',
+          type: 'text',
+          placeholder: '快递公司',
+        },
+        {
+          name: 'kd_no',
+          type: 'text',
+          placeholder: '快递订单号',
+        },
+      ],
+      buttons: [
+        {
+          text: config.cancelButton,
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: config.okButton,
+          handler: (res) => {
+            cb(res);
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+
   async presentAlertRadio() {
     const alert = await this.alertController.create({
       header: 'Radio',
