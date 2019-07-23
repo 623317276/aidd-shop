@@ -69,12 +69,11 @@
 
             <ion-item lines="none">
                 <ion-label>同意协议</ion-label>
-                <ion-checkbox slot="start" required formControlName="agree"></ion-checkbox>
+                <ion-checkbox slot="start" required formControlName="agree" [(ngModel)]="Data.agree"></ion-checkbox>
             </ion-item>
 
             <div class="btn_box">
-                <ion-button block expand="block" color="primary" class="active_button" type="submit"
-                    [disabled]="loginForm.invalid">
+                <ion-button block expand="block" color="primary" class="active_button" type="submit">
                     确定
                 </ion-button>
                 <ion-button block expand="block" class="courr_button" (click)="cancel()">

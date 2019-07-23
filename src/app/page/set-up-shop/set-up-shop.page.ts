@@ -65,7 +65,8 @@ export class SetUpShopPage implements OnInit {
       tel: '', // 手机号码
       img1:'', // 正面
       img2:'', // 反面
-      idCardNumber: '' // 号码
+      idCardNumber: '', // 号码
+      agree: false, // 同意协议
     };
     }
 
@@ -77,12 +78,24 @@ export class SetUpShopPage implements OnInit {
   }
 
   onSubmit(){
+    if(!this.Data.name){
+      this.toast.presentToast('名称不可为空');
+      return ;
+    }
+    if(!this.Data.tel){
+      this.toast.presentToast('手机号码不可为空');
+      return ;
+    }
     if(!this.Data.img1){
       this.toast.presentToast('请上传身份证正面');
       return ;
     }
     if(!this.Data.img2){
       this.toast.presentToast('请上传身份证反面');
+      return ;
+    }
+    if(!this.Data.agree){
+      this.toast.presentToast('请同意协议');
       return ;
     }
 
