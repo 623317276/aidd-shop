@@ -86,8 +86,12 @@ export class SetUpShopPage implements OnInit {
       this.toast.presentToast('手机号码不可为空');
       return ;
     }
-    if(!this.Data.img1){
-      this.toast.presentToast('请上传身份证正面');
+    if(!this.Data.name){
+      this.toast.presentToast('名称不可为空');
+      return ;
+    }
+    if(!this.Data.idCardNumber){
+      this.toast.presentToast('身份证号不可为空');
       return ;
     }
     if(!this.Data.img2){
@@ -99,7 +103,7 @@ export class SetUpShopPage implements OnInit {
       return ;
     }
 
-    this.loading.presentLoading();
+    this.loading.presentLoading({duration:10000});
 
     this.http.post(this.common.applySetUpShop, this.Data).subscribe((res:any)=>{
       if(res.status === 1){
@@ -155,8 +159,19 @@ export class SetUpShopPage implements OnInit {
   fileChange(params) {
     console.log(params);
     const { files, type, index } = params;
+    if(params.operationType === 'remove'){
+      // 删除图片，同时删除提交的图片
+      if(params.index === 0){
+        this.Data.img1 = '';
+      }else if(params.index === 1){
+        this.Data.img2 = '';
+      }
+        
+    }
+    // console.log(this.Data);
+
     this.files = files;
-    // console.log(this.files);return;
+    
     if(this.files[0]){
       this.Data.img1 = this.files[0].url;
     }
