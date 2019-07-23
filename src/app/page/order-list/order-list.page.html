@@ -1,7 +1,7 @@
 <ion-header class="card-background-page">
     <ion-toolbar color="primary">
         <ion-buttons slot="start">
-            <ion-back-button [text]="''" id='backButton' [routerLink]="['/tabs/tab3']" routerDirection="back"></ion-back-button>
+            <ion-back-button [text]="''" id='backButton' [routerLink]="['/tabs/tab3']"></ion-back-button>
         </ion-buttons>
         <ion-title>我的订单</ion-title>
     </ion-toolbar>
@@ -39,7 +39,7 @@
                 <div class="order_list">
                     <ion-item lines="none">
                         <!-- 店铺名称 点击跳到店铺里面-->
-                        <ion-label>店铺:{{item.shop_name}}</ion-label>
+                        <ion-label>店铺:{{item.shop_name ? item.shop_name : '系统'}}</ion-label>
                         <!-- 交易状态 -->
                         <ion-label class="text_right" color="primary" [ngStyle]="{'color':item.status === '1' ? '' : 'green' }">{{item.status === '1' ? '待发货' : '已发货'}}</ion-label>
                     </ion-item>
