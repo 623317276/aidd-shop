@@ -7,6 +7,7 @@ import { ToastService } from '../../service/toast.service';
 import { CommonService } from '../../service/common.service';
 import { LoadingService } from '../../service/loading.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { isImage, compress, emit } from '../../service/compress-img.service';
 
 @Component({
   selector: 'app-wealth',
@@ -103,7 +104,7 @@ export class WealthPage implements OnInit {
   this.multipleTab = value;
   }
   fileChange(params) {
-  console.log(params);
+  console.log(params);  
   const { files, type, index } = params;
   this.files = files;
   this.Data.img = this.files[0].url;
