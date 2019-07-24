@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from "../../service/common.service";
+import { LoadingService } from "../../service/loading.service";
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';//引入
 
@@ -17,6 +18,7 @@ export class TextareaPage implements OnInit {
     public route: ActivatedRoute,
     public http: HttpClient,
     public common: CommonService,
+    public loading: LoadingService,
     public sanitizer: DomSanitizer,
 
   ) { }
@@ -35,7 +37,10 @@ export class TextareaPage implements OnInit {
           this.title = '规则';
           this.getData();
           break;      
-              
+        case 'contact':
+          this.title = '电子合同';
+          this.getData();
+          break;      
         default:
           break;
       }
@@ -43,9 +48,12 @@ export class TextareaPage implements OnInit {
   }
 
   getData(){
+    this.loading.presentLoading();
     this.http.get(this.common.aboutUs, {params:{type:this.type}}).subscribe((res:any) => {
+      this.loading.cancel();
       this.Data = res.data;
     }, error => {
+      this.loading.cancel();
       console.log(error)
     })
   }

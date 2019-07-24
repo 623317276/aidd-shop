@@ -9,6 +9,6 @@
 
 <ion-content>
 
-    <ion-textarea padding [innerHtml]="assembleHTML(Data)"></ion-textarea>
+    <ion-textarea padding [innerHtml]="assembleHTML(Data.content)" *ngIf="Data?.content"></ion-textarea>
     
 </ion-content>
