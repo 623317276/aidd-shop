@@ -82,5 +82,12 @@ export class RegPage implements OnInit {
     });
   }
 
+  send(){
+    if(!this.regData.mobile || this.regData.mobile.length != 11){
+        this.toast.presentToast('手机号码错误');
+        return false;
+     }
+  }
+
   
 }
