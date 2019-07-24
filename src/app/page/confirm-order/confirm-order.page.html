@@ -61,12 +61,15 @@
         <ion-label>订单备注</ion-label>
         <ion-textarea placeholder="选填" name="remark" [(ngModel)]="Data.remark"></ion-textarea>
     </ion-item>
-    <ion-item  lines="none" style="margin-bottom: 45px;">
-            <ion-label>
-            <p style="text-align: right"><span style="color: #999;font-size:12px; margin-right:5px;">共计{{Data.num}}件</span><span style="color: #333;">小计：</span><b style="color:#FB1A38">{{Data.num * shopData.price}}</b></p>
-            </ion-label>
-        </ion-item>
-
+    <ion-item  lines="none" >
+        <ion-label>
+        <p style="text-align: right"><span style="color: #999;font-size:12px; margin-right:5px;">共计{{Data.num}}件</span><span style="color: #333;">小计：</span><b style="color:#FB1A38">{{Data.num * shopData.price}}</b></p>
+        </ion-label>
+    </ion-item>
+    <ion-item lines="none" style="margin-bottom: 45px; text-align: right;" [hidden]="shopData.type !== '1'">
+        <ion-label>同意合同协议</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="Data.agree"></ion-checkbox>
+    </ion-item>
     <div style="position: fixed; bottom:0px; width: 100%; background-color:white;">
         <div class="total">合计：<span class="pice">{{Data.num * shopData.price}}</span></div>
         <div class="confirm_btn" color="primary" (click)="buy()">确定</div>

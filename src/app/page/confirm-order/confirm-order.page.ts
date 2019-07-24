@@ -30,7 +30,8 @@ export class ConfirmOrderPage implements OnInit {
     num : 1,
     remark : '',
     payPsw:'',
-    address_id:0
+    address_id:0,
+    agree: false
   };
 
 
@@ -71,6 +72,10 @@ export class ConfirmOrderPage implements OnInit {
   }
 
   buy(){
+    if(!this.Data.agree){
+      this.toast.presentToast('请同意合同协议');
+      return ;
+    }
       this.alert.presentAlertPrompt({},{},(res)=>{
       this.Data.payPsw = res.psw;
       this.loading.presentLoading();
@@ -104,6 +109,9 @@ export class ConfirmOrderPage implements OnInit {
     ).subscribe((res:any)=>{
       this.loading.cancel();
       this.shopData = res[0].data;
+      if(this.shopData.type !== '1'){
+        this.Data.agree = true;
+      }
       if(res[1].data){
         this.DefaultAddress = res[1].data;
         this.Data.address_id = res[1].data.address_id;
