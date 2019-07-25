@@ -29,28 +29,28 @@ export class TextareaPage implements OnInit {
       .subscribe((params) => {
         data = params;
         this.type = params.type;
-        console.log(this.type);
-      })
-      switch (this.type) {
-        case 'aboutUs':
-          this.title = '关于我们';
-          this.getData();
-          break;  
-        case 'rule':
-          this.title = '规则';
-          this.getData();
-          break;      
-        case 'contract':
-          this.title = '电子合同';
-          this.getData(data);
-          break;   
-        case 'customer':
-            this.title = '客服';
+        switch (this.type) {
+          case 'aboutUs':
+            this.title = '关于我们';
+            this.getData();
+            break;  
+          case 'rule':
+            this.title = '规则';
+            this.getData();
+            break;      
+          case 'contract':
+            this.title = '电子合同';
             this.getData(data);
             break;   
-        default:
-          break;
-      }
+          case 'customer':
+              this.title = '客服';
+              this.getData(data);
+              break;   
+          default:
+            break;
+        }
+      })
+      
       
   }
 

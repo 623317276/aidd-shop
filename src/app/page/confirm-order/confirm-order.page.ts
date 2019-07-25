@@ -55,6 +55,7 @@ export class ConfirmOrderPage implements OnInit {
 
     this.route.paramMap.subscribe(params => {
         this.Data.id = params.get('shoppingId');
+        this.getShopInfo();
     });
 
     // 监听选择地址页面传回来的地址id
@@ -68,7 +69,7 @@ export class ConfirmOrderPage implements OnInit {
 }
 
   ngOnInit() {
-    this.getShopInfo();
+    
   }
 
   buy(){
