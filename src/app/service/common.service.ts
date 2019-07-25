@@ -21,6 +21,7 @@ export class CommonService {
 
   public login: string = this.domain+'login/login'; // 登陆
   public reg: string = this.domain+'login/reg'; // 注册
+  public sendMsg: string = this.domain+'login/send_code'; // 发送短信
 
   public editNickname: string = this.domain+'user/edit_nickname'; // 修改用户信息
   public editPassword: string = this.domain+'user/edit_password'; // 修改密码

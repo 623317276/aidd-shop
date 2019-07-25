@@ -20,7 +20,7 @@ export class RegPage implements OnInit {
       // payPsw:'123123',
       // confirmPayPsw:'123123',
       mobile:'',
-      verify:'8888',
+      verify:'',
       pmobile:'0',
       loginPsw:'',
       confirmLoginPsw:'',
@@ -83,11 +83,46 @@ export class RegPage implements OnInit {
   }
 
   send(){
-    if(!this.regData.mobile || this.regData.mobile.length != 11){
-        this.toast.presentToast('手机号码错误');
-        return false;
-     }
+    // if(!this.regData.mobile || this.regData.mobile.length != 11){
+    //     this.toast.presentToast('手机号码错误');
+    //     return false;
+    //  }
+    
+     this.http.get(this.common.sendMsg, {params: {mobile: this.regData.mobile}}).subscribe((res:any)=>{
+      if(res.status === 1){
+        //每次点击时初始化
+        this.verifyCode = {
+          verifyCodeTips: "获取验证码",
+          countdown: 60,//总共时间
+          disable: true //禁止按钮被点击
+        }
+          this.settime();
+      }
+      this.toast.presentToast(res.msg);
+      console.log(res);
+    },error=>{
+      this.verifyCode.disable = false;
+      this.toast.presentToast('重试');
+    });
   }
 
-  
+  //验证码倒计时 全局定义变量
+  verifyCode: any ={
+    verifyCodeTips: "获取验证码",
+    countdown: 60,//总共时间
+    disable: false
+};
+  settime() {
+    if(this.verifyCode.countdown == 0) {
+        this.verifyCode.verifyCodeTips = "获取验证码";
+        this.verifyCode.disable = false;
+        return;
+    } else {
+        this.verifyCode.countdown--;
+    }
+    setTimeout(() => {
+        this.verifyCode.verifyCodeTips = "重新获取" + this.verifyCode.countdown + "秒";
+        this.settime();
+    }, 1000);
+  }
 }

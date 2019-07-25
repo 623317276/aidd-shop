@@ -100,6 +100,12 @@ export class ConfirmOrderPage implements OnInit {
     
   }
 
+  showContract(id){
+    if(this.Data.agree){
+      this.router.navigate(['/textarea'],{ queryParams: { type: 'contract', id: id } });
+    }
+  }
+
   // 首次进入， 获取商品信息做页面显示
   getShopInfo(){
     this.loading.presentLoading();

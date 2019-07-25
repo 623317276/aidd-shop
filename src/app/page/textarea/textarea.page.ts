@@ -24,9 +24,12 @@ export class TextareaPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    let data = {};
     this.route.queryParams
       .subscribe((params) => {
-        this.type = params['type'];
+        data = params;
+        this.type = params.type;
+        console.log(this.type);
       })
       switch (this.type) {
         case 'aboutUs':
@@ -37,19 +40,23 @@ export class TextareaPage implements OnInit {
           this.title = '规则';
           this.getData();
           break;      
-        case 'contact':
+        case 'contract':
           this.title = '电子合同';
-          this.getData();
-          break;      
+          this.getData(data);
+          break;   
+        case 'customer':
+            this.title = '客服';
+            this.getData(data);
+            break;   
         default:
           break;
       }
       
   }
 
-  getData(){
+  getData(para:any = {type:this.type}){
     this.loading.presentLoading();
-    this.http.get(this.common.aboutUs, {params:{type:this.type}}).subscribe((res:any) => {
+    this.http.get(this.common.aboutUs, {params:para}).subscribe((res:any) => {
       this.loading.cancel();
       this.Data = res.data;
     }, error => {
