@@ -83,10 +83,10 @@ export class RegPage implements OnInit {
   }
 
   send(){
-    // if(!this.regData.mobile || this.regData.mobile.length != 11){
-    //     this.toast.presentToast('手机号码错误');
-    //     return false;
-    //  }
+    if(!this.regData.mobile || this.regData.mobile.length != 11){
+        this.toast.presentToast('手机号码错误');
+        return false;
+     }
     
      this.http.get(this.common.sendMsg, {params: {mobile: this.regData.mobile}}).subscribe((res:any)=>{
       if(res.status === 1){
