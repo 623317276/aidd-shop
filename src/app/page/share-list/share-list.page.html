@@ -1,0 +1,53 @@
+<ion-header class="card-background-page">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>报销列表</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <NoticeBar *ngIf="!isMobile"
+  style="margin-bottom: 10px"
+  [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
+  ></NoticeBar>
+<PullToRefresh [ngStyle]="dtPullToRefreshStyle"
+    [direction]="state.direction"
+    [(ngModel)]="state.refreshState"
+    [endReachedRefresh]="state.endReachedRefresh"
+    (onRefresh)="pullToRefresh($event)">
+
+    <div style="padding-top: 1px" class="list_box" >
+        <ion-list>
+            <div class="item-header">
+                  <ion-item  lines="none">
+                          <ion-label>报销数量</ion-label>
+                          <ion-label>状态</ion-label>
+                          <ion-label>时间</ion-label>
+                        </ion-item>
+            </div>
+            
+            <ion-item [hidden]="load">
+                <ion-label></ion-label>
+                <ion-label><ion-spinner name="crescent" ></ion-spinner></ion-label>
+                <ion-label></ion-label>          
+          </ion-item>
+            <ion-item *ngFor="let item of Data.titleTemplate; let i=index" [hidden]="!load" lines="none">
+              <ion-label>{{item.amount}}</ion-label>
+              <ion-label>{{item.status}}</ion-label>
+              <ion-label>{{item.create_time}}</ion-label>
+            </ion-item>
+            <ion-item [hidden]="cashHidden">
+                <ion-label></ion-label>
+                <ion-label style="font-size: 12px; color:#ccc;">---暂无数据---</ion-label>
+                <ion-label></ion-label>          
+          </ion-item>
+  
+          </ion-list>
+    </div>
+
+  </PullToRefresh>
+
+</ion-content>

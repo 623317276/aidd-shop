@@ -1,0 +1,100 @@
+.text-center{
+    text-align: center;
+}
+.font-white{
+    color: aliceblue;
+}
+.item_content{
+    ion-label{
+        font-size: 14px
+    }
+} 
+
+.card-background-page{
+    ion-toolbar{
+    --background:#FE6176;
+      color:#fff;
+
+    }
+    ion-title{
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    ion-icon{
+        width: 24px;
+        height: 24px;
+    }
+ 
+
+  }
+
+
+ion-segment-button{
+    padding: 0.875em;
+}
+
+ion-item{
+    --padding-start: 0px;
+}
+
+.segment-button-has-label{
+    border-bottom: 1px solid #C0C0C0;
+        color: #666;
+        font-size: 16px;
+
+}
+.segment-button-checked{
+    border-bottom: 1px solid #FE6176;
+    color: #FE6176;
+}
+
+  .sc-ion-segment-ios-h{
+      --background: transparent;
+      --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.1);
+      --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);
+      --background-checked: transparent;
+      --color: var(--ion-color-primary,#3880ff);
+      --color-checked: #FE6176;
+      --color-disabled: rgba(var(--ion-color-primary-rgb,56,128,255),0.3);
+      --color-checked-disabled: rgba(var(--ion-color-primary-contrast-rgb,255,255,255),0.3);
+      --border-color: transparent;
+      --indicator-color: transparent;
+      --font-size:0.875em;
+  }
+
+  .sc-ion-back-button-ios-h{
+
+    --color: #fff;
+  }
+
+  .login_btn button{
+      width: 100%;
+      border-radius: 4px;
+      --padding-top: 0;
+      --padding-bottom: 0;
+      --padding-start: 1em;
+      --padding-end: 1em;
+      --transition: background-color,opacity 100ms linear;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      height: 2.8em;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      border:1px solid #FE6176
+  }
+  
+  .login_button{
+      background:#FE6176;
+      color: #fff
+  }
+
+  .upload-title{
+      padding: 8px 0;
+      min-height: 44px;
+  }
+  .upload{
+    padding: 8px 0;
+    margin-bottom: 2.5em;
+}

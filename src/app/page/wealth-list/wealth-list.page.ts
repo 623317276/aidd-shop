@@ -62,6 +62,7 @@ export class WealthListPage implements OnInit {
       this.integralHidden = this.Data.integral.length > 0 ? true : false;
       this.load = true;
     },error => {
+      this.load = true;
       this.toast.presentToast('获取失败，下拉重新获取');
     });
   }

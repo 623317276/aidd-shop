@@ -40,6 +40,13 @@ export class CommonService {
   public getMyShop: string = this.domain+'user/get_my_shop'; // 获取我的店铺的详情
   public upShop: string = this.domain+'user/up_shop'; // 上传商品
   public getOrderList: string = this.domain+'user/get_order_list'; // 获取我购买订单的列表
+  public refuelingExchange: string = this.domain+'user/refueling_exchange'; // 加油报销
+  public getRefuelingExchangeList: string = this.domain+'user/get_refueling_exchange_list'; // 获取加油报销记录
+  public getMyShareList: string = this.domain+'user/get_my_share_list'; // 获取我的分享列表
+  public myShareDelete: string = this.domain+'user/my_share_delete'; // 删除我的分享
+  public myShareEdit: string = this.domain+'user/my_share_edit'; // 添加/编辑我的分享
+  public getMyShareInfo: string = this.domain+'user/get_my_share_info'; // 获取我的分享详情
+  public shareReceive: string = this.domain+'user/share_receive'; // 领取产品分享的积分
 
   public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页

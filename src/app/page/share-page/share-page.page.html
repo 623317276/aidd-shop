@@ -1,0 +1,29 @@
+<ion-header class="card-background-page">
+  <ion-toolbar>
+    <ion-title>产品分享</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div padding>
+      <div class="login_content">
+          <form (ngSubmit)="onSubmit()">
+              <ion-item>
+                  <ion-label>
+                      <ion-text color="danger">*</ion-text>输入手机号码领取:
+                  </ion-label>
+                  <ion-input type="number" name="mobile" [(ngModel)]="Data.mobile"></ion-input>
+              </ion-item>
+              <div class="login_btn">
+                  <button class="login_button" block color="primary" type="submit" >
+                      领取
+                  </button>
+
+              </div>
+          </form>
+      </div>
+
+  </div>
+
+</ion-content>

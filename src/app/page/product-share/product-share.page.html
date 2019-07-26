@@ -1,0 +1,43 @@
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button [text]="''"></ion-back-button>
+        </ion-buttons>
+        <ion-title>产品分享</ion-title>
+        <ion-buttons slot="primary" [routerLink]="['/product-share-edit']" style="float: right;">
+            <ion-label>
+                <ion-icon name="add-circle-outline"></ion-icon>
+            </ion-label>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+    <ion-list style="margin-bottom: 15px">
+        <ion-item-sliding>
+
+            <div class="goods_list" *ngFor="let item of Data; let i=index">
+                    <ion-item lines="none">
+                        <qr-code [value]="common.appDomain + '#/share-page;id=' + item.id" [size]="100"></qr-code>
+                        <ion-label class="shop_info_right">
+                            <!-- 分享名称 -->
+                            <div class="shop_info_title">
+                                    {{item.name}}
+                                </div>
+                            <div style="line-height: 25px;">
+                                <ion-label style="font-size:16px;color: #FB1A38" >积分:{{item.number}}</ion-label>
+                            </div>
+                        </ion-label>
+                    </ion-item>
+                    <div>
+                            <span class="default edit_btn" [routerLink]="['/product-share-edit']" [queryParams]="{id:item.id}">修改</span>
+                            <span class="default" (click)="delete(item.id)" color="danger">删除</span>
+                    </div>
+                </div>
+
+        </ion-item-sliding>
+        <p style="text-align: center;color: #cccccc" padding [hidden]="showPage">--暂无分享--</p>
+    </ion-list>
+
+</ion-content>

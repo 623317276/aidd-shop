@@ -25,7 +25,13 @@ const routes: Routes = [
   { path: 'confirm-order', loadChildren: './page/confirm-order/confirm-order.module#ConfirmOrderPageModule' , canActivate:[LoginguardService]},
   { path: 'manage-order', loadChildren: './page/manage-order/manage-order.module#ManageOrderPageModule' , canActivate:[LoginguardService]},
   { path: 'edit-nickname', loadChildren: './page/edit-nickname/edit-nickname.module#EditNicknamePageModule' , canActivate:[LoginguardService]},
-  { path: 'textarea', loadChildren: './page/textarea/textarea.module#TextareaPageModule' },
+  { path: 'share', loadChildren: './page/share/share.module#SharePageModule' , canActivate:[LoginguardService]},
+  { path: 'textarea', loadChildren: './page/textarea/textarea.module#TextareaPageModule' , canActivate:[LoginguardService]},
+  { path: 'order-list', loadChildren: './page/order-list/order-list.module#OrderListPageModule' , canActivate:[LoginguardService]},
+  { path: 'order-detail', loadChildren: './page/order-detail/order-detail.module#OrderDetailPageModule' , canActivate:[LoginguardService]},
+  { path: 'product-share', loadChildren: './page/product-share/product-share.module#ProductSharePageModule' ,canActivate:[LoginguardService]},
+  { path: 'share-list', loadChildren: './page/share-list/share-list.module#ShareListPageModule' ,canActivate:[LoginguardService]},
+  { path: 'product-share-edit', loadChildren: './page/product-share-edit/product-share-edit.module#ProductShareEditPageModule' ,canActivate:[LoginguardService]},
 
   // 都能访问的页面
   { path: 'reg', loadChildren: './page/reg/reg.module#RegPageModule' },
@@ -35,8 +41,9 @@ const routes: Routes = [
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
   { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
   { path: 'news', loadChildren: './page/news/news.module#NewsPageModule' },
-  { path: 'order-list', loadChildren: './page/order-list/order-list.module#OrderListPageModule' },
-  { path: 'order-detail', loadChildren: './page/order-detail/order-detail.module#OrderDetailPageModule' },
+  { path: 'share-page', loadChildren: './page/share-page/share-page.module#SharePagePageModule' },
+
+
 
 
 

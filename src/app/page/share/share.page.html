@@ -1,0 +1,46 @@
+<ion-header class="card-background-page">
+  <ion-toolbar>
+      <ion-buttons>
+        <ion-back-button [text]="''"></ion-back-button>
+    </ion-buttons>
+    <ion-title>加油报销</ion-title>
+    <ion-buttons slot="primary" [routerLink]="['/share-list']">
+      <ion-label>报销记录</ion-label>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div padding>
+        <div class="login_content">
+            <form (ngSubmit)="onSubmit()">
+                <ion-item>
+                    <ion-label>
+                        <ion-text color="danger">*</ion-text>数量:
+                    </ion-label>
+                    <ion-input type="number" name="number" [(ngModel)]="Data.number"></ion-input>
+                </ion-item>
+                <div class="upload-title">
+                    <ion-label>
+                        <ion-text color="danger">*</ion-text>上传凭证
+                    </ion-label>
+                </div>
+                <div class="upload">
+                    <ImagePicker [files]="files" [selectable]="files.length < 1" [multiple]="multipleTab === 1"
+                        (onChange)="fileChange($event)" (onImageClick)="imageClick($event)"></ImagePicker>
+                </div>
+
+                <div class="login_btn">
+                    <button class="login_button" block color="primary" type="submit">
+                        提交
+                    </button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</ion-content>

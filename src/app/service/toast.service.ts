@@ -11,10 +11,10 @@ export class ToastService {
     ) {} 
 
     // 简单提示框
-    async presentToast(msg:string) {
+    async presentToast(msg:string,duration=2000) {
       const toast = await this.toastController.create({
         message: msg,
-        duration: 2000
+        duration: duration
       });
       toast.present();
     }

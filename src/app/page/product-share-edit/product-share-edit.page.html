@@ -1,0 +1,53 @@
+<ion-header class="card-background-page">
+    <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="''" id="backButton"></ion-back-button>
+    </ion-buttons>
+    <ion-title>分享管理</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div padding>
+            <div class="login_content">
+                <form>
+                    <ion-item *ngIf="Data.id">
+                        <qr-code [value]="common.appDomain + '#/share-page;id=' + Data.id" [size]="150" style="margin: 0 auto;"></qr-code>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>分享名称:
+                        </ion-label>
+                        <ion-input required  type="text" name="name" [(ngModel)]="Data.name"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>积分数量:
+                        </ion-label>
+                        <ion-input required  type="number" name="number" [(ngModel)]="Data.number"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-text color="danger">*</ion-text>可领取的用户:
+                        </ion-label>
+                        <ion-textarea name="can_uid" [(ngModel)]="Data.can_uid" [placeholder]="'填入用户手机号码，逗号分隔'"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            已领取的用户:
+                        </ion-label>
+                        <ion-textarea name="already_uid" [(ngModel)]="Data.already_uid" disabled></ion-textarea>
+                    </ion-item>
+                    <div class="login_btn">
+
+                            <ion-button expand="block" class="active_button" type="submit" (click)="onSubmit()">
+                                确定
+                            </ion-button>
+                        </div>
+                </form>
+            </div>
+    
+        </div>
+
+</ion-content>
