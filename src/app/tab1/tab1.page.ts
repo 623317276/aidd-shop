@@ -86,7 +86,7 @@ export class Tab1Page implements OnInit{
 
   logout(){
     this.localstorage.remove('userInfo');
-    this.toast.presentToast('logout success');
+    this.toast.presentToast('退出成功');
   }
   
 }

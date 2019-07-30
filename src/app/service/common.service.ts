@@ -77,7 +77,7 @@ export class CommonService {
   public logout(){
     this.localstorage.remove('userInfo');
     this.localstorage.remove('token');
-    this.toast.presentToast('logout success');
+    this.toast.presentToast('退出成功');
     this.router.navigate(['/login']);
   }
 
