@@ -50,6 +50,7 @@ export class ManageOrderPage implements OnInit {
       }
       if(page === 1){
         this.Data = res.data;
+        console.log(this.Data);
       }else{
         this.addItems(res.data);
       }
