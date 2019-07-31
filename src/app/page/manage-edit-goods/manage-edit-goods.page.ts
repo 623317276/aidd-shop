@@ -69,7 +69,7 @@ export class ManageEditGoodsPage implements OnInit {
         this.Data.content = res.data.content;
         this.files.push(
           {
-          url : res.data.images
+          url : res.data.images[0]
           }
         );
         console.log( this.files);

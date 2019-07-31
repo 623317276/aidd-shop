@@ -46,7 +46,7 @@
     <ion-list style="margin-bottom: 15px">
         <ion-item class="shop_con" *ngFor="let item of Data.shopping; let i=index" [routerLink]="[ '/shop-info/', item.id]">
             <ion-img style="width: 80px; height:80px; margin:10px 5px 10px 0;"
-                [src]="item.images">
+                [src]="item.images[0]">
             </ion-img>
             <ion-label class="shop_info_right">
                 <!-- 商品名称 -->

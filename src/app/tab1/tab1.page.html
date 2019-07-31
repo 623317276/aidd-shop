@@ -77,7 +77,7 @@
 
             <ion-col size="6" [routerLink]="[ '/shop-info/', item.id]" *ngFor="let item of Data.shop; let i=index">
                 <ion-card>
-                    <ion-img [src]="item.images" class="img_box"></ion-img>
+                    <ion-img [src]="item.images ? item.images[0] : ''" class="img_box"></ion-img>
                     <ion-card-content>{{item.name}}</ion-card-content>
                     <ion-card-header>
                         <ion-card-title>

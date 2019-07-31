@@ -19,17 +19,17 @@
 
     <div [hidden]="showPage">
 
-        <WingBlank>
+        <WingBlank *ngIf="Data && Data.images">
             <Carousel [infinite]="true"
                         [vertical]="false"
                         [selectedIndex]="1"
                         (beforeChange)="beforeChange($event)"
                         (afterChange)="afterChange($event)"
             >
-                <CarouselSlide>
-                <div style="display: inline-block; width: 100%;">
+                <CarouselSlide *ngFor="let item of Data.images" >
+                <div style="display: inline-block; width: 100%;" >
                     <!-- <img [src]="Data.images" style=" pointer-events: none; width: 100%;" [routerLink]="['/shop-diy']"/> -->
-                    <img [src]="Data.images" style=" pointer-events: none; width: 100%;"/>
+                    <img [src]="item" style=" pointer-events: none; width: 100%;"/>
                 </div>
                 </CarouselSlide>
             </Carousel>
