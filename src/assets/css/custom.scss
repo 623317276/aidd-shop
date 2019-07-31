@@ -25,7 +25,15 @@
     }
   
   
-    .iconshangcheng11:before {
+    .iconfenxiang:before {
+        content: "\e67e";
+      }
+      
+      .iconservice:before {
+        content: "\e7bb";
+      }
+      
+      .iconshangcheng11:before {
         content: "\e64c";
       }
       
@@ -57,6 +65,14 @@
         content: "\e631";
       }
       
+      .iconbaoxiao:before {
+        content: "\e612";
+      }
+      
+      .iconwodedangxuan:before {
+        content: "\e607";
+      }
+      
       .iconxinzeng:before {
         content: "\e729";
       }
@@ -75,10 +91,6 @@
       
       .iconxinzeng-copy:before {
         content: "\e72a";
-      }
-
-      .iconwodedangxuan:before {
-        content: "\e607";
       }
       
 
