@@ -30,7 +30,7 @@
     <ion-item class="shop_con" lines="none">
 
         <ion-img style="width: 80px; height:80px; margin:10px 5px 10px 0;"
-            [src]="shopData.images[0]">
+            [src]="shopData.images ? shopData.images[0] : ''">
         </ion-img>
         <ion-label class="shop_info_right">
             <!-- 商品名称 -->
