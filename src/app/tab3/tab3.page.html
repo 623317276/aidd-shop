@@ -67,14 +67,14 @@
     <div padding [hidden]="segment != 'person'">
         <div class="item_content">
             <ion-list>
-                <ion-item>
+                <ion-item [routerLink]="['/my-lower']">
                     <ion-icon slot="start" class="iconyaoqingren" color="success"></ion-icon>
                     <ion-label>
-                        <h3>邀请人</h3>
+                        <h3>邀请人/下级</h3>
                     </ion-label>
-                    <ion-label class="text-right">
+                    <!-- <ion-label class="text-right">
                         <h3>{{userInfo.pmobile}}</h3>
-                    </ion-label>
+                    </ion-label> -->
                 </ion-item>
                 <ion-item [routerLink]="['/order-list']">
                     <ion-icon slot="start" name="list-box" style="font-size: 20px;vertical-align: middle;color: cornflowerblue;margin-left: 2px"></ion-icon>

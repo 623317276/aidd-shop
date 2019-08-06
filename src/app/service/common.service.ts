@@ -47,6 +47,7 @@ export class CommonService {
   public myShareEdit: string = this.domain+'user/my_share_edit'; // 添加/编辑我的分享
   public getMyShareInfo: string = this.domain+'user/get_my_share_info'; // 获取我的分享详情
   public shareReceive: string = this.domain+'user/share_receive'; // 领取产品分享的积分
+  public myLower: string = this.domain+'user/my_lower'; // 我的下级
 
   public getStatus: string = this.domain+'shopping/get_status'; // 获取开店状态
   public shopping: string = this.domain+'shopping/index'; // 商城首页
