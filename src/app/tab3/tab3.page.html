@@ -88,12 +88,12 @@
                         <h3>申请开店</h3>
                     </ion-label>
                 </ion-item>
-                <ion-item button [hidden]="userInfo.is_dailishang != '2'" [routerLink]="['/my-shop']">
+                <!-- <ion-item button [hidden]="userInfo.is_dailishang != '2'" [routerLink]="['/my-shop']">
                     <ion-icon slot="start" class="icondianpu" style="color:#7e57ff"></ion-icon>
                     <ion-label>
                         <h3>我的店铺</h3>
                     </ion-label>
-                </ion-item>
+                </ion-item> -->
                 <ion-item button [routerLink]="['/address']">
                     <ion-icon slot="start" class="icondizhi" color="secondary"></ion-icon>
                     <ion-label>
@@ -118,12 +118,12 @@
                         <h3>关于我们</h3>
                     </ion-label>
                 </ion-item>
-                <ion-item button [routerLink]="['/share']">
+                <!-- <ion-item button [routerLink]="['/share']">
                     <ion-icon slot="start" class="iconbaoxiao" style="color:rgb(252, 165, 66) "></ion-icon>
                     <ion-label>
                         <h3>加油报销</h3>
                     </ion-label>
-                </ion-item>
+                </ion-item> -->
                 <ion-item button [routerLink]="['/product-share']" *ngIf="userInfo.vip_grade === '1'">
                     <ion-icon slot="start" class="iconfenxiang" style="color:rgb(74, 248, 141) "></ion-icon>
                     <ion-label>

@@ -41,7 +41,8 @@ const routes: Routes = [
   { path: 'invitation', loadChildren: './page/invitation/invitation.module#InvitationPageModule' },
   { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
   { path: 'news', loadChildren: './page/news/news.module#NewsPageModule' },
-  { path: 'share-page', loadChildren: './page/share-page/share-page.module#SharePagePageModule' },  { path: 'my-lower', loadChildren: './page/my-lower/my-lower.module#MyLowerPageModule' },
+  { path: 'share-page', loadChildren: './page/share-page/share-page.module#SharePagePageModule' },
+  // { path: 'my-lower', loadChildren: './page/my-lower/my-lower.module#MyLowerPageModule' },
 
 
 

@@ -47,10 +47,10 @@
     <ion-grid fixed class="text-center">
       
         <ion-row>
-            <ion-col [routerLink]="['/my-shop']" [hidden]="userInfo.is_dailishang != '2'">
+            <!-- <ion-col [routerLink]="['/my-shop']" [hidden]="userInfo.is_dailishang != '2'">
                 <ion-img [src]="'/assets/images/shop.png'" class="icon_box"></ion-img>
                 <p>店铺</p>
-            </ion-col>
+            </ion-col> -->
             <ion-col (click)="gomodal('set-up-shop')" [hidden]="userInfo.is_dailishang == '2'">
                 <ion-img [src]="'/assets/images/shop.png'" class="icon_box" ></ion-img>
                 <p>申请开店</p>
