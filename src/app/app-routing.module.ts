@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'product-share', loadChildren: './page/product-share/product-share.module#ProductSharePageModule' ,canActivate:[LoginguardService]},
   { path: 'share-list', loadChildren: './page/share-list/share-list.module#ShareListPageModule' ,canActivate:[LoginguardService]},
   { path: 'product-share-edit', loadChildren: './page/product-share-edit/product-share-edit.module#ProductShareEditPageModule' ,canActivate:[LoginguardService]},
+  { path: 'my-lower', loadChildren: './page/my-lower/my-lower.module#MyLowerPageModule'  ,canActivate:[LoginguardService]},
 
   // 都能访问的页面
   { path: 'reg', loadChildren: './page/reg/reg.module#RegPageModule' },
@@ -42,7 +43,6 @@ const routes: Routes = [
   { path: 'news-detail', loadChildren: './page/news-detail/news-detail.module#NewsDetailPageModule' },
   { path: 'news', loadChildren: './page/news/news.module#NewsPageModule' },
   { path: 'share-page', loadChildren: './page/share-page/share-page.module#SharePagePageModule' },
-  { path: 'my-lower', loadChildren: './page/my-lower/my-lower.module#MyLowerPageModule' },
 
 
 
